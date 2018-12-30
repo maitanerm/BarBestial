@@ -28,7 +28,7 @@ public class GestorRanking {
 	
 	// CONSULTAR RANKING MEJORES PARTIDAS (MAITANE)
 	public DefaultTableModel obtenerMejoresPartidas() throws Exception {
-		String[] registro = new String[2];
+		String[] registro = new String[4];
 		String[] titulos = { "Id Jugador", "Id Partida", "Puntuacion", "Fecha-Hora" };
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
 		String SQL_1 = "SELECT TOP(10) idJ, idP, puntuacion, fechaHora\r\n" + 
@@ -46,10 +46,10 @@ public class GestorRanking {
 
 	// CONSULTAR RANKING MEJORES JUGADORES (MAITANE)
 	public DefaultTableModel obtenerMejoresJugadores() throws Exception {
-		String[] registro = new String[2];
+		String[] registro = new String[4];
 		String[] titulos = { "Id Jugador", "Id Partida", "Puntuacion", "Fecha-Hora" };
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
-		String SQL_2 = "SELECT TOP(10) idJ, AVG(puntuacion) AS 'puntuacion'\r\n" + 
+		String SQL_2 = "SELECT TOP(10) idJ, AVG(puntuacion) AS 'puntuacion " + 
 				"FROM Partida ORDER BY puntuacion;";
 		ResultSet datos = SGBD.getSGBD().execQuery(SQL_2);
 		while (datos.next()) {
@@ -64,11 +64,11 @@ public class GestorRanking {
 
 	// CONSULTAR RANKING MIS MEJORES PARTIDAS (MAITANE)
 	public DefaultTableModel obtenerMisMejoresPartidas(String pIdUsuario) throws Exception {
-		String[] registro = new String[2];
+		String[] registro = new String[4];
 		String[] titulos = { "Id Jugador", "Id Partida", "Puntuacion", "Fecha-Hora" };
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
-		String SQL_3 = "SELECT TOP(10) idJ, idP, puntuacion, fechaHora\r\n" + 
-				"FROM Partida WHERE idJ = % idJ % ORDER BY puntuacion;";
+		String SQL_3 = "SELECT TOP(10) idJ, idP, puntuacion, fechaHora " + 
+				"FROM Partida WHERE idJ =" + pIdUsuario + " ORDER BY puntuacion;";
 		ResultSet datos = SGBD.getSGBD().execQuery(SQL_3);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
@@ -81,14 +81,12 @@ public class GestorRanking {
 	}
 
 	// CONSULTAR RANKING MEJORES PARTIDAS DEL DIA (MAITANE)
-	public DefaultTableModel obtenerMejoresPartidasDia(String pIdUsuario) throws Exception {
-		String[] registro = new String[2];
+	public DefaultTableModel obtenerMejoresPartidasDia() throws Exception {
+		String[] registro = new String[4];
 		String[] titulos = { "Id Jugador", "Id Partida", "Puntuacion", "Fecha-Hora" };
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
-		String SQL_4 = "SELECT u.nombre, p.puntos "
-				+ "FROM puntuacion AS p INNER JOIN usuario AS u ON p.idUsuario=u.id "
-				+ "WHERE p.nomDificultad = 'Media' " + "AND p.idUsuario = '" + pIdUsuario + "' "
-				+ "ORDER BY p.puntos DESC " + "LIMIT 3;";
+		String SQL_4 = "SELECT TOP(10) idJ, idP, puntuacion, fechaHora FROM Partida " + 
+				"WHERE CONVERT (date, fechaHora) = CONVERT (date, CURRENT_TIMESTAMP) ORDER BY puntuacion;";
 		ResultSet datos = SGBD.getSGBD().execQuery(SQL_4);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
