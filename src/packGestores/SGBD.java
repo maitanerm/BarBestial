@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class SGBD {
 
-	private static SGBD miGestorBd;
+	private static SGBD miSGBD;
 
 	// DATOS PARA EL ACCESO DE LA BD
 	private Statement Instruccion;
@@ -23,17 +23,17 @@ public class SGBD {
 
 	private Connection con = null;
 	private String driver = "net.ucanaccess.jdbc.UcanaccessDriver";
-	private String url = "jdbc:ucanaccess://src/battleship_bd.accdb";
+	private String url = "jdbc:ucanaccess://src/barbestial.accdb";
 
 	// CONSTRUCCTORA
 	private SGBD() {
 	}
 
-	public static SGBD getGestorBD() {
-		if (miGestorBd == null) {
-			miGestorBd = new SGBD();
+	public static SGBD getSGBD() {
+		if (miSGBD == null) {
+			miSGBD = new SGBD();
 		}
-		return miGestorBd;
+		return miSGBD;
 	}
 
 	public Connection abrirConexion() {
@@ -50,6 +50,26 @@ public class SGBD {
 		}
 		return con;
 	}
+	
+	// INSERTAR PUNTUACION MAITANE
+		
+		public void insertarPuntuacion(String pNombre, String idP, int pFuerza) {			
+			con = abrirConexion();
+			Date fecha = new Date();
+			try {
+				PreparedStatement pst = con.prepareStatement(
+						"INSERT INTO puntuacion(idJ, idP, puntuacion, fechaHora) VALUES (?,?,?,?)");
+				pst.setString(1, pNombre);
+				pst.setString(2, idP);
+				pst.setInt(3, pFuerza);
+				pst.setString(4, new SimpleDateFormat("yyyy-MM-dd / hh:mm").format(fecha));
+				pst.executeUpdate();
+				JOptionPane.showMessageDialog(null, "LA PUNTUACION SE AGREGO CON EXITO A LA BD");
+			} catch (SQLException SQLE) {
+				JOptionPane.showMessageDialog(null,
+						"ERROR AL INSERTAR LA PUNTUACION DE LA BD \n ERROR : " + SQLE.getMessage());
+			}
+		}
 	
 	public ResultSet execQuery(String SentenciaSQL) {
 		// Ejecuta una sentecia sql que devuelve un resultado (SELECT, etc.)

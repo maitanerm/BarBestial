@@ -10,18 +10,22 @@ public class GestorRanking {
 
 	
 
-	private static GestorRanking mGestorPuntuaciones;
+	private static GestorRanking mGestorRanking;
 
 	private GestorRanking() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public static GestorRanking getGestorPuntuaciones() {
-		if (mGestorPuntuaciones == null)
-			mGestorPuntuaciones = new GestorRanking();
-		return mGestorPuntuaciones;
+	public static GestorRanking getGestorRanking() {
+		if (mGestorRanking == null)
+			mGestorRanking = new GestorRanking();
+		return mGestorRanking;
 	}	
-
+	
+	public void guardarPuntuacion(String pNombre, String idP, int pFuerza) throws Exception {
+		SGBD.getSGBD().insertarPuntuacion(pNombre, idP, pFuerza);
+	}
+	
 	// CONSULTAR RANKING MEJORES PARTIDAS (MAITANE)
 	public DefaultTableModel obtenerMejoresPartidas() throws Exception {
 		String[] registro = new String[2];
@@ -29,7 +33,7 @@ public class GestorRanking {
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
 		String SQL_1 = "SELECT TOP(10) idJ, idP, puntuacion, fechaHora\r\n" + 
 				"FROM Partida ORDER BY puntuacion;";
-		ResultSet datos = SGBD.getGestorBD().execQuery(SQL_1);
+		ResultSet datos = SGBD.getSGBD().execQuery(SQL_1);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
 			registro[1] = datos.getString("idP");
@@ -47,7 +51,7 @@ public class GestorRanking {
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
 		String SQL_2 = "SELECT TOP(10) idJ, AVG(puntuacion) AS 'puntuacion'\r\n" + 
 				"FROM Partida ORDER BY puntuacion;";
-		ResultSet datos = SGBD.getGestorBD().execQuery(SQL_2);
+		ResultSet datos = SGBD.getSGBD().execQuery(SQL_2);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
 			registro[1] = datos.getString("idP");
@@ -65,7 +69,7 @@ public class GestorRanking {
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
 		String SQL_3 = "SELECT TOP(10) idJ, idP, puntuacion, fechaHora\r\n" + 
 				"FROM Partida WHERE idJ = % idJ % ORDER BY puntuacion;";
-		ResultSet datos = SGBD.getGestorBD().execQuery(SQL_3);
+		ResultSet datos = SGBD.getSGBD().execQuery(SQL_3);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
 			registro[1] = datos.getString("idP");
@@ -85,7 +89,7 @@ public class GestorRanking {
 				+ "FROM puntuacion AS p INNER JOIN usuario AS u ON p.idUsuario=u.id "
 				+ "WHERE p.nomDificultad = 'Media' " + "AND p.idUsuario = '" + pIdUsuario + "' "
 				+ "ORDER BY p.puntos DESC " + "LIMIT 3;";
-		ResultSet datos = SGBD.getGestorBD().execQuery(SQL_4);
+		ResultSet datos = SGBD.getSGBD().execQuery(SQL_4);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
 			registro[1] = datos.getString("idP");
@@ -95,5 +99,7 @@ public class GestorRanking {
 		}
 		return tabla;
 	}
+
+	
 
 }

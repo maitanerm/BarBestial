@@ -6,5 +6,7 @@
 	<classpathentry kind="lib" path="miglayout15-swing.jar"/>
 	<classpathentry kind="lib" path="sqlite-jdbc-3.21.0.jar"/>
 	<classpathentry kind="lib" path="json-20171018.jar"/>
+	<classpathentry kind="lib" path="mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="miglayout-src.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

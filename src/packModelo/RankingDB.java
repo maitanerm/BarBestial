@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Vector;
 
+import packGestores.GestorRanking;
+
 public class RankingDB {
     private static RankingDB miRankingDB;
     private Connection c;
@@ -61,8 +63,20 @@ public class RankingDB {
         System.out.println("Tabla creada");
     }
     
+    public void guardarPuntuacion(String pIdUsuario, int pPuntos, String pNomDificultad) throws Exception {
+		
+	}
+    
     public void insertarPuntuacion(String pNombre, int pNCartas, int pFuerza) {
         try {
+        	
+        	//insertar en base de datos
+        	
+        	//------------------
+        	//Identificador de la partida, poner aqui!!!!
+        	String idP = "PONER AQUI";
+        	GestorRanking.getGestorRanking().guardarPuntuacion(pNombre, idP, pFuerza);
+        	
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:ranking.db");
             c.setAutoCommit(false);
