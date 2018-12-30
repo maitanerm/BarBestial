@@ -20,6 +20,7 @@ public class IURanking extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	
 	public String column[]={"Id Jugador","Id Partida","Puntuacion","Fecha-Hora"}; 
 
 	/**
@@ -40,8 +41,9 @@ public class IURanking extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws Exception 
 	 */
-	public IURanking() {
+	public IURanking() throws Exception {
 		setTitle("Visualizaci\u00F3n del ranking");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 676, 254);
@@ -53,19 +55,12 @@ public class IURanking extends JFrame {
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		
-		JPanel panel_1 = new JPanel();
-		contentPane.add(panel_1, BorderLayout.SOUTH);
+		//Cargar por defecto
+		DefaultTableModel datosRanking = BarBestial.getBarBestial().cargarMejoresPartidas();
+		table = new JTable(datosRanking);      
+		panel.add(table);
 		
-		JPanel panel_2 = new JPanel();
-		contentPane.add(panel_2, BorderLayout.NORTH);
-		
-		JPanel panel_3 = new JPanel();
-		contentPane.add(panel_3, BorderLayout.WEST);
-		
-		JPanel panel_4 = new JPanel();
-		contentPane.add(panel_4, BorderLayout.EAST);
-		
-		
+		//Boton mejores partidas
 		JButton btnMejoresPartidas = new JButton("Mejores partidas ");
 		btnMejoresPartidas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -85,7 +80,7 @@ public class IURanking extends JFrame {
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		panel.add(btnMejoresPartidas);
 		
-		
+		//Boton mejores jugadores
 		JButton btnMejoresJugadores = new JButton("Mejores jugadores");
 		btnMejoresJugadores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg1) {
@@ -104,7 +99,7 @@ public class IURanking extends JFrame {
 		});
 		panel.add(btnMejoresJugadores);
 		
-		
+		//Boton mis mejores partidas
 		JButton btnMisMejoresPartidas = new JButton("Mis mejores partidas");
 		btnMisMejoresPartidas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg2) {
@@ -123,7 +118,7 @@ public class IURanking extends JFrame {
 		});		
 		panel.add(btnMisMejoresPartidas);
 		
-		
+		//Boton mejores partidas del dia
 		JButton btnMejoresPartidasDel = new JButton("Mejores partidas del d\u00EDa");
 		btnMejoresPartidasDel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg3) {

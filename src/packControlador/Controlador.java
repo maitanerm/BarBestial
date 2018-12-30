@@ -8,6 +8,7 @@ import packModelo.Jugador;
 import packModelo.Partida;
 import packModelo.RankingDB;
 import packModelo.Tablero;
+import packVista.IURanking;
 import packVista.VentanaAyuda;
 import packVista.VentanaInicio;
 import packVista.VentanaJuego;
@@ -25,9 +26,9 @@ public class Controlador {
 	private VentanaInicio ventanaInicio;
 	private VentanaJuego ventanaJuego;
 	private VentanaAyuda ventanaAyuda;
-	private VentanaRanking ventanaRanking;
+	private IURanking ventanaRanking;
 	
-	public Controlador() {
+	public Controlador() throws Exception {
 		this.partida = Partida.getMiPartida();
 		this.tablero = Tablero.getMiTablero();
 		this.rankingDB = RankingDB.getRankingDB();
@@ -35,7 +36,7 @@ public class Controlador {
 		this.ventanaInicio = new VentanaInicio();
 		this.ventanaJuego = new VentanaJuego();
 		this.ventanaAyuda = new VentanaAyuda();
-		this.ventanaRanking = new VentanaRanking();
+		this.ventanaRanking = new IURanking();
 
 		
 		/* Listeners VentanaInicio */
@@ -55,7 +56,7 @@ public class Controlador {
 		this.ventanaJuego.desactivarBotonSiguiente();
 	}
 	
-	public static Controlador getMiControlador() {
+	public static Controlador getMiControlador() throws Exception {
         if (miControlador == null) {
         	miControlador = new Controlador();
         }
@@ -77,10 +78,6 @@ public class Controlador {
 	private void mostrarVentanaAyuda(){
 	    this.ventanaAyuda.setVisible(true);
     }
-
-	private void actualizarRanking() {
-		this.ventanaRanking.actualizarRanking(rankingDB.obtenerMejoresPuntuaciones());		
-	}
 	
 	private void mostrarVentanaRanking(){
         this.ventanaRanking.setVisible(true);
@@ -125,7 +122,6 @@ public class Controlador {
 	class RankingListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			actualizarRanking();
 		    mostrarVentanaRanking();
 		}
 	}
