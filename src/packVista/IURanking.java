@@ -106,8 +106,16 @@ public class IURanking extends JFrame {
 				if (arg2.getSource()==btnMisMejoresPartidas) {
 					setTitle("Mis mejores partidas");
 					try{
+						
+						//---------------------------
+						//---------------------------
+				    	//----Introducir aqui el id del usuario
+						//---------------------------
+						//---------------------------
+						
+				    	String pIdUsuario = "poner aqui!!!!!!!";
 						DefaultTableModel datosRanking = null;
-						datosRanking = BarBestial.getBarBestial().cargarMisMejoresPartidas();
+						datosRanking = BarBestial.getBarBestial().cargarMisMejoresPartidas(pIdUsuario);
 						table = new JTable(datosRanking);      
 						panel.add(table);
 						

@@ -14,7 +14,7 @@ public class BarBestial {
 	private BarBestial() {
 	}
 	
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Controlador controlador = new Controlador();
         controlador.iniciarAplicacion();
     }
@@ -35,10 +35,7 @@ public class BarBestial {
 		return tabla;
 	}
 
-    public DefaultTableModel cargarMisMejoresPartidas() throws Exception {
-    	//---------------------------
-    	//Introducir aqui el id del usuario
-    	String pIdUsuario = "poner aqui!!!!!!!";
+    public DefaultTableModel cargarMisMejoresPartidas(String pIdUsuario) throws Exception {
     	DefaultTableModel tabla = GestorRanking.getGestorRanking().obtenerMisMejoresPartidas(pIdUsuario);
 		return tabla;
 	}

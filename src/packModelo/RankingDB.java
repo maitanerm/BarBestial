@@ -63,17 +63,16 @@ public class RankingDB {
         System.out.println("Tabla creada");
     }
     
-    public void guardarPuntuacion(String pIdUsuario, int pPuntos, String pNomDificultad) throws Exception {
-		
-	}
-    
     public void insertarPuntuacion(String pNombre, int pNCartas, int pFuerza) {
         try {
         	
         	//insertar en base de datos
         	
-        	//------------------
-        	//Identificador de la partida, poner aqui!!!!
+        	//---------------------------
+			//---------------------------
+	    	//----Introducir identificador de la partida
+			//---------------------------
+			//---------------------------
         	String idP = "PONER AQUI";
         	GestorRanking.getGestorRanking().guardarPuntuacion(pNombre, idP, pFuerza);
         	
