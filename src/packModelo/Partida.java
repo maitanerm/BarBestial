@@ -154,4 +154,26 @@ public class Partida extends Observable {
         super.setChanged();
         super.notifyObservers(pInformacion);
     }
+    
+    public void cogerMazoJugador(){
+    	
+    }
+    
+    public void cogerMazoOrdenador(){
+    	
+    }
+    public void cogerManoJugador(){
+    	
+    }
+    public void cogerManoOrdenador(){
+    	
+    }
+    public void cogerBar(){
+    	
+    }
+    
+    public void cogerCola(){
+    	
+    }
+    
 }

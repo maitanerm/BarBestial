@@ -11,6 +11,10 @@ public class ListaCartas {
     public ListaCartas() {
         this.lista = new ArrayList<Carta>();
     }
+    
+    public ArrayList<Carta> getListaCartas(){
+    	return this.lista;
+    }
 
     public void anadirCarta(Carta pCarta) {
         this.lista.add(pCarta);
