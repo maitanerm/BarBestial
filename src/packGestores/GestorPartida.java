@@ -23,7 +23,7 @@ public class GestorPartida {
 	}
 
 	
-	public void cogerDatosPartida(String idp){
+	public JSONArray cogerDatosPartida(String idp){
 		
 		JSONArray manoJugador= jugador.crearJsonMano();
 		JSONArray mazoJugador= jugador.crearJsonMazo();
@@ -32,12 +32,22 @@ public class GestorPartida {
 		JSONArray cartasBar= Bar.getMiBar().crearJsonBar();
 		JSONArray cartasCola= Tablero.getMiTablero().crearJsonCola();
 		
+		JSONArray datos = new JSONArray();
+		datos.put(mazoJugador);
+		datos.put(mazoJugador);
+		datos.put(manoOrdenador);
+		datos.put(mazoOrdenador);
+		datos.put(cartasBar);
+		datos.put(cartasCola);
+		
+		return datos;
 		
 		
 	}
 	
-	//public void volcarEnBD( datosPartida){
+	public void volcarEnBD( JSONArray datosPartida){
 		
-	//}
+		
+	}
 
 }
