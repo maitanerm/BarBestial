@@ -53,7 +53,7 @@ public class SGBD {
 	
 	// INSERTAR PUNTUACION MAITANE
 		
-		public void insertarPuntuacion(String pNombre, String idP, int pFuerza) {			
+		public void insertarPuntuacion(String pNombre, String idP, int puntos) {			
 			con = abrirConexion();
 			Date fecha = new Date();
 			try {
@@ -61,7 +61,7 @@ public class SGBD {
 						"INSERT INTO puntuacion(idJ, idP, puntuacion, fechaHora) VALUES (?,?,?,?)");
 				pst.setString(1, pNombre);
 				pst.setString(2, idP);
-				pst.setInt(3, pFuerza);
+				pst.setInt(3, puntos);
 				pst.setString(4, new SimpleDateFormat("yyyy-MM-dd / hh:mm").format(fecha));
 				pst.executeUpdate();
 				JOptionPane.showMessageDialog(null, "LA PUNTUACION SE AGREGO CON EXITO A LA BD");

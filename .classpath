@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="json-20171018.jar"/>
 	<classpathentry kind="lib" path="mysql-connector-java-5.0.8-bin.jar"/>
 	<classpathentry kind="lib" path="miglayout-src.zip"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

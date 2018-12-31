@@ -66,7 +66,7 @@ public class RankingDB {
     public void insertarPuntuacion(String pNombre, int pNCartas, int pFuerza) {
         try {
         	
-        	//insertar en base de datos
+        	
         	
         	//---------------------------
 			//---------------------------
@@ -74,15 +74,17 @@ public class RankingDB {
 			//---------------------------
 			//---------------------------
         	String idP = "PONER AQUI";
-        	GestorRanking.getGestorRanking().guardarPuntuacion(pNombre, idP, pFuerza);
+        	int puntos = pNCartas*pFuerza;
+        	//insertar en base de datos
+        	GestorRanking.getGestorRanking().guardarPuntuacion(pNombre, idP, puntos);
         	
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:ranking.db");
             c.setAutoCommit(false);
 
             s = c.createStatement();
-            String instruccion = "INSERT INTO PUNTUACIONES (NOMBRE, FECHA, NCARTAS, FUERZA) " +
-                    "VALUES(" + "'" + pNombre + "'" + "," + "datetime('now')" + "," + pNCartas + "," + pFuerza + ")";
+            String instruccion = "INSERT INTO Partida (idJ, idP, puntuacion, fechaHora) " +
+                    "VALUES(" + "'" + pNombre + "'" + "," + idP + "," + puntos + "," + "datetime('now')" + ")";
 
             s.executeUpdate(instruccion);
 

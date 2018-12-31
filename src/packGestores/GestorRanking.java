@@ -22,8 +22,8 @@ public class GestorRanking {
 		return mGestorRanking;
 	}	
 	
-	public void guardarPuntuacion(String pNombre, String idP, int pFuerza) throws Exception {
-		SGBD.getSGBD().insertarPuntuacion(pNombre, idP, pFuerza);
+	public void guardarPuntuacion(String pNombre, String idP, int puntos) throws Exception {
+		SGBD.getSGBD().insertarPuntuacion(pNombre, idP, puntos);
 	}
 	
 	// CONSULTAR RANKING MEJORES PARTIDAS (MAITANE)
