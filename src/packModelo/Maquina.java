@@ -1,6 +1,10 @@
 package packModelo;
 
+import java.util.ArrayList;
 import java.util.Random;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 
 public class Maquina extends Jugador {
     public Maquina(String pNombre, EnumColor colorJugador) {
@@ -24,5 +28,31 @@ public class Maquina extends Jugador {
 
     public String obtenerInformacionCartasMano() {
         return "maquina-" + this.mano.obtenerNumeroDeCartas();
+    }
+    
+    public JSONArray crearJsonMano(){
+    	int i= super.obtenerNumeroDeCartasEnMano();
+    	JSONArray list= new JSONArray();
+    	ArrayList<Carta> cartas= mano.getListaCartas();
+    	for(int j=0; j<i;j++){
+    		JSONObject obj= new JSONObject();
+    		obj.put("Animal", cartas.get(j).getFuerza());
+    		obj.put("color", cartas.get(j).getColor());
+    		list.put(obj);
+    	}
+    	return list;	
+    }
+    
+    public JSONArray crearJsonMazo(){
+    	int i= super.obtenerNumeroDeCartasEnMazo();
+    	JSONArray list= new JSONArray();
+    	ArrayList<Carta> cartas= mazo.getListaCartas();
+    	for(int j=0; j<i;j++){
+    		JSONObject obj= new JSONObject();
+    		obj.put("Animal", cartas.get(j).getFuerza());
+    		obj.put("color", cartas.get(j).getColor());
+    		list.put(obj);
+    	}
+    	return list;
     }
 }

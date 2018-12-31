@@ -1,6 +1,9 @@
 package packModelo;
 
+import java.util.ArrayList;
 import java.util.Observable;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class Tablero extends Observable {
     private static Tablero miTablero;
@@ -155,5 +158,18 @@ public class Tablero extends Observable {
             this.sacarDeLaCola(c);
             b.anadirCarta(c);
         }
+    }
+    
+    public JSONArray crearJsonCola(){
+    	int i=obtenerNumeroDeCartas();
+    	JSONArray list= new JSONArray();
+    	ArrayList<Carta> cartas= cola.getListaCartas();
+    	for(int j=0; j<i;j++){
+    		JSONObject obj= new JSONObject();
+    		obj.put("Animal", cartas.get(j).getFuerza());
+    		obj.put("color", cartas.get(j).getColor());
+    		list.put(obj);
+    	}
+    	return list;
     }
 }

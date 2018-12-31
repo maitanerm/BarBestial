@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Observable;
 import java.util.Observer;
+import java.awt.event.ActionEvent;
 
 public class VentanaJuego extends JFrame implements Observer {
 	private static final long serialVersionUID = 1L;
@@ -128,6 +129,10 @@ public class VentanaJuego extends JFrame implements Observer {
         panelElegirCartas.add(btnSiguiente);
         
         btnGuardar = new JButton("Guardar");
+        btnGuardar.addActionListener(new ActionListener() {//falta por hacer la llamada desde la interfaz a guardarPartida del gestorPartida
+        	public void actionPerformed(ActionEvent arg0) {
+        	}
+        });
         panelElegirCartas.add(btnGuardar);
         
         btnAyuda = new JButton("Ayuda");

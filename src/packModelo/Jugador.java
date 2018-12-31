@@ -7,7 +7,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public abstract class Jugador extends Observable {
     private String nombre;
     private EnumColor colorJugador;    
-    private ListaCartas mazo;
+    protected ListaCartas mazo;
     protected ListaCartas mano;
     protected Carta cartaElegidaMano;
     protected int saltosElegidos;

@@ -1,18 +1,43 @@
 package packGestores;
 
-public class GestorPartida<Gson> {
+import packModelo.Bar;
+import packModelo.JugadorReal;
+import packModelo.Maquina;
+import packModelo.Tablero;
+import org.json.JSONArray;
+import org.json.JSONArray;
+public class GestorPartida {
 	
-	public void guardarPartida(String idp){
+	private static JugadorReal jugador;
+	private static Maquina ordenador;
+	private static GestorPartida gPartida;
+	
+	private GestorPartida(){
+		
+	}
+	public static GestorPartida getGestorPartida(){
+		if(gPartida==null){
+			gPartida = new GestorPartida(); 
+		}
+		return gPartida;
+	}
+
+	
+	public void cogerDatosPartida(String idp){
+		
+		JSONArray manoJugador= jugador.crearJsonMano();
+		JSONArray mazoJugador= jugador.crearJsonMazo();
+		JSONArray manoOrdenador= ordenador.crearJsonMano();
+		JSONArray mazoOrdenador= ordenador.crearJsonMazo();
+		JSONArray cartasBar= Bar.getMiBar().crearJsonBar();
+		JSONArray cartasCola= Tablero.getMiTablero().crearJsonCola();
+		
+		
 		
 	}
 	
-	public Gson cogerDatosPartida(){
-		Gson partida=null;
-		return partida;
-	}
-	
-	public void volcarEnBD(Gson datosPartida){
+	//public void volcarEnBD( datosPartida){
 		
-	}
+	//}
 
 }

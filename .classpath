@@ -10,5 +10,7 @@
 	<classpathentry kind="lib" path="miglayout-src.zip"/>
 	<classpathentry kind="lib" path="C:/jars/json-20171018.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="C:/Users/David/Downloads/java-json.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,5 +1,9 @@
 package packModelo;
 
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class JugadorReal extends Jugador {	
     public JugadorReal(String pNombre, EnumColor pColorJugador) {
     	super(pNombre, pColorJugador);
@@ -29,5 +33,31 @@ public class JugadorReal extends Jugador {
 
     public void actualizarSaltosCanguro(int pSaltos) {
     	this.saltosElegidos = pSaltos;
+    }
+    
+    public JSONArray crearJsonMano(){
+    	int i= super.obtenerNumeroDeCartasEnMano();
+    	JSONArray list= new JSONArray();
+    	ArrayList<Carta> cartas= mano.getListaCartas();
+    	for(int j=0; j<i;j++){
+    		JSONObject obj= new JSONObject();
+    		obj.put("Animal", cartas.get(j).getFuerza());
+    		obj.put("color", cartas.get(j).getColor());
+    		list.put(obj);
+    	}
+    	return list;
+    }
+    
+    public JSONArray crearJsonMazo(){
+    	int i= super.obtenerNumeroDeCartasEnMano();
+    	JSONArray list= new JSONArray();
+    	ArrayList<Carta> cartas= mazo.getListaCartas();
+    	for(int j=0; j<i;j++){
+    		JSONObject obj= new JSONObject();
+    		obj.put("Animal", cartas.get(j).getFuerza());
+    		obj.put("color", cartas.get(j).getColor());
+    		list.put(obj);
+    	}
+    	return list;
     }
 }
