@@ -5,6 +5,7 @@ import javax.swing.table.DefaultTableModel;
 import org.json.JSONObject;
 
 import packControlador.Controlador;
+import packGestores.GestorJugador;
 import packGestores.GestorRanking;
 
 public class BarBestial {
@@ -47,6 +48,6 @@ public class BarBestial {
     
     //ANDONI
     public void anadirAyuda() {
-    	
+    	GestorJugador.getGestorJugador().anadirAyuda();
     }
 }

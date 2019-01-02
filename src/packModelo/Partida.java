@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Observable;
 
+import packPrincipal.BarBestial;
+
 public class Partida extends Observable {
     private static Partida miPartida;
 
@@ -92,12 +94,13 @@ public class Partida extends Observable {
         /* Guardar ganador en la base de datos */
         this.anadirGanadorDatabase(infoGanador);
         if (comprobarSiGanaAyuda()) 
-        	Bar.getMiBar().anadirAyuda();
+        	BarBestial.getBarBestial().anadirAyuda(); //Extensión para añadir ayudas
 
         /* Notificar a la interfaz */
         this.notificar("fin-" + infoGanador);
     }
     
+    //ANDONI
     private boolean comprobarSiGanaAyuda() {
     	Bar bar = Bar.getMiBar();
     	boolean ganaAyuda = false;

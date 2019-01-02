@@ -21,6 +21,6 @@ public class GestorJugador {
 	}
 	
 	public void anadirAyuda() {
-		
+		jugador.sumarAyuda();
 	}
 }
