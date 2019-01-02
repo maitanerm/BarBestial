@@ -44,4 +44,9 @@ public class BarBestial {
     	DefaultTableModel tabla = GestorRanking.getGestorRanking().obtenerMejoresPartidasDia();
 		return tabla;
 	}
+    
+    //ANDONI
+    public void anadirAyuda() {
+    	
+    }
 }
