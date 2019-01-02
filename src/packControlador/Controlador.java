@@ -36,6 +36,7 @@ public class Controlador {
 		this.ventanaInicio = new VentanaInicio();
 		this.ventanaJuego = new VentanaJuego();
 		this.ventanaAyuda = new VentanaAyuda();
+		 //MAITANE
 		this.ventanaRanking = new IURanking();
 
 		

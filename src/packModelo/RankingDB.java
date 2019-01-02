@@ -68,7 +68,7 @@ public class RankingDB {
         	
         	
         	
-        	//---------------------------
+        	//MAITANE---------------------------
 			//---------------------------
 	    	//----Introducir identificador de la partida
 			//---------------------------

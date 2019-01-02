@@ -24,22 +24,22 @@ public class BarBestial {
 			mBarBestial = new BarBestial();
 		return mBarBestial;
 	}	
-    
+    //MAITANE
     public DefaultTableModel cargarMejoresPartidas() throws Exception {
     	DefaultTableModel tabla = GestorRanking.getGestorRanking().obtenerMejoresPartidas();
 		return tabla;
 	}
-    
+    //MAITANE
     public DefaultTableModel cargarMejoresJugadores() throws Exception {
     	DefaultTableModel tabla = GestorRanking.getGestorRanking().obtenerMejoresJugadores();
 		return tabla;
 	}
-
+    //MAITANE
     public DefaultTableModel cargarMisMejoresPartidas(String pIdUsuario) throws Exception {
     	DefaultTableModel tabla = GestorRanking.getGestorRanking().obtenerMisMejoresPartidas(pIdUsuario);
 		return tabla;
 	}
-
+    //MAITANE
     public DefaultTableModel cargarMejoresPartidasDia() throws Exception {
     	DefaultTableModel tabla = GestorRanking.getGestorRanking().obtenerMejoresPartidasDia();
 		return tabla;
