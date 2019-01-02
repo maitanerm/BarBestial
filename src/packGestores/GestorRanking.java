@@ -54,9 +54,7 @@ public class GestorRanking {
 		ResultSet datos = SGBD.getSGBD().execQuery(SQL_2);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
-			registro[1] = datos.getString("idP");
-			registro[2] = datos.getString("puntuacion");
-			registro[3] = datos.getString("fechaHora");
+			registro[1] = datos.getString("puntuacion");
 			tabla.addRow(registro);
 		}
 		return tabla;
