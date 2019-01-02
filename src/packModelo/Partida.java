@@ -13,9 +13,11 @@ public class Partida extends Observable {
      * a 0 cuando todos hayan jugado. */
     private int turnoActual;
     private ArrayList<Jugador> listaJugadores;
+    private int ayudasUsadas;
 
     private Partida() {
         this.listaJugadores = new ArrayList<Jugador>();
+        ayudasUsadas = 0; //Se actualiza al cargar partida
     }
 
     public static Partida getMiPartida() {
@@ -89,9 +91,19 @@ public class Partida extends Observable {
         String infoGanador = this.obtenerInformacionGanador();
         /* Guardar ganador en la base de datos */
         this.anadirGanadorDatabase(infoGanador);
+        if (comprobarSiGanaAyuda()) 
+        	Bar.getMiBar().anadirAyuda();
 
         /* Notificar a la interfaz */
         this.notificar("fin-" + infoGanador);
+    }
+    
+    private boolean comprobarSiGanaAyuda() {
+    	Bar bar = Bar.getMiBar();
+    	boolean ganaAyuda = false;
+    	if (bar.obtenerNumeroDeCartasColor(EnumColor.AZUL) > 6)
+    		ganaAyuda = true;
+    	return ganaAyuda;
     }
 
     private boolean comprobarFinalizacion() {

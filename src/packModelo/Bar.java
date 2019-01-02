@@ -68,4 +68,8 @@ public class Bar {
     	}
     	return list;
     }
+    
+    public void anadirAyuda() {
+    	
+    }
 }

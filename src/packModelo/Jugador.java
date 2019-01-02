@@ -12,12 +12,14 @@ public abstract class Jugador extends Observable {
     protected Carta cartaElegidaMano;
     protected int saltosElegidos;
     protected String especieElegidaCola;    
+    protected int numAyuda;
 
     public Jugador(String pNombre, EnumColor pColorJugador) {
         this.nombre = pNombre;
         this.colorJugador = pColorJugador;
         this.mano = new ListaCartas();
         this.mazo = new ListaCartas();
+        numAyuda = 0; //Se tendria que actualizar al iniciar partida desde la base de datos
     }
 
     public void robarCarta() {
