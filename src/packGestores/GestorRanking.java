@@ -47,7 +47,7 @@ public class GestorRanking {
 	// CONSULTAR RANKING MEJORES JUGADORES (MAITANE)
 	public DefaultTableModel obtenerMejoresJugadores() throws Exception {
 		String[] registro = new String[4];
-		String[] titulos = { "Id Jugador", "Id Partida", "Puntuacion", "Fecha-Hora" };
+		String[] titulos = { "Id Jugador", "Puntuacion" };
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
 		String SQL_2 = "SELECT TOP(10) idJ, AVG(puntuacion) AS 'puntuacion " + 
 				"FROM Partida ORDER BY puntuacion;";
