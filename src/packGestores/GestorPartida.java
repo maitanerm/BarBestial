@@ -23,7 +23,7 @@ public class GestorPartida {
 	}
 
 	
-	public JSONArray cogerDatosPartida(String idp){
+	public void guardarPartida(String idp){
 		
 		JSONArray manoJugador= jugador.crearJsonMano();
 		JSONArray mazoJugador= jugador.crearJsonMazo();
@@ -40,7 +40,7 @@ public class GestorPartida {
 		datos.put(cartasBar);
 		datos.put(cartasCola);
 		
-		return datos;
+		volcarEnBD(datos);
 		
 		
 	}

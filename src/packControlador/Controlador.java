@@ -4,10 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import packGestores.GestorPartida;
 import packModelo.Jugador;
 import packModelo.Partida;
 import packModelo.RankingDB;
 import packModelo.Tablero;
+import packVista.GuardarPartida;
 import packVista.IURanking;
 import packVista.VentanaAyuda;
 import packVista.VentanaInicio;
@@ -21,13 +23,14 @@ public class Controlador {
 	private Partida partida;
 	private Tablero tablero;
 	private RankingDB rankingDB;
+	private GestorPartida gestorPartida;
 	
 	/* Vista */
 	private VentanaInicio ventanaInicio;
 	private VentanaJuego ventanaJuego;
 	private VentanaAyuda ventanaAyuda;
 	private IURanking ventanaRanking;
-	
+	private GuardarPartida guardarPartida;
 	public Controlador() throws Exception {
 		this.partida = Partida.getMiPartida();
 		this.tablero = Tablero.getMiTablero();
@@ -52,9 +55,11 @@ public class Controlador {
 		this.ventanaJuego.addElegirCarta3Listener(new ElegirCarta3Listener());
 		this.ventanaJuego.addElegirCarta4Listener(new ElegirCarta4Listener());
 		this.ventanaJuego.addSiguienteListener(new SiguienteListener());
-		
+		this.ventanaJuego.addGuardarListener(new GuardarListener());
 		this.ventanaJuego.desactivarBotonJugarTurno();
 		this.ventanaJuego.desactivarBotonSiguiente();
+		this.guardarPartida.addGuardarVentanaPartidaListener(new GuardarVentanaPartida());
+		this.guardarPartida.addCancelarGuardarPartidaListener(new CancelarGuardarPartida());
 	}
 	
 	public static Controlador getMiControlador() throws Exception {
@@ -83,6 +88,10 @@ public class Controlador {
 	private void mostrarVentanaRanking(){
         this.ventanaRanking.setVisible(true);
     }
+	private void mostrarVentanaGuardarPartida(){
+		this.guardarPartida.setVisible(true);
+	}
+	
 	
 	private void setUpObservers() {
 		ArrayList<Jugador> jugadores = this.partida.obtenerJugadores();
@@ -188,4 +197,37 @@ public class Controlador {
 			ventanaJuego.desactivarBotonSiguiente();
 		}
 	}
+	class GuardarListener implements ActionListener{
+
+		public void actionPerformed(ActionEvent arg0) {
+			mostrarVentanaGuardarPartida();	
+			
+			
+			
+		}
+		
+	}
+	class GuardarVentanaPartida implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			String idp=guardarPartida.cogerIDPartida();
+			gestorPartida.guardarPartida(idp);
+			guardarPartida.cerrarVentanaPartida();
+			
+			
+		}
+		
+	}
+	class CancelarGuardarPartida implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			guardarPartida.cerrarVentanaPartida();
+		}
+		
+	}
+	
+	
 }

@@ -129,10 +129,8 @@ public class VentanaJuego extends JFrame implements Observer {
         panelElegirCartas.add(btnSiguiente);
         
         btnGuardar = new JButton("Guardar");
-        btnGuardar.addActionListener(new ActionListener() {//falta por hacer la llamada desde la interfaz a guardarPartida del gestorPartida
-        	public void actionPerformed(ActionEvent arg0) {
-        	}
-        });
+        panelElegirCartas.add(btnGuardar); //falta por hacer la llamada desde la interfaz a guardarPartida del gestorPartida
+        
         panelElegirCartas.add(btnGuardar);
         
         btnAyuda = new JButton("Ayuda");
@@ -350,6 +348,10 @@ public class VentanaJuego extends JFrame implements Observer {
 
     public void addElegirCarta4Listener(ActionListener listenForBtnElegirCarta4) {
         btnElegirCarta4.addActionListener(listenForBtnElegirCarta4);
+    }
+    
+    public void addGuardarListener(ActionListener listenForBtnGuardar){
+    	btnGuardar.addActionListener(listenForBtnGuardar);
     }
 
     private void popUpEspeciesCola(String pInfoEspeciesCola) {

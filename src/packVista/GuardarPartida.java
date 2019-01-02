@@ -11,6 +11,7 @@ import java.awt.Font;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -21,11 +22,11 @@ public class GuardarPartida extends JFrame {
 	private JPanel panel;
 	private JLabel lblGuardarPartida;
 	private JPanel panel_1;
-	private JButton btnOk;
-	private JButton btnGuardar;
+	private JButton btnAceptar;
+	private JButton btnCancelar;
 	private JPanel panel_2;
 	private JLabel lblIntroduceIdDe;
-	private JTextField textField;
+	private JTextField idp;
 
 	/**
 	 * Launch the application.
@@ -76,32 +77,28 @@ public class GuardarPartida extends JFrame {
 		if (panel_1 == null) {
 			panel_1 = new JPanel();
 			panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-			panel_1.add(getBtnOk());
-			panel_1.add(getBtnGuardar());
+			panel_1.add(getBtnAceptar());
+			panel_1.add(getBtnCancelar());
 		}
 		return panel_1;
 	}
-	private JButton getBtnOk() {
-		if (btnOk == null) {
-			btnOk = new JButton("Guardar");
+	private JButton getBtnAceptar() {
+		if (btnAceptar == null) {
+			btnAceptar = new JButton("Guardar");
 		}
-		return btnOk;
+		return btnAceptar;
 	}
-	private JButton getBtnGuardar() {
-		if (btnGuardar == null) {
-			btnGuardar = new JButton("Cancelar");
-			btnGuardar.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-				}
-			});
+	private JButton getBtnCancelar() {
+		if (btnCancelar == null) {
+			btnCancelar = new JButton("Cancelar");	
 		}
-		return btnGuardar;
+		return btnCancelar;
 	}
 	private JPanel getPanel_2() {
 		if (panel_2 == null) {
 			panel_2 = new JPanel();
 			panel_2.add(getLabel_1());
-			panel_2.add(getTextField());
+			panel_2.add(getIdp());
 		}
 		return panel_2;
 	}
@@ -111,11 +108,27 @@ public class GuardarPartida extends JFrame {
 		}
 		return lblIntroduceIdDe;
 	}
-	private JTextField getTextField() {
-		if (textField == null) {
-			textField = new JTextField();
-			textField.setColumns(10);
+	private JTextField getIdp() {
+		if (idp == null) {
+			idp = new JTextField();
+			idp.setColumns(10);
 		}
-		return textField;
+		return idp;
+	}
+	
+	public void addGuardarVentanaPartidaListener (ActionListener listenForBtnAceptar){
+		btnAceptar.addActionListener(listenForBtnAceptar);
+	}
+	
+	public void addCancelarGuardarPartidaListener (ActionListener listenForBtnCancelar){
+		btnCancelar.addActionListener(listenForBtnCancelar);
+	}
+	
+	public String cogerIDPartida(){
+		return this.idp.getText();
+	}
+	public void cerrarVentanaPartida(){
+		System.exit(0);
 	}
 }
+
