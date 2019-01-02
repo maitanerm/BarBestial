@@ -94,7 +94,7 @@ public class Partida extends Observable {
         /* Guardar ganador en la base de datos */
         this.anadirGanadorDatabase(infoGanador);
         if (comprobarSiGanaAyuda()) 
-        	BarBestial.getBarBestial().anadirAyuda(); //Extensión para añadir ayudas
+        	BarBestial.getBarBestial().anadirAyuda(); //Extensiï¿½n para aï¿½adir ayudas
 
         /* Notificar a la interfaz */
         this.notificar("fin-" + infoGanador);
@@ -170,25 +170,8 @@ public class Partida extends Observable {
         super.notifyObservers(pInformacion);
     }
     
-    public void cogerMazoJugador(){
-    	
-    }
-    
-    public void cogerMazoOrdenador(){
-    	
-    }
-    public void cogerManoJugador(){
-    	
-    }
-    public void cogerManoOrdenador(){
-    	
-    }
-    public void cogerBar(){
-    	
-    }
-    
-    public void cogerCola(){
-    	
-    }
+  public int getAyudasUsadas(){
+	  return ayudasUsadas;
+  }
     
 }

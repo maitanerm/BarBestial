@@ -3,6 +3,7 @@ package packGestores;
 import packModelo.Bar;
 import packModelo.JugadorReal;
 import packModelo.Maquina;
+import packModelo.Partida;
 import packModelo.Tablero;
 import org.json.JSONArray;
 import org.json.JSONArray;
@@ -33,6 +34,7 @@ public class GestorPartida {
 		JSONArray cartasCola= Tablero.getMiTablero().crearJsonCola();
 		
 		JSONArray datos = new JSONArray();
+		int numAyudasUsadas= Partida.getMiPartida().getAyudasUsadas();
 		datos.put(mazoJugador);
 		datos.put(mazoJugador);
 		datos.put(manoOrdenador);
@@ -40,12 +42,12 @@ public class GestorPartida {
 		datos.put(cartasBar);
 		datos.put(cartasCola);
 		
-		volcarEnBD(datos);
+		volcarEnBD(datos, numAyudasUsadas);
 		
 		
 	}
 	
-	public void volcarEnBD( JSONArray datosPartida){
+	public void volcarEnBD( JSONArray datosPartida, int ayudasUsadas){
 		
 		
 	}
