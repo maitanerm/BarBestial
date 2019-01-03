@@ -35,7 +35,7 @@ public class JugadorReal extends Jugador {
 		this.saltosElegidos = pSaltos;
 	}
 
-	public JSONArray crearJsonMano() {
+	/*public JSONArray crearJsonMano() {
 		int i = super.obtenerNumeroDeCartasEnMano();
 		JSONArray list = new JSONArray();
 		ArrayList<Carta> cartas = mano.getListaCartas();
@@ -59,7 +59,15 @@ public class JugadorReal extends Jugador {
 			list.put(obj);
 		}
 		return list;
-	}
+	}*/
+	//cambiado
+		public ListaCartas devolverMano() {
+			return mano;
+		}
+		
+		public ListaCartas devolverMazo() {
+			return mazo;
+		}
 
 	public void sumarAyuda() {
 		numAyuda++;

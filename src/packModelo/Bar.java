@@ -56,7 +56,10 @@ public class Bar {
         this.lista.anadirCarta(pCarta);
     }
     
-    public JSONArray crearJsonBar(){
+    public ListaCartas devolverListaCartasBar() {
+    	return lista;
+    }
+   /* public JSONArray crearJsonBar(){
     	int i= obtenerNumeroDeCartas();
     	JSONArray list= new JSONArray();
     	ArrayList<Carta> cartas= lista.getListaCartas();
@@ -67,5 +70,5 @@ public class Bar {
     		list.put(obj);
     	}
     	return list;
-    }
+    }*/
 }

@@ -12,6 +12,8 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+import org.json.JSONArray;
+
 public class SGBD {
 
 	private static SGBD miSGBD;
@@ -41,7 +43,7 @@ public class SGBD {
 			if (con == null) {
 				Class.forName(driver);
 				con = DriverManager.getConnection(url);
-				JOptionPane.showMessageDialog(null,"Conexión correcta.");
+				JOptionPane.showMessageDialog(null,"Conexiï¿½n correcta.");
 			}
 		} catch (SQLException SQLE) {
 			JOptionPane.showMessageDialog(null, "ERROR EN LA CONEXION CON BD\nERROR : " + SQLE.getMessage());
@@ -70,6 +72,24 @@ public class SGBD {
 						"ERROR AL INSERTAR LA PUNTUACION DE LA BD \n ERROR : " + SQLE.getMessage());
 			}
 		}
+		//insertar mazos, manos, cola y bar (falta personalizacion e id de jugador)
+		
+				public void insertarCartas(JSONArray datosPartida, int numAyudasUsadas, String idp) {
+					con= abrirConexion();
+					Date fecha= new Date();
+					for(int i=0;i<datosPartida.length();i++) {
+						try {
+						
+							PreparedStatement st= con.prepareStatement(
+								"INSERT INTO manojugador (idp, fuerza, color, fecha) VALUES(?,?,?,?)");
+							st.setString(1, idp);
+							
+						}catch(SQLException SQLE) {
+							JOptionPane.showMessageDialog(null,
+								"ERROR AL INSERTAR LA MANO DEL JUGADOR DE LA BD \n ERROR : " + SQLE.getMessage());
+						}
+					}
+				}
 	
 	public ResultSet execQuery(String SentenciaSQL) {
 		// Ejecuta una sentecia sql que devuelve un resultado (SELECT, etc.)
@@ -89,7 +109,7 @@ public class SGBD {
 
 	public int execUpdate(String SentenciaSQL) {
 		// Ejecuta una sentecia sql que NO devuelve un resultado (UPDATE, INSERT, etc.)
-		// Devuelve el número de filas afectadas por la operación
+		// Devuelve el nï¿½mero de filas afectadas por la operaciï¿½n
 		// https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html
 		// https://docs.oracle.com/javase/7/docs/api/java/sql/Statement.html
 		// https://docs.oracle.com/javase/7/docs/api/java/sql/ResultSet.html

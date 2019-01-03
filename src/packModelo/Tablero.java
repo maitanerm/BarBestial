@@ -159,8 +159,11 @@ public class Tablero extends Observable {
             b.anadirCarta(c);
         }
     }
-    
-    public JSONArray crearJsonCola(){
+ 
+    public ListaCartas devolverListaCartasCola() {
+    	return cola;
+    }
+    /*public JSONArray crearJsonCola(){
     	int i=obtenerNumeroDeCartas();
     	JSONArray list= new JSONArray();
     	ArrayList<Carta> cartas= cola.getListaCartas();
@@ -171,5 +174,5 @@ public class Tablero extends Observable {
     		list.put(obj);
     	}
     	return list;
-    }
+    }*/
 }

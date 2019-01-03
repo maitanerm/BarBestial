@@ -30,7 +30,16 @@ public class Maquina extends Jugador {
         return "maquina-" + this.mano.obtenerNumeroDeCartas();
     }
     
-    public JSONArray crearJsonMano(){
+  //cambiado
+  	public ListaCartas devolverMano() {
+  		return mano;
+  	}
+  	
+  	public ListaCartas devolverMazo() {
+  		return mazo;
+  	}
+    
+   /* public JSONArray crearJsonMano(){
     	int i= super.obtenerNumeroDeCartasEnMano();
     	JSONArray list= new JSONArray();
     	ArrayList<Carta> cartas= mano.getListaCartas();
@@ -54,5 +63,5 @@ public class Maquina extends Jugador {
     		list.put(obj);
     	}
     	return list;
-    }
+    }*/
 }
