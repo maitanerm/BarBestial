@@ -15,8 +15,12 @@ import javax.swing.ImageIcon;
 import java.awt.FlowLayout;
 import javax.swing.JTextField;
 
-public class IUContraseñaNueva extends JFrame {
+public class IUContrasenaNueva extends JFrame {
 
+	/**
+	 * 
+	 */
+	
 	private JPanel contentPane;
 	private JTextField textField;
 
@@ -27,7 +31,7 @@ public class IUContraseñaNueva extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					IUContraseñaNueva frame = new IUContraseñaNueva();
+					IUContrasenaNueva frame = new IUContrasenaNueva();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +43,7 @@ public class IUContraseñaNueva extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public IUContraseñaNueva() {
+	public IUContrasenaNueva() {
 		setTitle("Registrarse");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 495, 279);
