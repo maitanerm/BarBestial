@@ -64,4 +64,12 @@ public class JugadorReal extends Jugador {
 	public void sumarAyuda() {
 		numAyuda++;
 	}
+	
+	// Devuelve un JSON con el nombre y las ayudas para actualizar en BD
+	public JSONObject getInfo() {
+		JSONObject info = new JSONObject();
+		info.put("nombre", getNombre());
+		info.put("numAyudas", numAyuda);	
+		return info;
+	}
 }
