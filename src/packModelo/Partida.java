@@ -173,5 +173,9 @@ public class Partida extends Observable {
   public int getAyudasUsadas(){
 	  return ayudasUsadas;
   }
+  
+  public int obtenerNumeroDeCartasOponente() {
+      return Bar.getMiBar().obtenerNumeroDeCartasColor(EnumColor.VERDE);
+  }
     
 }

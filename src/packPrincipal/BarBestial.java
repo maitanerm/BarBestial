@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import packControlador.Controlador;
 import packGestores.GestorJugador;
+import packGestores.GestorPartida;
 import packGestores.GestorRanking;
 
 public class BarBestial {
@@ -49,5 +50,17 @@ public class BarBestial {
     //ANDONI
     public void anadirAyuda() {
     	GestorJugador.getGestorJugador().anadirAyuda();
+    }
+    
+    //ANDONI
+    public JSONObject usarAyuda() {
+    	int numAyudas = GestorJugador.getGestorJugador().getNumAyudas();
+    	int cartasOponenteBar = GestorPartida.getGestorPartida().getNumCartasBarOponente();
+    	int usadas = GestorPartida.getGestorPartida().getAyudasUsadas();
+    	JSONObject info = new JSONObject();
+    	info.put("numAyudas", numAyudas);
+    	info.put("cartas", cartasOponenteBar);
+    	info.put("usadas", usadas);
+    	return info;
     }
 }

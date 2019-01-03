@@ -51,5 +51,13 @@ public class GestorPartida {
 		
 		
 	}
+	
+	public int getNumCartasBarOponente() {
+		return Partida.getMiPartida().obtenerNumeroDeCartasOponente();
+	}
+	
+	public int getAyudasUsadas() {
+		return Partida.getMiPartida().getAyudasUsadas();
+	}
 
 }
