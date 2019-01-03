@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class SGBD {
 
@@ -74,22 +75,153 @@ public class SGBD {
 		}
 		//insertar mazos, manos, cola y bar (falta personalizacion e id de jugador)
 		
-				public void insertarCartas(JSONArray datosPartida, int numAyudasUsadas, String idp) {
-					con= abrirConexion();
-					Date fecha= new Date();
-					for(int i=0;i<datosPartida.length();i++) {
-						try {
-						
-							PreparedStatement st= con.prepareStatement(
-								"INSERT INTO manojugador (idp, fuerza, color, fecha) VALUES(?,?,?,?)");
-							st.setString(1, idp);
+	public void insertarCartasManoJugador(JSONArray datosPartida, int numAyudasUsadas, String idp) {
+		con= abrirConexion();
+		Date fecha= new Date();
+		for(int i=0;i<datosPartida.length();i++) {
+			try {
+				JSONObject obj=(JSONObject) datosPartida.get(i);
+				String color=obj.getString("colorManoJugador");
+				int fuerza=obj.getInt("fuerzaManoJugador");
+				PreparedStatement st= con.prepareStatement(
+					"INSERT INTO manojugador (idp, fuerza, color, fecha) VALUES(?,?,?,?)");
 							
-						}catch(SQLException SQLE) {
-							JOptionPane.showMessageDialog(null,
-								"ERROR AL INSERTAR LA MANO DEL JUGADOR DE LA BD \n ERROR : " + SQLE.getMessage());
-						}
+				st.setString(1, idp);
+				st.setInt(2, fuerza);
+				st.setString(3, color);
+				st.setString(4, new SimpleDateFormat("yyyy-MM-dd / hh:mm").format(fecha));
+				st.executeUpdate();
+				//st.setString(2,  );
+							
+			}catch(SQLException SQLE) {
+				JOptionPane.showMessageDialog(null,
+					"ERROR AL INSERTAR LA MANO DEL JUGADOR DE LA BD \n ERROR : " + SQLE.getMessage());
+			}
+		}
+	}
+				
+	public void insertarCartasManoOrdenador(JSONArray datosPartida, int numAyudasUsadas, String idp) {
+		con= abrirConexion();
+		Date fecha= new Date();
+		for(int i=0;i<datosPartida.length();i++) {
+			try {
+				JSONObject obj=(JSONObject) datosPartida.get(i);
+				String color=obj.getString("colorManoOrdenador");
+				int fuerza=obj.getInt("fuerzaManoOrdenador");
+				PreparedStatement st= con.prepareStatement(
+					"INSERT INTO manoordenador (idp, fuerza, color, fecha) VALUES(?,?,?,?)");
+							
+				st.setString(1, idp);
+				st.setInt(2, fuerza);
+				st.setString(3, color);
+				st.setString(4, new SimpleDateFormat("yyyy-MM-dd / hh:mm").format(fecha));
+				st.executeUpdate();
+				//st.setString(2,  );
+							
+			}catch(SQLException SQLE) {
+				JOptionPane.showMessageDialog(null,
+					"ERROR AL INSERTAR LA MANO DEL ORDENADOR DE LA BD \n ERROR : " + SQLE.getMessage());
+			}
+		}
+	}
+				
+	public void insertarCartasMazoJugador(JSONArray datosPartida, int numAyudasUsadas, String idp) {
+		con= abrirConexion();
+		Date fecha= new Date();
+		for(int i=0;i<datosPartida.length();i++) {
+		try {
+			JSONObject obj=(JSONObject) datosPartida.get(i);
+			String color=obj.getString("colorMazoJugador");
+			int fuerza=obj.getInt("fuerzaMazoJugador");
+			PreparedStatement st= con.prepareStatement(
+				"INSERT INTO mazojugador (idp, fuerza, color, fecha) VALUES(?,?,?,?)");
+							
+			st.setString(1, idp);
+			st.setInt(2, fuerza);
+			st.setString(3, color);
+			st.setString(4, new SimpleDateFormat("yyyy-MM-dd / hh:mm").format(fecha));
+			st.executeUpdate();
+			//st.setString(2,  );
+							
+			}catch(SQLException SQLE) {
+				JOptionPane.showMessageDialog(null,
+					"ERROR AL INSERTAR EL MAZO DEL JUGADOR DE LA BD \n ERROR : " + SQLE.getMessage());
 					}
-				}
+			}
+		}
+	public void insertarCartasMazoOrdenador(JSONArray datosPartida, int numAyudasUsadas, String idp) {
+		con= abrirConexion();
+		Date fecha= new Date();
+		for(int i=0;i<datosPartida.length();i++) {
+			try {
+				JSONObject obj=(JSONObject) datosPartida.get(i);
+				String color=obj.getString("colorMazoOrdenador");
+				int fuerza=obj.getInt("fuerzaMazoOrdenador");
+				PreparedStatement st= con.prepareStatement(
+					"INSERT INTO mazoordenador (idp, fuerza, color, fecha) VALUES(?,?,?,?)");
+				
+				st.setString(1, idp);
+				st.setInt(2, fuerza);
+				st.setString(3, color);
+				st.setString(4, new SimpleDateFormat("yyyy-MM-dd / hh:mm").format(fecha));
+				st.executeUpdate();
+				//st.setString(2,  );
+				
+			}catch(SQLException SQLE) {
+				JOptionPane.showMessageDialog(null,
+					"ERROR AL INSERTAR EL MAZO DEL ORDENADOR DE LA BD \n ERROR : " + SQLE.getMessage());
+			}
+		}
+	}
+	
+	public void insertarCartasBar(JSONArray datosPartida, int numAyudasUsadas, String idp) {
+		con= abrirConexion();
+		Date fecha= new Date();
+		for(int i=0;i<datosPartida.length();i++) {
+			try {
+				JSONObject obj=(JSONObject) datosPartida.get(i);
+				String color=obj.getString("colorBar");
+				int fuerza=obj.getInt("fuerzaBar");
+				PreparedStatement st= con.prepareStatement(
+					"INSERT INTO bar (idp, fuerza, color, fecha) VALUES(?,?,?,?)");
+				
+				st.setString(1, idp);
+				st.setInt(2, fuerza);
+				st.setString(3, color);
+				st.setString(4, new SimpleDateFormat("yyyy-MM-dd / hh:mm").format(fecha));
+				st.executeUpdate();
+				//st.setString(2,  );
+				
+			}catch(SQLException SQLE) {
+				JOptionPane.showMessageDialog(null,
+					"ERROR AL INSERTAR EL BAR DE LA BD \n ERROR : " + SQLE.getMessage());
+			}
+		}
+	}
+	public void insertarCartasCola(JSONArray datosPartida, int numAyudasUsadas, String idp) {
+		con= abrirConexion();
+		Date fecha= new Date();
+		for(int i=0;i<datosPartida.length();i++) {
+			try {
+				JSONObject obj=(JSONObject) datosPartida.get(i);
+				String color=obj.getString("colorCola");
+				int fuerza=obj.getInt("fuerzaCola");
+				PreparedStatement st= con.prepareStatement(
+					"INSERT INTO cola (idp, fuerza, color, fecha) VALUES(?,?,?,?)");
+				
+				st.setString(1, idp);
+				st.setInt(2, fuerza);
+				st.setString(3, color);
+				st.setString(4, new SimpleDateFormat("yyyy-MM-dd / hh:mm").format(fecha));
+				st.executeUpdate();
+				//st.setString(2,  );
+				
+			}catch(SQLException SQLE) {
+				JOptionPane.showMessageDialog(null,
+					"ERROR AL INSERTAR LA COLA DE LA BD \n ERROR : " + SQLE.getMessage());
+			}
+		}
+	}
 	
 	public ResultSet execQuery(String SentenciaSQL) {
 		// Ejecuta una sentecia sql que devuelve un resultado (SELECT, etc.)
