@@ -20,6 +20,7 @@ public class GestorJugador {
 		return gJugador;
 	}
 	
+	
 	public void anadirAyuda() {
 		jugador.sumarAyuda();
 	}
