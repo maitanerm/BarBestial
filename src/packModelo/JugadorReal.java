@@ -68,7 +68,7 @@ public class JugadorReal extends Jugador {
 	// Devuelve un JSON con el nombre y las ayudas para actualizar en BD
 	public JSONObject getInfo() {
 		JSONObject info = new JSONObject();
-		info.put("nombre", getNombre());
+		info.put("nombre", idJ);
 		info.put("numAyudas", numAyuda);	
 		return info;
 	}
