@@ -353,6 +353,10 @@ public class VentanaJuego extends JFrame implements Observer {
     public void addGuardarListener(ActionListener listenForBtnGuardar){
     	btnGuardar.addActionListener(listenForBtnGuardar);
     }
+    
+    public void addAyudaListener(ActionListener listenerAyuda) {
+    	btnAyuda.addActionListener(listenerAyuda);
+    }
 
     private void popUpEspeciesCola(String pInfoEspeciesCola) {
         Object[] posibilidades = pInfoEspeciesCola.split(" ");
