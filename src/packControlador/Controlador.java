@@ -58,6 +58,7 @@ public class Controlador {
 		this.ventanaJuego.addGuardarListener(new GuardarListener());
 		this.ventanaJuego.desactivarBotonJugarTurno();
 		this.ventanaJuego.desactivarBotonSiguiente();
+		this.ventanaJuego.addAyudaListener(new AyudaJuegoListener());
 		this.guardarPartida.addGuardarVentanaPartidaListener(new GuardarVentanaPartida());
 		this.guardarPartida.addCancelarGuardarPartidaListener(new CancelarGuardarPartida());
 	}
@@ -225,6 +226,17 @@ public class Controlador {
 		public void actionPerformed(ActionEvent e) {
 			
 			guardarPartida.cerrarVentanaPartida();
+		}
+		
+	}
+	
+	//Controlador para boton ayuda de la VentanaJuego
+	class AyudaJuegoListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
 		}
 		
 	}
