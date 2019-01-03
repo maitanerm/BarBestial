@@ -72,4 +72,8 @@ public class JugadorReal extends Jugador {
 		info.put("numAyudas", numAyuda);	
 		return info;
 	}
+	
+	public int getNumAyudas() {
+		return numAyuda;
+	}
 }

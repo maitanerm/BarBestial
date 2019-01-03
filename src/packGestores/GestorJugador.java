@@ -31,4 +31,8 @@ public class GestorJugador {
 		String sqlAyudas = "UPDATE jugador SET numAyudas = \" + numAyudas + \" WHERE idJ =\" + nombre + \"";
 		SGBD.getSGBD().execUpdate(sqlAyudas);
 	}
+	
+	public int getNumAyudas() {
+		return jugador.getNumAyudas();
+	}
 }
