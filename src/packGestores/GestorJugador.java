@@ -1,5 +1,7 @@
 package packGestores;
 
+import org.json.JSONObject;
+
 import packModelo.JugadorReal;
 import packModelo.Maquina;
 
@@ -23,5 +25,10 @@ public class GestorJugador {
 	
 	public void anadirAyuda() {
 		jugador.sumarAyuda();
+		JSONObject info = jugador.getInfo();
+		String nombre = info.getString("nombre");
+		int numAyudas = info.getInt("numAyudas");
+		String sqlAyudas = "UPDATE jugador SET numAyudas = \" + numAyudas + \" WHERE idJ =\" + nombre + \"";
+		SGBD.getSGBD().execUpdate(sqlAyudas);
 	}
 }
