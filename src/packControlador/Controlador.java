@@ -1,14 +1,18 @@
 package packControlador;
 
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
+import org.json.JSONObject;
 
 import packGestores.GestorPartida;
 import packModelo.Jugador;
 import packModelo.Partida;
 import packModelo.RankingDB;
 import packModelo.Tablero;
+import packPrincipal.BarBestial;
 import packVista.GuardarPartida;
 import packVista.IURanking;
 import packVista.VentanaAyuda;
@@ -31,6 +35,7 @@ public class Controlador {
 	private VentanaAyuda ventanaAyuda;
 	private IURanking ventanaRanking;
 	private GuardarPartida guardarPartida;
+	private Error ventanaError;
 	public Controlador() throws Exception {
 		this.partida = Partida.getMiPartida();
 		this.tablero = Tablero.getMiTablero();
@@ -39,6 +44,7 @@ public class Controlador {
 		this.ventanaInicio = new VentanaInicio();
 		this.ventanaJuego = new VentanaJuego();
 		this.ventanaAyuda = new VentanaAyuda();
+		this.ventanaError = new Error();
 		 //MAITANE
 		this.ventanaRanking = new IURanking();
 
@@ -235,8 +241,16 @@ public class Controlador {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
+			JSONObject info = BarBestial.getBarBestial().usarAyuda();
+			int numAyudas = info.getInt("numAyudas");
+			int cartasOponente = info.getInt("cartas");
+			int ayudasUsadas = info.getInt("usadas");
+			if ((numAyudas == 0) || (cartasOponente == 0) || (ayudasUsadas > 2)) {
+				ventanaJuego.setVisible(false);
+				//ventanaError.setVisible(true);
+			} else {
+				
+			}
 		}
 		
 	}
