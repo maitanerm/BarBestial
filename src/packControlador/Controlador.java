@@ -249,7 +249,7 @@ public class Controlador {
 				ventanaJuego.setVisible(false);
 				//ventanaError.setVisible(true);
 			} else {
-				
+				ventanaJuego.setVisible(false);
 			}
 		}
 		
