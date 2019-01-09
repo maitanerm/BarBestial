@@ -164,7 +164,7 @@ public class Partida extends Observable {
         int nCartas = Integer.parseInt(pInformacionGanador.split(" ")[1]);
         int fuerza = Integer.parseInt(pInformacionGanador.split(" ")[2]);
 
-        r.insertarPuntuacion(nombre, nCartas, fuerza);
+        r.insertarPuntuacion(idp, nombre, nCartas, fuerza);
     }
     
     private void notificar(String pInformacion) {

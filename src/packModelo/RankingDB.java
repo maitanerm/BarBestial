@@ -63,14 +63,13 @@ public class RankingDB {
         System.out.println("Tabla creada");
     }
     
-    public void insertarPuntuacion(String pNombre, int pNCartas, int pFuerza) {
+    public void insertarPuntuacion(String idP, String pNombre, int pNCartas, int pFuerza) {
         try {
         	
         	
         	
         	//MAITANE---------------------------
 		
-        	String idP = Partida.getMiPartida().getIDP();
         	int puntos = pNCartas*pFuerza;
         	//insertar en base de datos
         	GestorRanking.getGestorRanking().guardarPuntuacion(pNombre, idP, puntos);
