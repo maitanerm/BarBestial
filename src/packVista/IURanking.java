@@ -108,7 +108,6 @@ public class IURanking extends JFrame {
 					setTitle("Mis mejores partidas");
 					try{
 						
-						
 				    	String pIdUsuario =BarBestial.getBarBestial().getJugador();
 						DefaultTableModel datosRanking = null;
 						datosRanking = BarBestial.getBarBestial().cargarMisMejoresPartidas(pIdUsuario);
