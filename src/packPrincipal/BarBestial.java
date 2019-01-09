@@ -29,6 +29,7 @@ public class BarBestial {
 		return mBarBestial;
 	}	
     
+    //MAITANE
     public String getIdJugador() {
     	String idJ = Partida.getMiPartida().cogerIdJugador();
     	return idJ;
