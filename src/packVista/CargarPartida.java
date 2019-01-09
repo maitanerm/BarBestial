@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import java.awt.FlowLayout;
 import javax.swing.JComboBox;
@@ -119,5 +121,19 @@ public class CargarPartida extends JFrame {
 			lblPartidas = new JLabel("Partidas");
 		}
 		return lblPartidas;
+	}
+	public void addGuardarVentanaPartidaListener (ActionListener listenForBtnAceptar){
+		btnAceptar.addActionListener(listenForBtnAceptar);
+	}
+	
+	public void addCancelarGuardarPartidaListener (ActionListener listenForBtnCancelar){
+		btnCancelar.addActionListener(listenForBtnCancelar);
+	}
+	
+	public String cogerIDPartida(){
+		return this.idp.getText();
+	}
+	public void cerrarVentanaPartida(){
+		System.exit(0);
 	}
 }
