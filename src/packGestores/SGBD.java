@@ -74,7 +74,7 @@ public class SGBD {
 			}
 		}
 		//insertar mazos, manos, cola y bar (falta personalizacion e id de jugador)
-		
+	//DAVID	
 	public void insertarDatosPartida(int numAyudasUsadas, String idp, String idJ){
 		con=abrirConexion();
 		Date fecha= new Date();
@@ -93,7 +93,7 @@ public class SGBD {
 		}
 		
 	}
-		
+	//DAVID	
 	public void insertarCartasManoJugador(JSONArray datosPartida, int numAyudasUsadas, String idp) {
 		con= abrirConexion();
 		Date fecha= new Date();
@@ -118,7 +118,7 @@ public class SGBD {
 			}
 		}
 	}
-				
+	//DAVID				
 	public void insertarCartasManoOrdenador(JSONArray datosPartida, int numAyudasUsadas, String idp) {
 		con= abrirConexion();
 		Date fecha= new Date();
@@ -143,7 +143,7 @@ public class SGBD {
 			}
 		}
 	}
-				
+	//DAVID				
 	public void insertarCartasMazoJugador(JSONArray datosPartida, int numAyudasUsadas, String idp) {
 		con= abrirConexion();
 		Date fecha= new Date();
@@ -168,6 +168,7 @@ public class SGBD {
 					}
 			}
 		}
+	//DAVID	
 	public void insertarCartasMazoOrdenador(JSONArray datosPartida, int numAyudasUsadas, String idp) {
 		con= abrirConexion();
 		Date fecha= new Date();
