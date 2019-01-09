@@ -9,6 +9,7 @@ import packGestores.GestorJugador;
 import packGestores.GestorPartida;
 import packGestores.GestorRanking;
 import packModelo.Jugador;
+import packModelo.Partida;
 
 public class BarBestial {
 	
@@ -28,8 +29,8 @@ public class BarBestial {
 		return mBarBestial;
 	}	
     
-    public String getJugador() {
-    	String idJ = Jugador.getJugador().getNombre();
+    public String getIdJugador() {
+    	String idJ = Partida.getMiPartida().cogerIdJugador();
     	return idJ;
     }
     //MAITANE

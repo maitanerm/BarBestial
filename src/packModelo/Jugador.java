@@ -16,8 +16,6 @@ public abstract class Jugador extends Observable {
     protected String especieElegidaCola;    
     protected int numAyuda;
     protected String idJ;
-
-    private static Jugador mJugador;
     
     public Jugador(String pNombre, EnumColor pColorJugador) {
         this.nombre = pNombre;
