@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import packModelo.Jugador;
 import packPrincipal.BarBestial;
 
 import java.awt.FlowLayout;
@@ -107,13 +108,8 @@ public class IURanking extends JFrame {
 					setTitle("Mis mejores partidas");
 					try{
 						
-						//---------------------------
-						//---------------------------
-				    	//----Introducir aqui el id del usuario
-						//---------------------------
-						//---------------------------
 						
-				    	String pIdUsuario = "poner aqui!!!!!!!";
+				    	String pIdUsuario =BarBestial.getBarBestial().getJugador();
 						DefaultTableModel datosRanking = null;
 						datosRanking = BarBestial.getBarBestial().cargarMisMejoresPartidas(pIdUsuario);
 						table = new JTable(datosRanking);      
