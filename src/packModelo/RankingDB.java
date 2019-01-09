@@ -69,10 +69,7 @@ public class RankingDB {
         	
         	
         	//MAITANE---------------------------
-			//---------------------------
-	    	//----Introducir identificador de la partida
-			//---------------------------
-			//---------------------------
+		
         	String idP = Partida.getMiPartida().getIDP();
         	int puntos = pNCartas*pFuerza;
         	//insertar en base de datos

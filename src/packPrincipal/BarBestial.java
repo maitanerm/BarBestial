@@ -8,6 +8,7 @@ import packControlador.Controlador;
 import packGestores.GestorJugador;
 import packGestores.GestorPartida;
 import packGestores.GestorRanking;
+import packModelo.Jugador;
 
 public class BarBestial {
 	
@@ -26,6 +27,11 @@ public class BarBestial {
 			mBarBestial = new BarBestial();
 		return mBarBestial;
 	}	
+    
+    public String getJugador() {
+    	String idJ = Jugador.getJugador().getNombre();
+    	return idJ;
+    }
     //MAITANE
     public DefaultTableModel cargarMejoresPartidas() throws Exception {
     	DefaultTableModel tabla = GestorRanking.getGestorRanking().obtenerMejoresPartidas();

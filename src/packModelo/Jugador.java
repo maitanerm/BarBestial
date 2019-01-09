@@ -4,6 +4,8 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.concurrent.ThreadLocalRandom;
 
+import packPrincipal.BarBestial;
+
 public abstract class Jugador extends Observable {
     private String nombre;
     private EnumColor colorJugador;    
@@ -15,6 +17,8 @@ public abstract class Jugador extends Observable {
     protected int numAyuda;
     protected String idJ;
 
+    private static Jugador mJugador;
+    
     public Jugador(String pNombre, EnumColor pColorJugador) {
         this.nombre = pNombre;
         this.colorJugador = pColorJugador;
@@ -23,6 +27,13 @@ public abstract class Jugador extends Observable {
         numAyuda = 0; //Se tendria que actualizar al iniciar partida desde la base de datos
     }
 
+    
+    public static Jugador getJugador() {
+		if (mJugador == null)
+			mJugador = new Jugador();
+		return mJugadorl;
+	}
+    
     public void robarCarta() {
     	Carta carta = this.mazo.obtenerCartaAleatoria();
     	if (carta != null) {
