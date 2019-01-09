@@ -28,11 +28,7 @@ public abstract class Jugador extends Observable {
     }
 
     
-    public static Jugador getJugador() {
-		if (mJugador == null)
-			mJugador = new Jugador();
-		return mJugadorl;
-	}
+ 
     
     public void robarCarta() {
     	Carta carta = this.mazo.obtenerCartaAleatoria();

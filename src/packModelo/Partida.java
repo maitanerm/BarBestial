@@ -183,4 +183,9 @@ public class Partida extends Observable {
    public String getIDP(){
 	   return idp;
    }
+   
+   public String cogerIdJugador(){
+	   Jugador j= listaJugadores.get(1);
+	   return j.getNombre();
+   }
 }
