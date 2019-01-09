@@ -61,11 +61,11 @@ public class SGBD {
 			Date fecha = new Date();
 			try {
 				PreparedStatement pst = con.prepareStatement(
-						"INSERT INTO puntuacion(idJ, idP, puntuacion, fechaHora) VALUES (?,?,?,?)");
+						"INSERT INTO puntuacion(idJ, idP, puntos, fecha) VALUES (?,?,?,?)");
 				pst.setString(1, pNombre);
 				pst.setString(2, idP);
 				pst.setInt(3, puntos);
-				pst.setString(4, new SimpleDateFormat("yyyy-MM-dd / hh:mm").format(fecha));
+				pst.setString(4, new SimpleDateFormat("dd-MM-yyyy").format(fecha));
 				pst.executeUpdate();
 				JOptionPane.showMessageDialog(null, "LA PUNTUACION SE AGREGO CON EXITO A LA BD");
 			} catch (SQLException SQLE) {
@@ -80,7 +80,7 @@ public class SGBD {
 		Date fecha= new Date();
 		try{
 			PreparedStatement pst= con.prepareStatement( 
-					"INSERT INTO partida(idJ, idP, numAyudasUsadas, fechaHora) VALUES (?, ?, ?, ?)");
+					"INSERT INTO partida (idJ, idP, numAyudasUsadas, fechaHora) VALUES (?, ?, ?, ?)");
 			pst.setString(1, idJ);
 			pst.setString(2, idp);
 			pst.setInt(3, numAyudasUsadas);
