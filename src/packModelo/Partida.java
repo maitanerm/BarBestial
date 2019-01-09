@@ -188,4 +188,14 @@ public class Partida extends Observable {
 	   Jugador j= listaJugadores.get(1);
 	   return j.getNombre();
    }
+   
+   public JugadorReal cogerJugador(){
+	   JugadorReal j= (JugadorReal) listaJugadores.get(1);
+	   return j;
+   }
+   
+   public Maquina cogerMaquina(){
+	   Maquina m= (Maquina)listaJugadores.get(2);
+	   return m;
+   }
 }
