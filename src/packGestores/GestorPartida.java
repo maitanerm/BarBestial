@@ -25,7 +25,7 @@ public class GestorPartida {
 		return gPartida;
 	}
 
-	
+	//DAVID	
 	public void guardarPartida(String idp){
 		ListaCartas manoJugador= jugador.devolverMano();
 		ListaCartas mazoJugador= jugador.devolverMazo();
@@ -108,11 +108,11 @@ public class GestorPartida {
 		
 	}
 	
-	
+	//DAVID	
 	public int getNumCartasBarOponente() {
 		return Partida.getMiPartida().obtenerNumeroDeCartasOponente();
 	}
-	
+	//DAVID	
 	public int getAyudasUsadas() {
 		return Partida.getMiPartida().getAyudasUsadas();
 	}

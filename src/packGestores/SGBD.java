@@ -218,6 +218,7 @@ public class SGBD {
 			}
 		}
 	}
+	//DAVID	
 	public void insertarCartasCola(JSONArray datosPartida, int numAyudasUsadas, String idp) {
 		con= abrirConexion();
 		Date fecha= new Date();
