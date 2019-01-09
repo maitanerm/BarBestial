@@ -73,7 +73,7 @@ public class RankingDB {
 	    	//----Introducir identificador de la partida
 			//---------------------------
 			//---------------------------
-        	String idP = "PONER AQUI";
+        	String idP = Partida.getMiPartida().getIDP();
         	int puntos = pNCartas*pFuerza;
         	//insertar en base de datos
         	GestorRanking.getGestorRanking().guardarPuntuacion(pNombre, idP, puntos);

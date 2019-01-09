@@ -16,10 +16,12 @@ public class Partida extends Observable {
     private int turnoActual;
     private ArrayList<Jugador> listaJugadores;
     private int ayudasUsadas;
+    private String idp;
 
     private Partida() {
         this.listaJugadores = new ArrayList<Jugador>();
         ayudasUsadas = 0; //Se actualiza al cargar partida
+        idp= "se actualiza cuando se carga la partida";
     }
 
     public static Partida getMiPartida() {
@@ -177,5 +179,8 @@ public class Partida extends Observable {
   public int obtenerNumeroDeCartasOponente() {
       return Bar.getMiBar().obtenerNumeroDeCartasColor(EnumColor.VERDE);
   }
-    
+  
+   public String getIDP(){
+	   return idp;
+   }
 }
