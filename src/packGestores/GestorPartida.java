@@ -39,6 +39,7 @@ public class GestorPartida {
 		JSONArray datosManoOrdenador= new JSONArray();
 		JSONArray datosBar= new JSONArray();
 		JSONArray datosCola= new JSONArray();
+		JSONObject datosPartida= new JSONObject();
 		for (int i=0; i<manoJugador.obtenerNumeroDeCartas();i++) {
 			JSONObject obj= new JSONObject();
 			obj.put("colorJugadorMano", manoJugador.getListaCartas().get(i));
@@ -77,6 +78,7 @@ public class GestorPartida {
 		}
 		
 		int numAyudasUsadas= Partida.getMiPartida().getAyudasUsadas();
+		String idJ=jugador.getNombre();
 		/*
 		JSONArray manoJugador= jugador.crearJsonMano();
 		JSONArray mazoJugador= jugador.crearJsonMazo();
@@ -94,6 +96,7 @@ public class GestorPartida {
 		datos.put(cartasBar);
 		datos.put(cartasCola);*/
 		
+		SGBD.getSGBD().insertarDatosPartida(numAyudasUsadas, idp, idJ);
 		SGBD.getSGBD().insertarCartasManoJugador(datosManoJugador, numAyudasUsadas, idp);
 		SGBD.getSGBD().insertarCartasManoOrdenador(datosManoOrdenador, numAyudasUsadas, idp);
 		SGBD.getSGBD().insertarCartasMazoJugador(datosMazoJugador, numAyudasUsadas, idp);

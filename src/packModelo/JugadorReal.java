@@ -84,4 +84,8 @@ public class JugadorReal extends Jugador {
 	public int getNumAyudas() {
 		return numAyuda;
 	}
+	
+	public String getNombre(){
+		return super.getNombre();
+	}
 }

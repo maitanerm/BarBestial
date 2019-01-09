@@ -75,6 +75,25 @@ public class SGBD {
 		}
 		//insertar mazos, manos, cola y bar (falta personalizacion e id de jugador)
 		
+	public void insertarDatosPartida(int numAyudasUsadas, String idp, String idJ){
+		con=abrirConexion();
+		Date fecha= new Date();
+		try{
+			PreparedStatement pst= con.prepareStatement( 
+					"INSERT INTO partida(idJ, idP, numAyudasUsadas, fechaHora) VALUES (?, ?, ?, ?)");
+			pst.setString(1, idJ);
+			pst.setString(2, idp);
+			pst.setInt(3, numAyudasUsadas);
+			pst.setString(4, new SimpleDateFormat("yyyy-MM-dd / hh:mm").format(fecha));
+			pst.executeUpdate();
+			JOptionPane.showMessageDialog(null, "LA PARTIDA SE GUARDO CORRECTAMENTE");
+		}catch(SQLException SQLE){
+			JOptionPane.showMessageDialog(null,
+					"ERROR AL INSERTAR LA PARTIDA DE LA BD \n ERROR : " + SQLE.getMessage());
+		}
+		
+	}
+		
 	public void insertarCartasManoJugador(JSONArray datosPartida, int numAyudasUsadas, String idp) {
 		con= abrirConexion();
 		Date fecha= new Date();
