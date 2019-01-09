@@ -95,6 +95,7 @@ public class Controlador {
 	private void mostrarVentanaRanking(){
         this.ventanaRanking.setVisible(true);
     }
+	
 	private void mostrarVentanaGuardarPartida(){
 		this.guardarPartida.setVisible(true);
 	}
