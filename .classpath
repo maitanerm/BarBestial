@@ -8,9 +8,7 @@
 	<classpathentry kind="lib" path="json-20171018.jar"/>
 	<classpathentry kind="lib" path="mysql-connector-java-5.0.8-bin.jar"/>
 	<classpathentry kind="lib" path="miglayout-src.zip"/>
-	<classpathentry kind="lib" path="C:/jars/json-20171018.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
-	<classpathentry kind="lib" path="C:/Users/David/Downloads/java-json.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="ucanaccess-4.0.3.jar"/>
 	<classpathentry kind="output" path="bin"/>

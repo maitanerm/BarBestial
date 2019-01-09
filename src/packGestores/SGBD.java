@@ -193,7 +193,7 @@ public class SGBD {
 			}
 		}
 	}
-	
+	//DAVID	
 	public void insertarCartasBar(JSONArray datosPartida, int numAyudasUsadas, String idp) {
 		con= abrirConexion();
 		Date fecha= new Date();
@@ -242,6 +242,41 @@ public class SGBD {
 					"ERROR AL INSERTAR LA COLA DE LA BD \n ERROR : " + SQLE.getMessage());
 			}
 		}
+	}
+	
+	public JSONObject cargarPartida(String idj) throws SQLException{
+		JSONObject obj= new JSONObject();
+		con= abrirConexion();
+		ResultSet res= execQuery("SELECT idP, numAyudasUsadas FROM partida WHERE idJ=%idj%");
+		String idp=res.getString("idP");
+		String numAyudasUsadas= res.getString("numAyudasUsadas");
+		obj.put("idP", idp);
+		obj.put("numAyudasUsadas", numAyudasUsadas);
+		return obj;
+	}
+	
+	public void cargarMazoJugador(String idp){
+		
+	}
+	
+	public void cargarMazoOrdenador(String idp){
+		
+	}
+	
+	public void cargarManoJugador(String idp){
+		
+	}
+	
+	public void cargarManoOrdenador(String idp){
+		
+	}
+	
+	public void cargarBar(String idp){
+		
+	}
+	
+	public void cargarCola(String idp){
+		
 	}
 	
 	public ResultSet execQuery(String SentenciaSQL) {
