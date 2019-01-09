@@ -256,27 +256,34 @@ public class SGBD {
 	}
 	
 	public void cargarMazoJugador(String idp){
+		JSONArray json= new JSONArray();
+		JSONObject obj= new JSONObject();
 		
 	}
 	
 	public void cargarMazoOrdenador(String idp){
-		
+		JSONArray json= new JSONArray();
+		JSONObject obj= new JSONObject();
 	}
 	
 	public void cargarManoJugador(String idp){
-		
+		JSONArray json= new JSONArray();
+		JSONObject obj= new JSONObject();
 	}
 	
 	public void cargarManoOrdenador(String idp){
-		
+		JSONArray json= new JSONArray();
+		JSONObject obj= new JSONObject();
 	}
 	
 	public void cargarBar(String idp){
-		
+		JSONArray json= new JSONArray();
+		JSONObject obj= new JSONObject();
 	}
 	
 	public void cargarCola(String idp){
-		
+		JSONArray json= new JSONArray();
+		JSONObject obj= new JSONObject();
 	}
 	
 	public ResultSet execQuery(String SentenciaSQL) {
