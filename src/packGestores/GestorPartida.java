@@ -11,8 +11,8 @@ import org.json.JSONObject;
 import org.json.JSONArray;
 public class GestorPartida {
 	
-	private static JugadorReal jugador;
-	private static Maquina ordenador;
+	private  JugadorReal jugador;
+	private  Maquina ordenador;
 	private static GestorPartida gPartida;
 	
 	private GestorPartida(){
@@ -27,6 +27,8 @@ public class GestorPartida {
 
 	//DAVID	
 	public void guardarPartida(String idp){
+		jugador= Partida.getMiPartida().cogerJugador();
+		ordenador= Partida.getMiPartida().cogerMaquina();
 		ListaCartas manoJugador= jugador.devolverMano();
 		ListaCartas mazoJugador= jugador.devolverMazo();
 		ListaCartas manoOrdenador= ordenador.devolverMano();
