@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
@@ -20,6 +21,8 @@ import java.awt.event.ActionEvent;
 public class IUAcceder extends JFrame {
 
 	private JPanel contentPane;
+	private JButton btnIniciarSesion;
+	private JButton btnRegistrarse;
 
 	/**
 	 * Launch the application.
@@ -69,8 +72,15 @@ public class IUAcceder extends JFrame {
 		gbc_panel_4.gridy = 2;
 		panel_1.add(panel_4, gbc_panel_4);
 		
-		JButton btnIniciarSesin = new JButton("Iniciar sesi\u00F3n");
-		panel_4.add(btnIniciarSesin);
+		btnIniciarSesion = new JButton("Iniciar sesi\u00F3n");
+		btnIniciarSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				IUIdentificacion id = new IUIdentificacion();
+				setVisible(false);
+				id.setVisible(true);
+			}
+		});
+		panel_4.add(btnIniciarSesion);
 		
 		JPanel panel_5 = new JPanel();
 		GridBagConstraints gbc_panel_5 = new GridBagConstraints();
@@ -80,15 +90,19 @@ public class IUAcceder extends JFrame {
 		gbc_panel_5.gridy = 3;
 		panel_1.add(panel_5, gbc_panel_5);
 		
-		JButton btnNewButton = new JButton("Registrarse");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnRegistrarse = new JButton("Registrarse");
+		btnRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				IURegistrarse reg = new IURegistrarse();
+				setVisible(false);
+				reg.setVisible(true);
 			}
 		});
-		panel_5.add(btnNewButton);
+		panel_5.add(btnRegistrarse);
 		
 		JPanel panel_2 = new JPanel();
 		contentPane.add(panel_2);
 	}
+
 
 }

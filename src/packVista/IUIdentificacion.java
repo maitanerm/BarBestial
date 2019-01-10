@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import packPrincipal.BarBestial;
+
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
@@ -14,12 +17,14 @@ import java.awt.Insets;
 import javax.swing.ImageIcon;
 import java.awt.FlowLayout;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class IUIdentificacion extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField usuario;
+	private JTextField pass;
 
 	/**
 	 * Launch the application.
@@ -78,15 +83,15 @@ public class IUIdentificacion extends JFrame {
 		
 		JButton button = new JButton("");
 		panel_3.add(button);
-		button.setIcon(new ImageIcon(IUIdentificacion.class.getResource("/images/LogoGoogle.png")));
+		//button.setIcon(new ImageIcon(IUIdentificacion.class.getResource("/images/LogoGoogle.png")));
 		
 		JButton button_1 = new JButton("");
 		panel_3.add(button_1);
-		button_1.setIcon(new ImageIcon(IUIdentificacion.class.getResource("/images/LogoTwitter.png")));
+		//button_1.setIcon(new ImageIcon(IUIdentificacion.class.getResource("/images/LogoTwitter.png")));
 		
 		JButton btnFace = new JButton("");
 		panel_3.add(btnFace);
-		btnFace.setIcon(new ImageIcon(IUIdentificacion.class.getResource("/images/LogoFacebook.png")));
+		//btnFace.setIcon(new ImageIcon(IUIdentificacion.class.getResource("/images/LogoFacebook.png")));
 		
 		JPanel panel_4 = new JPanel();
 		GridBagConstraints gbc_panel_4 = new GridBagConstraints();
@@ -99,9 +104,9 @@ public class IUIdentificacion extends JFrame {
 		JLabel lblNewLabel = new JLabel("Usuario:");
 		panel_4.add(lblNewLabel);
 		
-		textField = new JTextField();
-		panel_4.add(textField);
-		textField.setColumns(10);
+		usuario = new JTextField();
+		panel_4.add(usuario);
+		usuario.setColumns(10);
 		
 		JPanel panel_5 = new JPanel();
 		GridBagConstraints gbc_panel_5 = new GridBagConstraints();
@@ -114,9 +119,9 @@ public class IUIdentificacion extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("Contrase\u00F1a:");
 		panel_5.add(lblNewLabel_1);
 		
-		textField_1 = new JTextField();
-		panel_5.add(textField_1);
-		textField_1.setColumns(10);
+		pass = new JTextField();
+		panel_5.add(pass);
+		pass.setColumns(10);
 		
 		JPanel panel_6 = new JPanel();
 		GridBagConstraints gbc_panel_6 = new GridBagConstraints();
@@ -127,12 +132,39 @@ public class IUIdentificacion extends JFrame {
 		panel_1.add(panel_6, gbc_panel_6);
 		
 		JButton btnNewButton = new JButton("Entrar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (BarBestial.getBarBestial().inicioSesion(usuario.getText(), pass.getText())) {
+					VentanaInicio in = new VentanaInicio();
+					setVisible(false);
+					in.setVisible(true);
+				}else {
+					Error err = new Error();
+					setVisible(false);
+					err.setVisible(true);
+				}
+			}
+		});
 		panel_6.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Recuperar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				IURecuperar rec = new IURecuperar();
+				setVisible(false);
+				rec.setVisible(true);
+			}
+		});
 		panel_6.add(btnNewButton_1);
 		
 		JButton button_2 = new JButton("Cambiar");
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				IUCambiar cam = new IUCambiar();
+				setVisible(false);
+				cam.setVisible(true);
+			}
+		});
 		panel_6.add(button_2);
 		
 		JPanel panel_2 = new JPanel();
