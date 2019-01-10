@@ -79,7 +79,6 @@ public class IURanking extends JFrame {
 		
 		//Cargar por defecto
 		//datosRanking = BarBestial.getBarBestial().cargarMejoresPartidas();//CAMBIAR
-		String pIdUsuario ="1";
 		datosRanking = BarBestial.getBarBestial().cargarMejoresPartidasDia();//CAMBIAR
 		table = new JTable(datosRanking);      
 		panel.add(table);
