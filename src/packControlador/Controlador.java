@@ -38,8 +38,9 @@ public class Controlador {
 	private VentanaJuego ventanaJuego;
 	private VentanaAyuda ventanaAyuda;
 	private IURanking ventanaRanking;
-	
+	private Error ventanaError;
 	private GuardarPartida guardarPartida;
+	private CargarPartida cargarPartida;
 	
 	public Controlador() throws Exception {
 		this.partida = Partida.getMiPartida();
@@ -234,6 +235,18 @@ public class Controlador {
 		}
 		
 	}
+	
+	class CargarVentanaPartida implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			String idp=cargarPartida.cogerIDPartida();
+			gestorPartida.cargarPartida(idp);
+			cargarPartida.cerrarVentanaPartidaCargar();
+		}
+		
+	}
+	
 	class CancelarGuardarPartida implements ActionListener{
 
 		@Override
@@ -243,6 +256,17 @@ public class Controlador {
 		}
 		
 	}
+	
+	class CancelarCargarPartida implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			cargarPartida.cerrarVentanaPartidaCargar();
+			
+		}
+		
+	}
+
 	
 	//Controlador para boton ayuda de la VentanaJuego
 	class AyudaJuegoListener implements ActionListener {

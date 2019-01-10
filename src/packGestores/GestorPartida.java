@@ -109,6 +109,22 @@ public class GestorPartida {
 		
 		
 	}
+	public void cargarPartida(String idp){
+		ListaCartas manoOrdenador= new ListaCartas();
+		ListaCartas manoJugador = new ListaCartas();
+		ListaCartas mazoJugador= new ListaCartas();
+		ListaCartas mazoOrdenador= new ListaCartas();
+		ListaCartas bar= new ListaCartas();
+		ListaCartas cola= new ListaCartas();
+		String colorJugador= jugador.getColorJugador().toString();
+		String colorOrdenador= ordenador.getColorJugador().toString();
+		
+		SGBD.getSGBD().cargarMazoJugador(idp, colorJugador);
+		SGBD.getSGBD().cargarMazoOrdenador(idp, colorOrdenador);
+		SGBD.getSGBD().cargarManoJugador(idp, colorJugador);
+		SGBD.getSGBD().cargarManoOrdenador(idp, colorOrdenador);
+		
+	}
 	
 	//DAVID	
 	public int getNumCartasBarOponente() {

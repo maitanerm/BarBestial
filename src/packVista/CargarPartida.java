@@ -24,7 +24,7 @@ public class CargarPartida extends JFrame {
 	private JButton btnOk;
 	private JButton btnCancelar;
 	private JPanel panel_3;
-	private JComboBox comboBox;
+	private JComboBox partida;
 	private JLabel lblPartidas;
 
 	/**
@@ -105,16 +105,16 @@ public class CargarPartida extends JFrame {
 			panel_3 = new JPanel();
 			panel_3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 			panel_3.add(getLblPartidas());
-			panel_3.add(getComboBox());
+			panel_3.add(getPartida());
 		}
 		return panel_3;
 	}
-	private JComboBox getComboBox() {
-		if (comboBox == null) {
-			comboBox = new JComboBox();
-			comboBox.setMaximumRowCount(100);
+	private JComboBox getPartida() {
+		if (partida == null) {
+			partida = new JComboBox();
+			partida.setMaximumRowCount(100);
 		}
-		return comboBox;
+		return partida;
 	}
 	private JLabel getLblPartidas() {
 		if (lblPartidas == null) {
@@ -122,18 +122,19 @@ public class CargarPartida extends JFrame {
 		}
 		return lblPartidas;
 	}
-	public void addGuardarVentanaPartidaListener (ActionListener listenForBtnAceptar){
-		btnAceptar.addActionListener(listenForBtnAceptar);
+	public void addGuardarVentanaPartidaListener (ActionListener listenForBtnOkCargar){
+		btnOk.addActionListener(listenForBtnOkCargar);
 	}
 	
-	public void addCancelarGuardarPartidaListener (ActionListener listenForBtnCancelar){
-		btnCancelar.addActionListener(listenForBtnCancelar);
+	public void addCancelarGuardarPartidaListener (ActionListener listenForBtnCancelarCargar){
+		btnCancelar.addActionListener(listenForBtnCancelarCargar);
 	}
 	
 	public String cogerIDPartida(){
-		return this.idp.getText();
+		String id= (String)partida.getSelectedItem();
+		return id;
 	}
-	public void cerrarVentanaPartida(){
+public void cerrarVentanaPartidaCargar(){
 		System.exit(0);
 	}
 }
