@@ -6,8 +6,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import org.json.JSONArray;
+
 import javax.swing.JComboBox;
 import net.miginfocom.swing.MigLayout;
+import packPrincipal.BarBestial;
 
 public class IUElegirCartaAyuda extends JFrame {
 
@@ -50,6 +54,8 @@ public class IUElegirCartaAyuda extends JFrame {
 		comboBox.setToolTipText("Selecciona una carta del oponente");
 		String nombre = "Selecciona una carta del oponente";
 		comboBox.addItem(nombre);
+		//JSON con las cartas
+		JSONArray cartas = BarBestial.getBarBestial().getCartasBarOponente();
 		comboBox.setSelectedIndex(0);
 		panel.add(comboBox, "cell 6 4,alignx left,aligny top");
 	}

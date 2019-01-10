@@ -2,6 +2,7 @@ package packPrincipal;
 
 import javax.swing.table.DefaultTableModel;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import packControlador.Controlador;
@@ -103,5 +104,11 @@ public class BarBestial {
     
     public boolean recuperar (JSONObject obj3) { 
     	return GestorJugador.getGestorJugador().comprobarDatos(obj3);
+    }
+    
+    public JSONArray getCartasBarOponente() {
+    	JSONArray cartas = new JSONArray();
+    	
+    	return cartas;
     }
 }
