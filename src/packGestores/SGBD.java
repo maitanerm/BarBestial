@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class SGBD {
@@ -255,57 +256,110 @@ public class SGBD {
 		return obj;
 	}
 	
-	public void cargarMazoJugador(String idp, String color){
+	public JSONArray cargarMazoJugador(String idp, String color) throws JSONException, SQLException{
 		JSONArray json= new JSONArray();
-		JSONObject obj= new JSONObject();
+		
 		con= abrirConexion();
 		ResultSet res= execQuery("SELECT Carta.idc, Carta.puntos, carta.color FROM CARTA INNER JOIN (mazojugador INNER JOIN partida ON mazojugador.idp="+idp+
 				") ON carta.idc=mazojugador.idc WHERE carta.color = "+color);
-		
-		
+		while (res.next()){
+			JSONObject obj= new JSONObject();
+			String puntos=res.getString("puntos");
+			String nombre=res.getString("idc");
+			obj.put("fuerza",puntos);
+			obj.put("idc", nombre);
+			json.put(obj);
+		}
+		return json;
 		
 	}
 	
-	public void cargarMazoOrdenador(String idp, String color){
+	public JSONArray cargarMazoOrdenador(String idp, String color) throws JSONException, SQLException{
 		JSONArray json= new JSONArray();
-		JSONObject obj= new JSONObject();
+		
 		con= abrirConexion();
 		ResultSet res= execQuery("SELECT Carta.idc, Carta.puntos, carta.color FROM CARTA INNER JOIN (mazoordenador INNER JOIN partida ON mazoordenador.idp="+idp+
 				") ON carta.idc=mazoordenador.idc WHERE carta.color = "+color);
+		while (res.next()){
+			JSONObject obj= new JSONObject();
+			String puntos=res.getString("puntos");
+			String nombre=res.getString("idc");
+			obj.put("fuerza",puntos);
+			obj.put("idc", nombre);
+			json.put(obj);
+		}
+		
+		return json;
 	}
 	
-	public void cargarManoJugador(String idp, String color){
+	public JSONArray cargarManoJugador(String idp, String color) throws JSONException, SQLException{
 		JSONArray json= new JSONArray();
-		JSONObject obj= new JSONObject();
+		
 		con= abrirConexion();
 		ResultSet res= execQuery("SELECT Carta.idc, Carta.puntos, carta.color FROM CARTA INNER JOIN (mazojugador INNER JOIN partida ON mazojugador.idp="+idp+
 				") ON carta.idc=mazojugador.idc WHERE carta.color = "+color);
-		
+		while (res.next()){
+			JSONObject obj= new JSONObject();
+			String puntos=res.getString("puntos");
+			String nombre=res.getString("idc");
+			obj.put("fuerza",puntos);
+			obj.put("idc", nombre);
+			json.put(obj);
+		}
+		return json;
 	}
 	
-	public void cargarManoOrdenador(String idp, String color){
+	public JSONArray cargarManoOrdenador(String idp, String color) throws JSONException, SQLException{
 		JSONArray json= new JSONArray();
-		JSONObject obj= new JSONObject();
+		
 		
 		con= abrirConexion();
 		ResultSet res= execQuery("SELECT Carta.idc, Carta.puntos, carta.color FROM CARTA INNER JOIN (manoordenador INNER JOIN partida ON manoordenador.idp="+idp+
 				") ON carta.idc=manoordenador.idc WHERE carta.color = "+color);
+		while (res.next()){
+			JSONObject obj= new JSONObject();
+			String puntos=res.getString("puntos");
+			String nombre=res.getString("idc");
+			obj.put("fuerza",puntos);
+			obj.put("idc", nombre);
+			json.put(obj);
+		}
+		return json;
 	}
 	
-	public void cargarBar(String idp){
+	public JSONArray cargarBar(String idp) throws JSONException, SQLException{
 		JSONArray json= new JSONArray();
-		JSONObject obj= new JSONObject();
 		con= abrirConexion();
 		ResultSet res= execQuery("SELECT Carta.idc, Carta.puntos, carta.color FROM CARTA INNER JOIN (bar INNER JOIN partida ON bar.idp="+idp+
 				") ON carta.idc=mazojugador.idc");
+		while (res.next()){
+			JSONObject obj= new JSONObject();
+			String puntos=res.getString("puntos");
+			String nombre=res.getString("idc");
+			String color=res.getString("color");
+			obj.put("fuerza",puntos);
+			obj.put("idc", nombre);
+			obj.put("color", color);
+			json.put(obj);
+		}
+		return json;
 	}
 	
-	public void cargarCola(String idp){
+	public JSONArray cargarCola(String idp) throws SQLException{
 		JSONArray json= new JSONArray();
-		JSONObject obj= new JSONObject();
+		
 		con= abrirConexion();
 		ResultSet res= execQuery("SELECT Carta.idc, Carta.puntos, carta.color FROM CARTA INNER JOIN (cola INNER JOIN partida ON cola.idp="+idp+
 				") ON carta.idc=mazojugador.idc");
+		while (res.next()){
+			JSONObject obj= new JSONObject();
+			String puntos=res.getString("puntos");
+			String nombre=res.getString("idc");
+			obj.put("fuerza",puntos);
+			obj.put("idc", nombre);
+			json.put(obj);
+		}
+		return json;
 	}
 	
 	public ResultSet execQuery(String SentenciaSQL) {

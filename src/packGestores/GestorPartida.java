@@ -6,7 +6,11 @@ import packModelo.ListaCartas;
 import packModelo.Maquina;
 import packModelo.Partida;
 import packModelo.Tablero;
+
+import java.sql.SQLException;
+
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONArray;
 public class GestorPartida {
@@ -109,7 +113,7 @@ public class GestorPartida {
 		
 		
 	}
-	public void cargarPartida(String idp){
+	public void cargarPartida(String idp) throws JSONException, SQLException{
 		ListaCartas manoOrdenador= new ListaCartas();
 		ListaCartas manoJugador = new ListaCartas();
 		ListaCartas mazoJugador= new ListaCartas();
