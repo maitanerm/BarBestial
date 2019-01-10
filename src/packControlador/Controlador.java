@@ -228,7 +228,7 @@ public class Controlador {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String idp=guardarPartida.cogerIDPartida();
-			gestorPartida.guardarPartida(idp);
+			BarBestial.getBarBestial().guardarPartida(idp);
 			guardarPartida.cerrarVentanaPartida();
 			
 			
@@ -241,7 +241,7 @@ public class Controlador {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String idp=cargarPartida.cogerIDPartida();
-			gestorPartida.cargarPartida(idp);
+			BarBestial.getBarBestial().cargarPartida(idp);
 			cargarPartida.cerrarVentanaPartidaCargar();
 		}
 		

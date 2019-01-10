@@ -111,4 +111,12 @@ public class BarBestial {
     	
     	return cartas;
     }
+    
+    public void guardarPartida(String idp){
+    	GestorPartida.getGestorPartida().guardarPartida(idp);
+    }
+    
+    public void cargarPartida(String idp){
+    	GestorPartida.getGestorPartida().cargarPartida(idp);
+    }
 }
