@@ -48,13 +48,13 @@ public class GestorRanking {
 	// CONSULTAR RANKING MEJORES JUGADORES (MAITANE)
 	public DefaultTableModel obtenerMejoresJugadores() throws Exception {
 		String[] registro = new String[4];
-		String[] titulos = { "Id Jugador", "Puntuacion" };
+		String[] titulos = { "Id Jugador", "Media Puntuacion" };
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
-		String SQL_2 = "SELECT idJ, AVG(puntos) AS 'puntos FROM puntuacion ORDER BY puntos DESC LIMIT 10;";
+		String SQL_2 = "SELECT idJ, AVG(puntos) AS mediaPuntos FROM puntuacion GROUP BY idJ ORDER BY mediaPuntos DESC LIMIT 10;";
 		ResultSet datos = SGBD.getSGBD().execQuery(SQL_2);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
-			registro[1] = datos.getString("puntos");
+			registro[1] = datos.getString("mediaPuntos");
 			tabla.addRow(registro);
 		}
 		return tabla;
@@ -84,7 +84,7 @@ public class GestorRanking {
 		String[] registro = new String[4];
 		String[] titulos = { "Id Jugador", "Id Partida", "Puntuacion", "Fecha" };
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
-		String SQL_4 = "SELECT idJ, idP, puntos, fecha FROM puntuacion WHERE CONVERT (date, fecha) = CONVERT (date, "+ fechaHoy +") ORDER BY puntos DESC LIMIT 10;;";
+		String SQL_4 = "SELECT idJ, idP, puntos, fecha FROM puntuacion WHERE fecha = "+ fechaHoy +" ORDER BY puntos DESC LIMIT 10;";
 		ResultSet datos = SGBD.getSGBD().execQuery(SQL_4);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
