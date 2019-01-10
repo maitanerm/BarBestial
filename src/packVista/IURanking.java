@@ -45,7 +45,7 @@ public class IURanking extends JFrame {
 	 * @throws Exception 
 	 */
 	public IURanking() throws Exception {
-		setTitle("Visualizaci\u00F3n del ranking");
+		setTitle("Mejores paridas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 676, 254);
 		contentPane = new JPanel();
@@ -53,43 +53,40 @@ public class IURanking extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.CENTER);
-		
 		//Cargar por defecto
 		DefaultTableModel datosRanking = BarBestial.getBarBestial().cargarMejoresPartidas();
-		table = new JTable(datosRanking);      
-		panel.add(table);
+		
+		JPanel panel_1 = new JPanel();
+		contentPane.add(panel_1, BorderLayout.NORTH);
 		
 		//Boton mejores partidas
 		JButton btnMejoresPartidas = new JButton("Mejores partidas ");
-		btnMejoresPartidas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if (arg0.getSource()==btnMejoresPartidas) {
-					setTitle("Mejores partidas");
-					try{
-						DefaultTableModel datosRanking = null;
-						datosRanking = BarBestial.getBarBestial().cargarMejoresPartidas();
-						table = new JTable(datosRanking);      
-						panel.add(table);
-						
-					} catch(Exception excep) {
-					}
-				}
-			}
-		});
-		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		panel.add(btnMejoresPartidas);
+		panel_1.add(btnMejoresPartidas);
 		
 		//Boton mejores jugadores
 		JButton btnMejoresJugadores = new JButton("Mejores jugadores");
-		btnMejoresJugadores.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg1) {
-				if (arg1.getSource()==btnMejoresPartidas) {
-					setTitle("Mejores jugadores");
+		panel_1.add(btnMejoresJugadores);
+		
+		//Boton mis mejores partidas
+		JButton btnMisMejoresPartidas = new JButton("Mis mejores partidas");
+		panel_1.add(btnMisMejoresPartidas);
+		
+		//Boton mejores partidas del dia
+		JButton btnMejoresPartidasDel = new JButton("Mejores partidas del d\u00EDa");
+		panel_1.add(btnMejoresPartidasDel);
+		
+		JPanel panel = new JPanel();
+		contentPane.add(panel, BorderLayout.CENTER);
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		table = new JTable(datosRanking);      
+		panel.add(table);
+		btnMejoresPartidasDel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg3) {
+				if (arg3.getSource()==btnMejoresPartidas) {
+					setTitle("Mejores partidas del d\\u00EDa");
 					try{
 						DefaultTableModel datosRanking = null;
-						datosRanking = BarBestial.getBarBestial().cargarMejoresJugadores();
+						datosRanking = BarBestial.getBarBestial().cargarMejoresPartidasDia();
 						table = new JTable(datosRanking);      
 						panel.add(table);
 						
@@ -98,10 +95,7 @@ public class IURanking extends JFrame {
 				}
 			}
 		});
-		panel.add(btnMejoresJugadores);
 		
-		//Boton mis mejores partidas
-		JButton btnMisMejoresPartidas = new JButton("Mis mejores partidas");
 		btnMisMejoresPartidas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg2) {
 				if (arg2.getSource()==btnMisMejoresPartidas) {
@@ -119,18 +113,14 @@ public class IURanking extends JFrame {
 					}
 				}
 			}
-		});		
-		panel.add(btnMisMejoresPartidas);
-		
-		//Boton mejores partidas del dia
-		JButton btnMejoresPartidasDel = new JButton("Mejores partidas del d\u00EDa");
-		btnMejoresPartidasDel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg3) {
-				if (arg3.getSource()==btnMejoresPartidas) {
-					setTitle("Mejores partidas del d\\u00EDa");
+		});
+		btnMejoresJugadores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg1) {
+				if (arg1.getSource()==btnMejoresPartidas) {
+					setTitle("Mejores jugadores");
 					try{
 						DefaultTableModel datosRanking = null;
-						datosRanking = BarBestial.getBarBestial().cargarMejoresPartidasDia();
+						datosRanking = BarBestial.getBarBestial().cargarMejoresJugadores();
 						table = new JTable(datosRanking);      
 						panel.add(table);
 						
@@ -139,7 +129,21 @@ public class IURanking extends JFrame {
 				}
 			}
 		});
-		panel.add(btnMejoresPartidasDel);
+		btnMejoresPartidas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if (arg0.getSource()==btnMejoresPartidas) {
+					setTitle("Mejores partidas");
+					try{
+						DefaultTableModel datosRanking = null;
+						datosRanking = BarBestial.getBarBestial().cargarMejoresPartidas();
+						table = new JTable(datosRanking);      
+						panel.add(table);
+						
+					} catch(Exception excep) {
+					}
+				}
+			}
+		});
 	
 	}
 

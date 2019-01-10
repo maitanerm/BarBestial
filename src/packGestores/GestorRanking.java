@@ -33,7 +33,7 @@ public class GestorRanking {
 		String[] registro = new String[4];
 		String[] titulos = { "Id Jugador", "Id Partida", "Puntuacion", "Fecha" };
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
-		String SQL_1 = "SELECT idJ,  idP, puntos, fecha FROM puntuacion ORDER BY puntos DESC LIMIT 10;";
+		String SQL_1 = "SELECT idJ, idP, puntos, fecha FROM puntuacion ORDER BY puntos DESC LIMIT 10;";
 		ResultSet datos = SGBD.getSGBD().execQuery(SQL_1);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
@@ -65,7 +65,7 @@ public class GestorRanking {
 		String[] registro = new String[4];
 		String[] titulos = { "Id Jugador", "Id Partida", "Puntuacion", "Fecha" };
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
-		String SQL_3 = "SELECT idJ,  idP, puntos, fecha FROM puntuacion WHERE idJ =" + pIdUsuario + "ORDER BY puntos DESC LIMIT 10;";
+		String SQL_3 = "SELECT idJ,  idP, puntos, fecha FROM puntuacion WHERE idJ =" + pIdUsuario + " ORDER BY puntos DESC LIMIT 10;";
 		ResultSet datos = SGBD.getSGBD().execQuery(SQL_3);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
