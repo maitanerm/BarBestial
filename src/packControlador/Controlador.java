@@ -14,6 +14,7 @@ import packModelo.RankingDB;
 import packModelo.Tablero;
 import packPrincipal.BarBestial;
 import packVista.GuardarPartida;
+import packVista.IUAcceder;
 import packVista.IURanking;
 import packVista.VentanaAyuda;
 import packVista.VentanaInicio;
@@ -31,6 +32,7 @@ public class Controlador {
 	
 	/* Vista */
 	private VentanaInicio ventanaInicio;
+	private IUAcceder ventanaAcceder;
 	private VentanaJuego ventanaJuego;
 	private VentanaAyuda ventanaAyuda;
 	private IURanking ventanaRanking;
@@ -42,6 +44,7 @@ public class Controlador {
 		this.rankingDB = RankingDB.getRankingDB();
 		
 		this.ventanaInicio = new VentanaInicio();
+		this.ventanaAcceder = new IUAcceder();
 		this.ventanaJuego = new VentanaJuego();
 		this.ventanaAyuda = new VentanaAyuda();
 		this.ventanaError = new Error();
@@ -81,7 +84,8 @@ public class Controlador {
 	}
 	
 	private void mostrarVentanaInicio() {
-		this.ventanaInicio.setVisible(true);
+		//this.ventanaInicio.setVisible(true);
+		this.ventanaAcceder.setVisible(true);
 	}
 	
 	private void mostrarVentanaJuego() {

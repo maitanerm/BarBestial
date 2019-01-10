@@ -6,6 +6,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import org.json.JSONObject;
+
+import packPrincipal.BarBestial;
+
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
@@ -14,13 +19,15 @@ import java.awt.Insets;
 import javax.swing.ImageIcon;
 import java.awt.FlowLayout;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class IUCambiar extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	public static JTextField usuario;
+	public static JTextField pass;
+	public static JTextField passN;
 
 	/**
 	 * Launch the application.
@@ -80,9 +87,9 @@ public class IUCambiar extends JFrame {
 		JLabel lblNewLabel = new JLabel("Usuario:");
 		panel_4.add(lblNewLabel);
 		
-		textField = new JTextField();
-		panel_4.add(textField);
-		textField.setColumns(10);
+		usuario = new JTextField();
+		panel_4.add(usuario);
+		usuario.setColumns(10);
 		
 		JPanel panel_7 = new JPanel();
 		GridBagConstraints gbc_panel_7 = new GridBagConstraints();
@@ -95,9 +102,9 @@ public class IUCambiar extends JFrame {
 		JLabel lblEmail = new JLabel("Contrase\u00F1a:");
 		panel_7.add(lblEmail);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		panel_7.add(textField_2);
+		pass = new JTextField();
+		pass.setColumns(10);
+		panel_7.add(pass);
 		
 		JPanel panel_8 = new JPanel();
 		GridBagConstraints gbc_panel_8 = new GridBagConstraints();
@@ -107,12 +114,12 @@ public class IUCambiar extends JFrame {
 		gbc_panel_8.gridy = 4;
 		panel_1.add(panel_8, gbc_panel_8);
 		
-		JLabel lblRespuesta = new JLabel("Contrase\u00F1a nueva:");
-		panel_8.add(lblRespuesta);
+		JLabel lblContraseaNueva = new JLabel("Contrase\u00F1a nueva:");
+		panel_8.add(lblContraseaNueva);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		panel_8.add(textField_3);
+		passN = new JTextField();
+		passN.setColumns(10);
+		panel_8.add(passN);
 		
 		JPanel panel_6 = new JPanel();
 		GridBagConstraints gbc_panel_6 = new GridBagConstraints();
@@ -123,6 +130,23 @@ public class IUCambiar extends JFrame {
 		panel_1.add(panel_6, gbc_panel_6);
 		
 		JButton btnNewButton = new JButton("Cambiar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JSONObject obj = new JSONObject();
+				obj.put("idJ", usuario.getText());
+				obj.put("password", pass.getText());
+				obj.put("newPass", passN.getText());
+				if (BarBestial.getBarBestial().cambiar(obj)) {
+					IUAcceder acc = new IUAcceder();
+					setVisible(false);
+					acc.setVisible(true);
+				}else {
+					Error err = new Error();
+					setVisible(false);
+					err.setVisible(true);
+				}
+			}
+		});
 		panel_6.add(btnNewButton);
 		
 		JPanel panel_2 = new JPanel();

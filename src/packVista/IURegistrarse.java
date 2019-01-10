@@ -6,6 +6,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import packModelo.Partida;
+import packPrincipal.BarBestial;
+
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
@@ -14,14 +21,16 @@ import java.awt.Insets;
 import javax.swing.ImageIcon;
 import java.awt.FlowLayout;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class IURegistrarse extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField usuario;
+	private JTextField pass;
+	private JTextField preg;
+	private JTextField resp;
 
 	/**
 	 * Launch the application.
@@ -81,9 +90,9 @@ public class IURegistrarse extends JFrame {
 		JLabel lblNewLabel = new JLabel("Usuario:");
 		panel_4.add(lblNewLabel);
 		
-		textField = new JTextField();
-		panel_4.add(textField);
-		textField.setColumns(10);
+		usuario = new JTextField();
+		panel_4.add(usuario);
+		usuario.setColumns(10);
 		
 		JPanel panel_5 = new JPanel();
 		GridBagConstraints gbc_panel_5 = new GridBagConstraints();
@@ -96,9 +105,9 @@ public class IURegistrarse extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("Contrase\u00F1a:");
 		panel_5.add(lblNewLabel_1);
 		
-		textField_1 = new JTextField();
-		panel_5.add(textField_1);
-		textField_1.setColumns(10);
+		pass = new JTextField();
+		panel_5.add(pass);
+		pass.setColumns(10);
 		
 		JPanel panel_7 = new JPanel();
 		GridBagConstraints gbc_panel_7 = new GridBagConstraints();
@@ -111,9 +120,9 @@ public class IURegistrarse extends JFrame {
 		JLabel lblEmail = new JLabel("Pregunta seguridad:");
 		panel_7.add(lblEmail);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		panel_7.add(textField_2);
+		preg = new JTextField();
+		preg.setColumns(10);
+		panel_7.add(preg);
 		
 		JPanel panel_8 = new JPanel();
 		GridBagConstraints gbc_panel_8 = new GridBagConstraints();
@@ -126,9 +135,9 @@ public class IURegistrarse extends JFrame {
 		JLabel lblRespuesta = new JLabel("Respuesta:");
 		panel_8.add(lblRespuesta);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		panel_8.add(textField_3);
+		resp = new JTextField();
+		resp.setColumns(10);
+		panel_8.add(resp);
 		
 		JPanel panel_6 = new JPanel();
 		GridBagConstraints gbc_panel_6 = new GridBagConstraints();
@@ -139,6 +148,24 @@ public class IURegistrarse extends JFrame {
 		panel_1.add(panel_6, gbc_panel_6);
 		
 		JButton btnNewButton = new JButton("Registrarse");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JSONObject obj = new JSONObject();
+				obj.put("idJ", usuario.getText());
+				obj.put("password", pass.getText());
+				obj.put("pregunta", preg.getText());
+				obj.put("respuesta", resp.getText());
+				if (BarBestial.getBarBestial().registro (obj)) {
+					IUAcceder ac = new IUAcceder();
+					setVisible(false);
+					ac.setVisible(true);
+				}else {
+					Error err = new Error();
+					setVisible(false);
+					err.setVisible(true);
+				}
+			}
+		});
 		panel_6.add(btnNewButton);
 		
 		JPanel panel_2 = new JPanel();
