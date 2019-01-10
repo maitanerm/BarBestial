@@ -44,7 +44,7 @@ public class SGBD {
 			if (con == null) {
 				Class.forName(driver);
 				con = DriverManager.getConnection(url);
-				JOptionPane.showMessageDialog(null,"Conexi�n correcta.");
+				JOptionPane.showMessageDialog(null,"Conexion correcta.");
 			}
 		} catch (SQLException SQLE) {
 			JOptionPane.showMessageDialog(null, "ERROR EN LA CONEXION CON BD\nERROR : " + SQLE.getMessage());
