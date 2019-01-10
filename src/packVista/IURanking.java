@@ -53,8 +53,6 @@ public class IURanking extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		//Cargar por defecto
-		DefaultTableModel datosRanking = BarBestial.getBarBestial().cargarMejoresPartidas();
 		
 		JPanel panel_1 = new JPanel();
 		contentPane.add(panel_1, BorderLayout.NORTH);
@@ -78,8 +76,12 @@ public class IURanking extends JFrame {
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		//Cargar por defecto
+		DefaultTableModel datosRanking = BarBestial.getBarBestial().cargarMejoresPartidas();		
 		table = new JTable(datosRanking);      
 		panel.add(table);
+		
 		btnMejoresPartidasDel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg3) {
 				if (arg3.getSource()==btnMejoresPartidas) {
@@ -114,6 +116,7 @@ public class IURanking extends JFrame {
 				}
 			}
 		});
+		
 		btnMejoresJugadores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg1) {
 				if (arg1.getSource()==btnMejoresPartidas) {
