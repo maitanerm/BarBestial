@@ -1,6 +1,8 @@
 package packGestores;
 
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -31,9 +33,7 @@ public class GestorRanking {
 		String[] registro = new String[4];
 		String[] titulos = { "Id Jugador", "Id Partida", "Puntuacion", "Fecha" };
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
-		String SQL_1 = "SELECT TOP(10) idJ,  idP, puntos, fecha" + 
-				"		FROM puntuacion" + 
-				"		ORDER BY puntos;";
+		String SQL_1 = "SELECT idJ,  idP, puntos, fecha FROM puntuacion ORDER BY puntos DESC LIMIT 10;";
 		ResultSet datos = SGBD.getSGBD().execQuery(SQL_1);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
@@ -50,8 +50,7 @@ public class GestorRanking {
 		String[] registro = new String[4];
 		String[] titulos = { "Id Jugador", "Puntuacion" };
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
-		String SQL_2 = "SELECT TOP(10) idJ, AVG(puntos) AS 'puntos " + 
-				"FROM puntuacion ORDER BY puntos;";
+		String SQL_2 = "SELECT idJ, AVG(puntos) AS 'puntos FROM puntuacion ORDER BY puntos DESC LIMIT 10;";
 		ResultSet datos = SGBD.getSGBD().execQuery(SQL_2);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
@@ -66,10 +65,7 @@ public class GestorRanking {
 		String[] registro = new String[4];
 		String[] titulos = { "Id Jugador", "Id Partida", "Puntuacion", "Fecha" };
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
-		String SQL_3 = "SELECT TOP(10) idJ,  idP, puntos, fecha" + 
-				"		FROM puntuacion" + 
-				"		WHERE idJ =" + pIdUsuario + 
-				"		ORDER BY puntos;";
+		String SQL_3 = "SELECT idJ,  idP, puntos, fecha FROM puntuacion WHERE idJ =" + pIdUsuario + "ORDER BY puntos DESC LIMIT 10;";
 		ResultSet datos = SGBD.getSGBD().execQuery(SQL_3);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
@@ -83,11 +79,12 @@ public class GestorRanking {
 
 	// CONSULTAR RANKING MEJORES PARTIDAS DEL DIA (MAITANE)
 	public DefaultTableModel obtenerMejoresPartidasDia() throws Exception {
+		Date fechaI = new Date();
+		String fechaHoy = new SimpleDateFormat("dd-MM-yyyy").format(fechaI);
 		String[] registro = new String[4];
 		String[] titulos = { "Id Jugador", "Id Partida", "Puntuacion", "Fecha" };
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
-		String SQL_4 = "SELECT TOP(10) idJ, idP, puntos, fecha FROM puntuacion " + 
-				"WHERE CONVERT (date, fecha) = CONVERT (date, CURRENT_TIMESTAMP) ORDER BY puntos;";
+		String SQL_4 = "SELECT idJ, idP, puntos, fecha FROM puntuacion WHERE CONVERT (date, fecha) = CONVERT (date, "+ fechaHoy +") ORDER BY puntos DESC LIMIT 10;;";
 		ResultSet datos = SGBD.getSGBD().execQuery(SQL_4);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
