@@ -247,7 +247,7 @@ public class SGBD {
 	public JSONObject cargarPartida(String idj) throws SQLException{
 		JSONObject obj= new JSONObject();
 		con= abrirConexion();
-		ResultSet res= execQuery("SELECT idP, numAyudasUsadas FROM partida WHERE idJ=%idj%");
+		ResultSet res= execQuery("SELECT idP, numAyudasUsadas FROM partida WHERE idJ="+idj);
 		String idp=res.getString("idP");
 		String numAyudasUsadas= res.getString("numAyudasUsadas");
 		obj.put("idP", idp);
@@ -255,35 +255,57 @@ public class SGBD {
 		return obj;
 	}
 	
-	public void cargarMazoJugador(String idp){
+	public void cargarMazoJugador(String idp, String color){
 		JSONArray json= new JSONArray();
 		JSONObject obj= new JSONObject();
+		con= abrirConexion();
+		ResultSet res= execQuery("SELECT Carta.idc, Carta.puntos, carta.color FROM CARTA INNER JOIN (mazojugador INNER JOIN partida ON mazojugador.idp="+idp+
+				") ON carta.idc=mazojugador.idc WHERE carta.color = "+color);
+		
+		
 		
 	}
 	
-	public void cargarMazoOrdenador(String idp){
+	public void cargarMazoOrdenador(String idp, String color){
 		JSONArray json= new JSONArray();
 		JSONObject obj= new JSONObject();
+		con= abrirConexion();
+		ResultSet res= execQuery("SELECT Carta.idc, Carta.puntos, carta.color FROM CARTA INNER JOIN (mazoordenador INNER JOIN partida ON mazoordenador.idp="+idp+
+				") ON carta.idc=mazoordenador.idc WHERE carta.color = "+color);
 	}
 	
-	public void cargarManoJugador(String idp){
+	public void cargarManoJugador(String idp, String color){
 		JSONArray json= new JSONArray();
 		JSONObject obj= new JSONObject();
+		con= abrirConexion();
+		ResultSet res= execQuery("SELECT Carta.idc, Carta.puntos, carta.color FROM CARTA INNER JOIN (mazojugador INNER JOIN partida ON mazojugador.idp="+idp+
+				") ON carta.idc=mazojugador.idc WHERE carta.color = "+color);
+		
 	}
 	
-	public void cargarManoOrdenador(String idp){
+	public void cargarManoOrdenador(String idp, String color){
 		JSONArray json= new JSONArray();
 		JSONObject obj= new JSONObject();
+		
+		con= abrirConexion();
+		ResultSet res= execQuery("SELECT Carta.idc, Carta.puntos, carta.color FROM CARTA INNER JOIN (manoordenador INNER JOIN partida ON manoordenador.idp="+idp+
+				") ON carta.idc=manoordenador.idc WHERE carta.color = "+color);
 	}
 	
 	public void cargarBar(String idp){
 		JSONArray json= new JSONArray();
 		JSONObject obj= new JSONObject();
+		con= abrirConexion();
+		ResultSet res= execQuery("SELECT Carta.idc, Carta.puntos, carta.color FROM CARTA INNER JOIN (bar INNER JOIN partida ON bar.idp="+idp+
+				") ON carta.idc=mazojugador.idc");
 	}
 	
 	public void cargarCola(String idp){
 		JSONArray json= new JSONArray();
 		JSONObject obj= new JSONObject();
+		con= abrirConexion();
+		ResultSet res= execQuery("SELECT Carta.idc, Carta.puntos, carta.color FROM CARTA INNER JOIN (cola INNER JOIN partida ON cola.idp="+idp+
+				") ON carta.idc=mazojugador.idc");
 	}
 	
 	public ResultSet execQuery(String SentenciaSQL) {
