@@ -20,6 +20,8 @@ import packVista.VentanaAyuda;
 import packVista.VentanaInicio;
 import packVista.VentanaJuego;
 import packVista.VentanaRanking;
+import packVista.Error;
+import packVista.*;
 
 public class Controlador {
 	private static Controlador miControlador;
@@ -36,8 +38,9 @@ public class Controlador {
 	private VentanaJuego ventanaJuego;
 	private VentanaAyuda ventanaAyuda;
 	private IURanking ventanaRanking;
+	
 	private GuardarPartida guardarPartida;
-	private Error ventanaError;
+	
 	public Controlador() throws Exception {
 		this.partida = Partida.getMiPartida();
 		this.tablero = Tablero.getMiTablero();
@@ -251,10 +254,9 @@ public class Controlador {
 			int cartasOponente = info.getInt("cartas");
 			int ayudasUsadas = info.getInt("usadas");
 			if ((numAyudas == 0) || (cartasOponente == 0) || (ayudasUsadas > 2)) {
-				ventanaJuego.setVisible(false);
-				//ventanaError.setVisible(true);
+				Error vError = new Error();
 			} else {
-				ventanaJuego.setVisible(false);
+				IUElegirCartaAyuda elegir = new IUElegirCartaAyuda();
 			}
 		}
 		
