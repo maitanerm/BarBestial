@@ -21,7 +21,7 @@ public class Partida extends Observable {
     private Partida() {
         this.listaJugadores = new ArrayList<Jugador>();
         ayudasUsadas = 0; //Se actualiza al cargar partida
-        idp= "se actualiza cuando se carga la partida";
+     
     }
 
     public static Partida getMiPartida() {
@@ -197,5 +197,13 @@ public class Partida extends Observable {
    public Maquina cogerMaquina(){
 	   Maquina m= (Maquina)listaJugadores.get(2);
 	   return m;
+   }
+   
+   public void setIDPartida(String idpart){
+	   this.idp=idpart;
+   }
+   
+   public void setAyudasUsadas(int ayudas){
+	   this.ayudasUsadas=ayudas;
    }
 }

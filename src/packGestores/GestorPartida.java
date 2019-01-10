@@ -1,6 +1,10 @@
 package packGestores;
 
+import packModelo.Animal;
+import packModelo.AnimalFactory;
 import packModelo.Bar;
+import packModelo.Carta;
+import packModelo.EnumColor;
 import packModelo.JugadorReal;
 import packModelo.ListaCartas;
 import packModelo.Maquina;
@@ -113,7 +117,7 @@ public class GestorPartida {
 		
 		
 	}
-	public void cargarPartida(String idp) throws JSONException, SQLException{
+	public void cargarPartida() throws JSONException, SQLException{
 		ListaCartas manoOrdenador= new ListaCartas();
 		ListaCartas manoJugador = new ListaCartas();
 		ListaCartas mazoJugador= new ListaCartas();
@@ -122,18 +126,108 @@ public class GestorPartida {
 		ListaCartas cola= new ListaCartas();
 		String colorJugador= jugador.getColorJugador().toString();
 		String colorOrdenador= ordenador.getColorJugador().toString();
-		
+		String idj= jugador.getNombre();
+		JSONObject partida= SGBD.getSGBD().cargarPartida(idj);
+		String idp= (String) partida.get("idp");
 		JSONArray jsonmazojugador= SGBD.getSGBD().cargarMazoJugador(idp, colorJugador);
 		JSONArray jsonmazoordenador=SGBD.getSGBD().cargarMazoOrdenador(idp, colorOrdenador);
 		JSONArray jsonmanojugador=SGBD.getSGBD().cargarManoJugador(idp, colorJugador);
 		JSONArray jsonmanoordenador=SGBD.getSGBD().cargarManoOrdenador(idp, colorOrdenador);
 		JSONArray jsonbar=SGBD.getSGBD().cargarBar(idp);
 		JSONArray jsoncola=SGBD.getSGBD().cargarCola(idp);
+		cargarManoJugador(jsonmanojugador);
+		cargarManoOrdenador(jsonmanoordenador);
+		cargarMazoJugador(jsonmazojugador);
+		cargarMazoOrdenador(jsonmazoordenador);
+		cargarCola(jsoncola);
+		cargarBar(jsonbar);
 		
-		
-		
-		
-		
+	}
+	
+	public void cargarPartida(JSONObject json){
+		String idp= json.getString("idp");
+		String ayudas= json.getString("numAyudasUsadas");
+		int ayudas2= Integer.parseInt(ayudas);
+		Partida.getMiPartida().setIDPartida(idp);
+		Partida.getMiPartida().setAyudasUsadas(ayudas2);
+	}
+	
+	public void cargarManoJugador(JSONArray json){
+		for(int i=0;i<json.length();i++){
+			JSONObject obj=(JSONObject) json.get(i);
+			String pAnimal= obj.getString("idc");
+			Animal a= AnimalFactory.getMiAnimalFactory().crearAnimal(pAnimal);
+			String color= obj.getString("color");
+			EnumColor color2= EnumColor.valueOf(color);
+			Carta c= new Carta(a, color2);
+			ListaCartas manoj=jugador.devolverMano();
+			manoj.anadirCarta(c);
+		}
+	}
+	
+	public void cargarManoOrdenador(JSONArray json){
+		for(int i=0;i<json.length();i++){
+			JSONObject obj=(JSONObject) json.get(i);
+			String pAnimal= obj.getString("idc");
+			Animal a= AnimalFactory.getMiAnimalFactory().crearAnimal(pAnimal);
+			String color= obj.getString("color");
+			EnumColor color2= EnumColor.valueOf(color);
+			Carta c= new Carta(a, color2);
+			ListaCartas manoO=ordenador.devolverMano();
+			manoO.anadirCarta(c);
+		}
+	}
+	
+	public void cargarMazoOrdenador(JSONArray json){
+		for(int i=0;i<json.length();i++){
+			JSONObject obj=(JSONObject) json.get(i);
+			String pAnimal= obj.getString("idc");
+			Animal a= AnimalFactory.getMiAnimalFactory().crearAnimal(pAnimal);
+			String color= obj.getString("color");
+			EnumColor color2= EnumColor.valueOf(color);
+			Carta c= new Carta(a, color2);
+			ListaCartas mazoO=ordenador.devolverMazo();
+			mazoO.anadirCarta(c);
+		}
+	}
+	
+	public void cargarMazoJugador(JSONArray json){
+		for(int i=0;i<json.length();i++){
+			JSONObject obj=(JSONObject) json.get(i);
+			String pAnimal= obj.getString("idc");
+			Animal a= AnimalFactory.getMiAnimalFactory().crearAnimal(pAnimal);
+			String color= obj.getString("color");
+			EnumColor color2= EnumColor.valueOf(color);
+			Carta c= new Carta(a, color2);
+			ListaCartas mazoj=jugador.devolverMazo();
+			mazoj.anadirCarta(c);
+		}
+	}
+	
+	public void cargarBar(JSONArray json){
+		for(int i=0;i<json.length();i++){
+			JSONObject obj=(JSONObject) json.get(i);
+			String pAnimal= obj.getString("idc");
+			Animal a= AnimalFactory.getMiAnimalFactory().crearAnimal(pAnimal);
+			String color= obj.getString("color");
+			EnumColor color2= EnumColor.valueOf(color);
+			Carta c= new Carta(a, color2);
+			Bar.getMiBar().anadirCarta(c);
+			
+		}
+	}
+	
+	public void cargarCola(JSONArray json){
+		for(int i=0;i<json.length();i++){
+			JSONObject obj=(JSONObject) json.get(i);
+			String pAnimal= obj.getString("idc");
+			Animal a= AnimalFactory.getMiAnimalFactory().crearAnimal(pAnimal);
+			String color= obj.getString("color");
+			EnumColor color2= EnumColor.valueOf(color);
+			Carta c= new Carta(a, color2);
+			Tablero.getMiTablero().anadirALaCola(c);
+			
+		}
 	}
 	
 	//DAVID	
