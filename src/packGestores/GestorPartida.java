@@ -119,10 +119,15 @@ public class GestorPartida {
 		String colorJugador= jugador.getColorJugador().toString();
 		String colorOrdenador= ordenador.getColorJugador().toString();
 		
-		SGBD.getSGBD().cargarMazoJugador(idp, colorJugador);
-		SGBD.getSGBD().cargarMazoOrdenador(idp, colorOrdenador);
-		SGBD.getSGBD().cargarManoJugador(idp, colorJugador);
-		SGBD.getSGBD().cargarManoOrdenador(idp, colorOrdenador);
+		JSONArray jsonmazojugador= SGBD.getSGBD().cargarMazoJugador(idp, colorJugador);
+		JSONArray jsonmazoordenador=SGBD.getSGBD().cargarMazoOrdenador(idp, colorOrdenador);
+		JSONArray jsonmanojugador=SGBD.getSGBD().cargarManoJugador(idp, colorJugador);
+		JSONArray jsonmanoordenador=SGBD.getSGBD().cargarManoOrdenador(idp, colorOrdenador);
+		JSONArray jsonbar=SGBD.getSGBD().cargarBar(idp);
+		JSONArray jsoncola=SGBD.getSGBD().cargarCola(idp);
+		
+		
+		
 		
 	}
 	
