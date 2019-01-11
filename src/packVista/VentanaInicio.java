@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 
 public class VentanaInicio extends JFrame {
@@ -17,6 +18,7 @@ public class VentanaInicio extends JFrame {
     private JButton btnRanking;
     private JButton btnCargar;
     private JButton btnConfiguracion;
+    private JLabel labelBar;
 
     /**
      * Create the frame.
@@ -66,11 +68,14 @@ public class VentanaInicio extends JFrame {
         panelMenu.add(btnConfiguracion);
 
         JPanel panelImagenBar = new JPanel();
+        
         contentPane.add(panelImagenBar, BorderLayout.CENTER);
-
-        JLabel labelBar = new JLabel("");
+       
+        
+        labelBar = new JLabel("New label");
         labelBar.setIcon(new ImageIcon(VentanaInicio.class.getResource("/images/Bar.png")));
         panelImagenBar.add(labelBar);
+        
     }
 
     /**
