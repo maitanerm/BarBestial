@@ -76,14 +76,14 @@ public class IURanking extends JFrame {
 		
 		//Boton mejores partidas del dia
 		JButton btnMejoresPartidasDia = new JButton("Mejores partidas del d\u00EDa");
+		
 		panel_1.add(btnMejoresPartidasDia);
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		
 		//Cargar por defecto
-		//datosRanking = BarBestial.getBarBestial().cargarMejoresPartidas();//CAMBIAR
-		datosRanking = BarBestial.getBarBestial().cargarMejoresPartidasDia();//CAMBIAR
+		datosRanking = BarBestial.getBarBestial().cargarMejoresPartidas();//CAMBIAR
 		
 		table = new JTable(datosRanking);
 		header = new JScrollPane(table);
@@ -146,6 +146,26 @@ public class IURanking extends JFrame {
 					setTitle("Mejores partidas");
 					try{
 						datosRanking = BarBestial.getBarBestial().cargarMejoresPartidas();
+						panel.remove(table);
+						panel.remove(header);
+						panel.revalidate();
+						panel.repaint();
+						table = new JTable(datosRanking);
+						header = new JScrollPane(table);
+						panel.add(header, BorderLayout.CENTER);
+						
+					} catch(Exception excep) {
+					}
+				}
+			}
+		});
+		
+		btnMejoresPartidasDia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg5) {
+				if (arg5.getSource()==btnMejoresPartidasDia) {
+					setTitle("Mejores partidas del dia");
+					try{
+						datosRanking = BarBestial.getBarBestial().cargarMejoresPartidasDia();
 						panel.remove(table);
 						panel.remove(header);
 						panel.revalidate();
