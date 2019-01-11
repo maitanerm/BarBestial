@@ -68,7 +68,7 @@ public class VentanaInicio extends JFrame {
         contentPane.add(panelImagenBar, BorderLayout.CENTER);
 
         JLabel labelBar = new JLabel("");
-        labelBar.setIcon(new ImageIcon(VentanaInicio.class.getResource("resources/images/Bar.png")));
+        labelBar.setIcon(new ImageIcon(VentanaInicio.class.getResource("C:/Users/David/workspace/BarBestial/resources/images/Bar.png")));
         panelImagenBar.add(labelBar);
     }
 
