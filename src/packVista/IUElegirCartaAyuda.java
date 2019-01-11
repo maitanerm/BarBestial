@@ -2,6 +2,8 @@ package packVista;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -70,9 +72,20 @@ public class IUElegirCartaAyuda extends JFrame {
 		panel.add(comboBox, "cell 6 4,alignx left,aligny top");
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BarBestial.getBarBestial().insertarEnCola(comboBox.getSelectedItem().toString());
+				dispose();
+			}
+		});
 		panel.add(btnAceptar, "flowx,cell 6 5");
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		panel.add(btnCancelar, "cell 6 5");
 	}
 
