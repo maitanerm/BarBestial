@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.Random;
 
+import org.json.JSONArray;
+
 public class ListaCartas {
     private ArrayList<Carta> lista;
 
@@ -295,4 +297,5 @@ public class ListaCartas {
         }
         return i;
     }
+    
 }

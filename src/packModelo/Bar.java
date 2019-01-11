@@ -1,5 +1,7 @@
 package packModelo;
 
+import static org.junit.Assert.assertArrayEquals;
+
 import java.util.ArrayList;
 
 import org.json.JSONObject;
@@ -71,4 +73,17 @@ public class Bar {
     	}
     	return list;
     }*/
+    
+    public JSONArray getCartasBarOponente() {
+    	JSONArray cartas = new JSONArray();
+    	for (int i = 0; i < lista.obtenerNumeroDeCartas(); i++) {
+    		Carta cartaPos = lista.obtenerCartaEnPosicion(i);
+    		if (cartaPos.getColor() == EnumColor.VERDE) {
+    			JSONObject pos = new JSONObject();
+    			pos.put("carta", cartaPos);
+    			cartas.put(pos);
+    		}
+    	}
+    	return cartas;
+    }
 }

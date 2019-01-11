@@ -54,8 +54,10 @@ public class IUElegirCartaAyuda extends JFrame {
 		comboBox.setToolTipText("Selecciona una carta del oponente");
 		String nombre = "Selecciona una carta del oponente";
 		comboBox.addItem(nombre);
+		
 		//JSON con las cartas
 		JSONArray cartas = BarBestial.getBarBestial().getCartasBarOponente();
+		
 		comboBox.setSelectedIndex(0);
 		panel.add(comboBox, "cell 6 4,alignx left,aligny top");
 	}

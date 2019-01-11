@@ -240,9 +240,7 @@ public class GestorPartida {
 	}
 	
 	public JSONArray getCartasBarOponente() {
-		JSONArray cartas = new JSONArray();
-		
-		return cartas;
+		return Bar.getMiBar().getCartasBarOponente();
 	}
 
 }
