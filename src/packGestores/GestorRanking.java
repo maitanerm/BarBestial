@@ -39,7 +39,8 @@ public class GestorRanking {
 			registro[0] = datos.getString("idJ");
 			registro[1] = datos.getString("idP");
 			registro[2] = datos.getString("puntos");
-			registro[3] = datos.getString("fecha");
+			java.sql.Date f = datos.getDate("fecha");
+			registro[3] = new SimpleDateFormat("dd/MM/yyyy").format(f);
 			tabla.addRow(registro);
 		}
 		return tabla;
@@ -71,7 +72,8 @@ public class GestorRanking {
 			registro[0] = datos.getString("idJ");
 			registro[1] = datos.getString("idP");
 			registro[2] = datos.getString("puntos");
-			registro[3] = datos.getString("fecha");
+			java.sql.Date f = datos.getDate("fecha");
+			registro[3] = new SimpleDateFormat("dd/MM/yyyy").format(f);
 			tabla.addRow(registro);
 		}
 		return tabla;
