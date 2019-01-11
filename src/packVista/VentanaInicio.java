@@ -5,6 +5,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+
 public class VentanaInicio extends JFrame {
 
     private static final long serialVersionUID = 1L;
@@ -68,7 +69,7 @@ public class VentanaInicio extends JFrame {
         contentPane.add(panelImagenBar, BorderLayout.CENTER);
 
         JLabel labelBar = new JLabel("");
-        labelBar.setIcon(new ImageIcon(VentanaInicio.class.getResource("resources/images/Bar.png")));
+        labelBar.setIcon(new ImageIcon(VentanaInicio.class.getResource("/images/Bar.png")));
         panelImagenBar.add(labelBar);
     }
 
