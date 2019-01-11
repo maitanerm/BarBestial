@@ -86,4 +86,8 @@ public class Bar {
     	}
     	return cartas;
     }
+    
+    public void eliminarCarta(Carta pCarta) {
+    	lista.sacarCarta(pCarta);
+    }
 }
