@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.BoxLayout;
+import javax.swing.JLabel;
 
 public class IURanking extends JFrame {
 
@@ -78,6 +79,18 @@ public class IURanking extends JFrame {
 		JButton btnMejoresPartidasDia = new JButton("Mejores partidas del d\u00EDa");
 		
 		panel_1.add(btnMejoresPartidasDia);
+		
+		JLabel lblNewLabel = new JLabel("        ");
+		panel_1.add(lblNewLabel);
+		
+		JButton btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+		        dispose();
+			}
+		});
+		panel_1.add(btnSalir);
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);

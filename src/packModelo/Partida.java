@@ -101,6 +101,7 @@ public class Partida extends Observable {
 
 		/* Notificar a la interfaz */
 		this.notificar("fin-" + infoGanador);
+		
 	}
 
 	// ANDONI
