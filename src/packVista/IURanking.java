@@ -5,8 +5,10 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 import packModelo.Jugador;
 import packPrincipal.BarBestial;
@@ -16,11 +18,13 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
+import javax.swing.BoxLayout;
 
 public class IURanking extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	JScrollPane header;
 	
 	public String column[]={"Id Jugador","Id Partida","Puntuacion","Fecha-Hora"}; 
 	DefaultTableModel datosRanking =null;
@@ -46,8 +50,9 @@ public class IURanking extends JFrame {
 	 */
 	public IURanking() throws Exception {
 		setTitle("Mejores partidas");
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 676, 254);
+		setBounds(100, 100, 650, 270);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -75,14 +80,15 @@ public class IURanking extends JFrame {
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		//Cargar por defecto
-		//datosRanking = BarBestial.getBarBestial().cargarMejoresPartidas();//CAMBIAR
-		datosRanking = BarBestial.getBarBestial().cargarMejoresPartidasDia();//CAMBIAR
-		table = new JTable(datosRanking);      
-		panel.add(table);
+		datosRanking = BarBestial.getBarBestial().cargarMejoresPartidas();//CAMBIAR
+		//datosRanking = BarBestial.getBarBestial().cargarMejoresPartidasDia();//CAMBIAR
 		
+		table = new JTable(datosRanking);
+		header = new JScrollPane(table);
+		panel.add(header, BorderLayout.CENTER);
+	
 		//Funcionalidades de los botones
 		
 		
@@ -102,10 +108,12 @@ public class IURanking extends JFrame {
 				    	//String pIdUsuario =BarBestial.getBarBestial().getIdJugador();
 						datosRanking = BarBestial.getBarBestial().cargarMisMejoresPartidas(pIdUsuario);
 						panel.remove(table);
+						panel.remove(header);
 						panel.revalidate();
 						panel.repaint();
-						table = new JTable(datosRanking);      
-						panel.add(table);
+						table = new JTable(datosRanking);
+						header = new JScrollPane(table);
+						panel.add(header, BorderLayout.CENTER);
 						
 					} catch(Exception excep) {
 					}
@@ -115,15 +123,17 @@ public class IURanking extends JFrame {
 		
 		btnMejoresJugadores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg1) {
-				if (arg1.getSource()==btnMejoresPartidas) {
+				if (arg1.getSource()==btnMejoresJugadores) {
 					setTitle("Mejores jugadores");
 					try{
 						datosRanking = BarBestial.getBarBestial().cargarMejoresJugadores();
 						panel.remove(table);
+						panel.remove(header);
 						panel.revalidate();
 						panel.repaint();
-						table = new JTable(datosRanking);      
-						panel.add(table);
+						table = new JTable(datosRanking);
+						header = new JScrollPane(table);
+						panel.add(header, BorderLayout.CENTER);
 						
 					} catch(Exception excep) {
 					}
@@ -137,10 +147,12 @@ public class IURanking extends JFrame {
 					try{
 						datosRanking = BarBestial.getBarBestial().cargarMejoresPartidas();
 						panel.remove(table);
+						panel.remove(header);
 						panel.revalidate();
 						panel.repaint();
-						table = new JTable(datosRanking);      
-						panel.add(table);
+						table = new JTable(datosRanking);
+						header = new JScrollPane(table);
+						panel.add(header, BorderLayout.CENTER);
 						
 					} catch(Exception excep) {
 					}

@@ -79,12 +79,18 @@ public class GestorRanking {
 
 	// CONSULTAR RANKING MEJORES PARTIDAS DEL DIA (MAITANE)
 	public DefaultTableModel obtenerMejoresPartidasDia() throws Exception {
-		Date fechaI = new Date();
-		String fechaHoy = new SimpleDateFormat("dd-MM-yyyy").format(fechaI);
+		String fechaHoy = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 		String[] registro = new String[4];
 		String[] titulos = { "Id Jugador", "Id Partida", "Puntuacion", "Fecha" };
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
-		String SQL_4 = "SELECT idJ, idP, puntos, fecha FROM puntuacion WHERE fecha = "+ fechaHoy +" ORDER BY puntos DESC LIMIT 10;";
+		//String SQL_4 = "SELECT idJ, idP, puntos, fecha1 FROM puntuacion WHERE fecha1 = CONVERT (date, CURRENT_TIMESTAMP()) ORDER BY puntos DESC LIMIT 10;";
+		String SQL_4 ="Declare @FechaInicio datetime" + 
+		"Declare @FechaFin datetime" + 
+		"SET @FechaInicio = CAST (CONVERT(varchar(8), GetDate(),112) as datetime)" + 
+		"SET @FechaFIN = CAST (CONVERT(varchar(8), GetDate(),112) + ‘ 23:59:59’ as datetime)"+ 
+		"SELECT idJ, idP, puntos, fecha1 " + 
+		"FROM puntuacion" + 
+		"WHERE fecha1 between @FechaInicio and @FechaFIN;";
 		ResultSet datos = SGBD.getSGBD().execQuery(SQL_4);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
