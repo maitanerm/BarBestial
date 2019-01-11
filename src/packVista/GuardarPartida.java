@@ -23,10 +23,11 @@ public class GuardarPartida extends JFrame {
 	private JLabel lblGuardarPartida;
 	private JPanel panel_1;
 	private JButton btnAceptar;
-	private JButton btnCancelar;
+	
 	private JPanel panel_2;
 	private JLabel lblIntroduceIdDe;
 	private JTextField idp;
+	private JButton btnSalir;
 
 	/**
 	 * Launch the application.
@@ -78,7 +79,9 @@ public class GuardarPartida extends JFrame {
 			panel_1 = new JPanel();
 			panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 			panel_1.add(getBtnAceptar());
-			panel_1.add(getBtnCancelar());
+			panel_1.add(getBtnSalir());
+			
+			
 		}
 		return panel_1;
 	}
@@ -88,12 +91,8 @@ public class GuardarPartida extends JFrame {
 		}
 		return btnAceptar;
 	}
-	private JButton getBtnCancelar() {
-		if (btnCancelar == null) {
-			btnCancelar = new JButton("Cancelar");	
-		}
-		return btnCancelar;
-	}
+	
+
 	private JPanel getPanel_2() {
 		if (panel_2 == null) {
 			panel_2 = new JPanel();
@@ -119,16 +118,25 @@ public class GuardarPartida extends JFrame {
 	public void addGuardarVentanaPartidaListener (ActionListener listenForBtnAceptar){
 		btnAceptar.addActionListener(listenForBtnAceptar);
 	}
-	
-	public void addCancelarGuardarPartidaListener (ActionListener listenForBtnCancelar){
-		btnCancelar.addActionListener(listenForBtnCancelar);
-	}
-	
+
 	public String cogerIDPartida(){
 		return this.idp.getText();
 	}
 	public void cerrarVentanaPartida(){
 		System.exit(0);
 	}
+	private JButton getBtnSalir() {
+		if (btnSalir == null) {
+			btnSalir = new JButton("Salir");
+			btnSalir.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					setVisible(false);
+			        dispose();
+				}
+			});
+		}
+		return btnSalir;
+	}
 }
+
 
