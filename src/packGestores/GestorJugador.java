@@ -6,8 +6,10 @@ import java.sql.SQLException;
 import org.json.JSONObject;
 
 import packModelo.EnumColor;
+import packModelo.Jugador;
 import packModelo.JugadorReal;
 import packModelo.Maquina;
+import packModelo.Partida;
 
 public class GestorJugador {
 
@@ -90,5 +92,11 @@ public class GestorJugador {
 		String sqlDatos = "SELECT * FROM jugador WHERE idJ = \" + idJ + \" AND pregunta = \" + preg + \" AND respuesta = \" + res + \"";
 		ResultSet datos = SGBD.getSGBD().execQuery(sqlDatos);
 		return (datos != null);
+	}
+
+	public void actualizarDatosAyuda() {
+		Jugador miJugador = Partida.getMiPartida().obtenerJugadorTurnoActual();
+		miJugador.actualizarPuntos();
+		miJugador.restarAyuda();
 	}
 }
