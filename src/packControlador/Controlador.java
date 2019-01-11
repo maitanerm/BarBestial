@@ -266,6 +266,15 @@ public class Controlador {
 		}
 		
 	}
+	class CargarPartidaInicio implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			cargarPartida.setVisible(true);
+			
+		}	
+	}
 
 	
 	//Controlador para boton ayuda de la VentanaJuego
@@ -285,6 +294,7 @@ public class Controlador {
 		}
 		
 	}
+	
 	
 	
 }

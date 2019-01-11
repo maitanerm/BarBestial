@@ -106,6 +106,10 @@ public class VentanaInicio extends JFrame {
         JOptionPane.showMessageDialog(this,
                 "Introduce un nombre.");
     }
+    
+    public void addCargarPartidaListener(ActionListener listenForBtnCargarInicio){
+    	btnCargar.addActionListener(listenForBtnCargarInicio);
+    }
 
     public void cerrarVentana() {
         setVisible(false);
