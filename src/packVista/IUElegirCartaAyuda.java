@@ -2,9 +2,9 @@ package packVista;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -12,11 +12,9 @@ import javax.swing.border.EmptyBorder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import javax.swing.JComboBox;
 import net.miginfocom.swing.MigLayout;
 import packModelo.Carta;
 import packPrincipal.BarBestial;
-import javax.swing.JButton;
 
 public class IUElegirCartaAyuda extends JFrame {
 
@@ -70,6 +68,14 @@ public class IUElegirCartaAyuda extends JFrame {
 		
 		comboBox.setSelectedIndex(0);
 		panel.add(comboBox, "cell 6 4,alignx left,aligny top");
+		
+		JButton btnAceptar = new JButton("Aceptar");
+	
+		panel.add(btnAceptar, "flowx,cell 6 5");
+		
+		JButton btnCancelar = new JButton("Cancelar");
+
+		panel.add(btnCancelar, "cell 6 5");
 	}
 
 }
