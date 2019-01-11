@@ -150,6 +150,7 @@ public class Partida extends Observable {
 		}
 		return infoGanador;
 	}
+	
 
 	private int obtenerNumeroDeCartasColorEnBar(EnumColor pColor) {
 		return Bar.getMiBar().obtenerNumeroDeCartasColor(pColor);

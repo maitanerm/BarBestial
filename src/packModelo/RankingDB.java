@@ -66,11 +66,9 @@ public class RankingDB {
     public void insertarPuntuacion(String idP, String pNombre, int pNCartas, int pFuerza) {
         try {
         	
-        	
-        	
-        	//MAITANE---------------------------
+        	//MAITANE
 		
-        	int puntos = pNCartas*pFuerza;
+        	int puntos = pFuerza;
         	//insertar en base de datos
         	GestorRanking.getGestorRanking().guardarPuntuacion(pNombre, idP, puntos);
         	
@@ -80,7 +78,7 @@ public class RankingDB {
 
             s = c.createStatement();
             String instruccion = "INSERT INTO Partida (idJ, idP, puntuacion, fechaHora) " +
-                    "VALUES(" + "'" + pNombre + "'" + "," + idP + "," + puntos + "," + "datetime('now')" + ")";
+                    "VALUES(" + "'" + pNombre + "'" + "," + idP + "," + pFuerza + "," + "datetime('now')" + ")";
 
             s.executeUpdate(instruccion);
 

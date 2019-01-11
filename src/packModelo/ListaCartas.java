@@ -184,7 +184,18 @@ public class ListaCartas {
         	fuerza--;
         return fuerza;
     }
-
+    
+    public int obtenerpuntos(EnumColor pColor) {
+        int fuerza = 0;
+        for (Carta c : this.lista) {
+            if (c.getColor().equals(pColor)) {
+                fuerza = fuerza + c.getFuerza();
+            }
+        }
+        if (Partida.getMiPartida().getAyudasUsadas() > 0)
+        	fuerza--;
+        return fuerza;
+    }
     public void sacarTodasLasCartasDeEspecie(String pEspecie) {
         Carta carta;
         Animal animal = AnimalFactory.getMiAnimalFactory().crearAnimal(pEspecie);
