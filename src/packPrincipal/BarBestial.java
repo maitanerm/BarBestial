@@ -112,6 +112,8 @@ public class BarBestial {
     
     public void insertarEnCola(String pNombreCarta) {
     	GestorPartida.getGestorPartida().insertarEnCola(pNombreCarta);
+    	GestorJugador.getGestorJugador().actualizarDatosAyuda();
+    	GestorPartida.getGestorPartida().actualizarAyudasUsadas();
     }
     
     public void guardarPartida(String idp){
