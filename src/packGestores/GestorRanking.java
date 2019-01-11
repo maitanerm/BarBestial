@@ -83,14 +83,14 @@ public class GestorRanking {
 		String[] registro = new String[4];
 		String[] titulos = { "Id Jugador", "Id Partida", "Puntuacion", "Fecha" };
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
-		//String SQL_4 = "SELECT idJ, idP, puntos, fecha1 FROM puntuacion WHERE fecha1 = CONVERT (date, CURRENT_TIMESTAMP()) ORDER BY puntos DESC LIMIT 10;";
-		String SQL_4 ="Declare @FechaInicio datetime" + 
+		String SQL_4 = "SELECT idJ, idP, puntos, fecha FROM puntuacion WHERE fecha <= "+ fechaHoy +" AND fecha >= "+ fechaHoy +" ORDER BY puntos DESC LIMIT 10;";
+		/*String SQL_4 ="Declare @FechaInicio datetime" + 
 		"Declare @FechaFin datetime" + 
 		"SET @FechaInicio = CAST (CONVERT(varchar(8), GetDate(),112) as datetime)" + 
 		"SET @FechaFIN = CAST (CONVERT(varchar(8), GetDate(),112) + ‘ 23:59:59’ as datetime)"+ 
 		"SELECT idJ, idP, puntos, fecha1 " + 
 		"FROM puntuacion" + 
-		"WHERE fecha1 between @FechaInicio and @FechaFIN;";
+		"WHERE fecha1 between @FechaInicio and @FechaFIN;";*/
 		ResultSet datos = SGBD.getSGBD().execQuery(SQL_4);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
