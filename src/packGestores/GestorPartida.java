@@ -242,5 +242,19 @@ public class GestorPartida {
 	public JSONArray getCartasBarOponente() {
 		return Bar.getMiBar().getCartasBarOponente();
 	}
+	
+	public void insertarEnCola(String pNombreCarta) {
+		JSONArray cartas = Bar.getMiBar().getCartasBarOponente();
+		Carta unaCarta = null;
+		int i = 0;
+		boolean enc = false;
+		while (i < cartas.length() && !enc) {
+			JSONObject pos = cartas.getJSONObject(i);
+			unaCarta = (Carta) pos.get("carta");
+			if (unaCarta.getEspecie().equals(pNombreCarta))
+				enc = true;
+			i++;
+		}
+	}
 
 }
