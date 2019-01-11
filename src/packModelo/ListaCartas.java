@@ -180,6 +180,8 @@ public class ListaCartas {
                 fuerza = fuerza + c.getFuerza();
             }
         }
+        if (Partida.getMiPartida().getAyudasUsadas() > 0)
+        	fuerza--;
         return fuerza;
     }
 

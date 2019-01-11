@@ -166,11 +166,6 @@ public abstract class Jugador extends Observable {
     	return !this.mano.vacia();
     }
 
-	public void actualizarPuntos() {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public void restarAyuda() {
 		this.numAyuda--;
 	}

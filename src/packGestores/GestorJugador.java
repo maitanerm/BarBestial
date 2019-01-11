@@ -96,7 +96,6 @@ public class GestorJugador {
 
 	public void actualizarDatosAyuda() {
 		Jugador miJugador = Partida.getMiPartida().obtenerJugadorTurnoActual();
-		miJugador.actualizarPuntos();
 		miJugador.restarAyuda();
 	}
 }
