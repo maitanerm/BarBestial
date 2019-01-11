@@ -107,9 +107,7 @@ public class BarBestial {
     }
     
     public JSONArray getCartasBarOponente() {
-    	JSONArray cartas = new JSONArray();
-    	
-    	return cartas;
+    	return GestorPartida.getGestorPartida().getCartasBarOponente();
     }
     
     public void guardarPartida(String idp){
