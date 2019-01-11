@@ -110,6 +110,10 @@ public class BarBestial {
     	return GestorPartida.getGestorPartida().getCartasBarOponente();
     }
     
+    public void insertarEnCola(String pNombreCarta) {
+    	GestorPartida.getGestorPartida().insertarEnCola(pNombreCarta);
+    }
+    
     public void guardarPartida(String idp){
     	GestorPartida.getGestorPartida().guardarPartida(idp);
     }
