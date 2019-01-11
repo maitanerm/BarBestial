@@ -258,5 +258,9 @@ public class GestorPartida {
 		Bar.getMiBar().eliminarCarta(unaCarta);
 		Tablero.getMiTablero().anadirALaCola(unaCarta);
 	}
+	public void actualizarAyudasUsadas() {
+		Partida.getMiPartida().actualizarAyudasUsadas();
+		
+	}
 
 }
