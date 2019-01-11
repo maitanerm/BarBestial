@@ -8,9 +8,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import javax.swing.JComboBox;
 import net.miginfocom.swing.MigLayout;
+import packModelo.Carta;
 import packPrincipal.BarBestial;
 
 public class IUElegirCartaAyuda extends JFrame {
@@ -57,6 +59,11 @@ public class IUElegirCartaAyuda extends JFrame {
 		
 		//JSON con las cartas
 		JSONArray cartas = BarBestial.getBarBestial().getCartasBarOponente();
+		for (int i = 0; i < cartas.length(); i++) {
+			JSONObject pos = cartas.getJSONObject(i);
+			Carta cartaPos = (Carta) pos.get("carta");
+			comboBox.addItem(cartaPos.getEspecie());
+		}
 		
 		comboBox.setSelectedIndex(0);
 		panel.add(comboBox, "cell 6 4,alignx left,aligny top");
