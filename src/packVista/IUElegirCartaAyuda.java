@@ -14,6 +14,7 @@ import javax.swing.JComboBox;
 import net.miginfocom.swing.MigLayout;
 import packModelo.Carta;
 import packPrincipal.BarBestial;
+import javax.swing.JButton;
 
 public class IUElegirCartaAyuda extends JFrame {
 
@@ -50,7 +51,7 @@ public class IUElegirCartaAyuda extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setToolTipText("");
 		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(new MigLayout("", "[28px][][][][][][]", "[20px][][][][]"));
+		panel.setLayout(new MigLayout("", "[28px][][][][][][]", "[20px][][][][][]"));
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setToolTipText("Selecciona una carta del oponente");
@@ -67,6 +68,12 @@ public class IUElegirCartaAyuda extends JFrame {
 		
 		comboBox.setSelectedIndex(0);
 		panel.add(comboBox, "cell 6 4,alignx left,aligny top");
+		
+		JButton btnAceptar = new JButton("Aceptar");
+		panel.add(btnAceptar, "flowx,cell 6 5");
+		
+		JButton btnCancelar = new JButton("Cancelar");
+		panel.add(btnCancelar, "cell 6 5");
 	}
 
 }
