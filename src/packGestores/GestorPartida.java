@@ -238,5 +238,11 @@ public class GestorPartida {
 	public int getAyudasUsadas() {
 		return Partida.getMiPartida().getAyudasUsadas();
 	}
+	
+	public JSONArray getCartasBarOponente() {
+		JSONArray cartas = new JSONArray();
+		
+		return cartas;
+	}
 
 }
