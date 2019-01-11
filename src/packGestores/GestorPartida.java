@@ -89,6 +89,10 @@ public class GestorPartida {
 		
 		int numAyudasUsadas= Partida.getMiPartida().getAyudasUsadas();
 		String idJ=jugador.getNombre();
+		EnumColor enume=jugador.getColorJugador();
+		String colorJugador= enume.toString();
+		EnumColor enume2= ordenador.getColorJugador();
+		String colorMaquina= enume2.toString();
 		/*
 		JSONArray manoJugador= jugador.crearJsonMano();
 		JSONArray mazoJugador= jugador.crearJsonMazo();
@@ -106,7 +110,7 @@ public class GestorPartida {
 		datos.put(cartasBar);
 		datos.put(cartasCola);*/
 		
-		SGBD.getSGBD().insertarDatosPartida(numAyudasUsadas, idp, idJ);
+		SGBD.getSGBD().insertarDatosPartida(numAyudasUsadas, idp, idJ, colorJugador, colorMaquina);
 		SGBD.getSGBD().insertarCartasManoJugador(datosManoJugador, numAyudasUsadas, idp);
 		SGBD.getSGBD().insertarCartasManoOrdenador(datosManoOrdenador, numAyudasUsadas, idp);
 		SGBD.getSGBD().insertarCartasMazoJugador(datosMazoJugador, numAyudasUsadas, idp);

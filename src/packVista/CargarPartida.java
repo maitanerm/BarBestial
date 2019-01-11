@@ -122,11 +122,11 @@ public class CargarPartida extends JFrame {
 		}
 		return lblPartidas;
 	}
-	public void addGuardarVentanaPartidaListener (ActionListener listenForBtnOkCargar){
+	public void addCargarVentanaPartidaListener (ActionListener listenForBtnOkCargar){
 		btnOk.addActionListener(listenForBtnOkCargar);
 	}
 	
-	public void addCancelarGuardarPartidaListener (ActionListener listenForBtnCancelarCargar){
+	public void addCancelarCargarPartidaListener (ActionListener listenForBtnCancelarCargar){
 		btnCancelar.addActionListener(listenForBtnCancelarCargar);
 	}
 	

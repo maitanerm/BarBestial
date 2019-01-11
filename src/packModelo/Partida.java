@@ -193,12 +193,12 @@ public class Partida extends Observable {
 	}
 
 	public JugadorReal cogerJugador() {
-		JugadorReal j = (JugadorReal) listaJugadores.get(1);
+		JugadorReal j = (JugadorReal) listaJugadores.get(0);
 		return j;
 	}
 
 	public Maquina cogerMaquina() {
-		Maquina m = (Maquina) listaJugadores.get(2);
+		Maquina m = (Maquina) listaJugadores.get(1);
 		return m;
 	}
 

@@ -74,16 +74,18 @@ public class SGBD {
 		}
 		//insertar mazos, manos, cola y bar (falta personalizacion e id de jugador)
 	//DAVID	
-	public void insertarDatosPartida(int numAyudasUsadas, String idp, String idJ){
+	public void insertarDatosPartida(int numAyudasUsadas, String idp, String idJ, String colorJ, String colorM){
 		con=abrirConexion();
 		Date fecha= new Date();
 		try{
 			PreparedStatement pst= con.prepareStatement( 
-					"INSERT INTO partida (idJ, idP, numAyudasUsadas, fechaHora) VALUES (?, ?, ?, ?)");
+					"INSERT INTO partida (idJ, idP,fechaHora, ayudas, colorIA, colorJ) VALUES (?, ?, ?, ?)");
 			pst.setString(1, idJ);
 			pst.setString(2, idp);
-			pst.setInt(3, numAyudasUsadas);
-			pst.setString(4, new SimpleDateFormat("yyyy-MM-dd / hh:mm").format(fecha));
+			pst.setString(3, new SimpleDateFormat("yyyy-MM-dd / hh:mm").format(fecha));
+			pst.setInt(4, numAyudasUsadas);
+			pst.setString(5, colorM);
+			pst.setString(6, colorJ);
 			pst.executeUpdate();
 			JOptionPane.showMessageDialog(null, "LA PARTIDA SE GUARDO CORRECTAMENTE");
 		}catch(SQLException SQLE){
@@ -99,15 +101,14 @@ public class SGBD {
 		for(int i=0;i<datosPartida.length();i++) {
 			try {
 				JSONObject obj=(JSONObject) datosPartida.get(i);
-				String color=obj.getString("colorManoJugador");
-				int fuerza=obj.getInt("fuerzaManoJugador");
+				String color=obj.getString("colorJugadorMano");
+				int fuerza=obj.getInt("fuerzaJugadorMano");
 				PreparedStatement st= con.prepareStatement(
-					"INSERT INTO manojugador (idp, fuerza, color, fecha) VALUES(?,?,?,?)");
+					"INSERT INTO manojugador (idc, idp) VALUES(?,?)");
 							
-				st.setString(1, idp);
-				st.setInt(2, fuerza);
-				st.setString(3, color);
-				st.setString(4, new SimpleDateFormat("yyyy-MM-dd / hh:mm").format(fecha));
+				st.setString(2, idp);
+				st.setInt(1, fuerza);
+				
 				st.executeUpdate();
 				//st.setString(2,  );
 							
@@ -127,12 +128,11 @@ public class SGBD {
 				String color=obj.getString("colorManoOrdenador");
 				int fuerza=obj.getInt("fuerzaManoOrdenador");
 				PreparedStatement st= con.prepareStatement(
-					"INSERT INTO manoordenador (idp, fuerza, color, fecha) VALUES(?,?,?,?)");
+					"INSERT INTO manoordenador (idc, idp) VALUES(?,?)");
 							
-				st.setString(1, idp);
-				st.setInt(2, fuerza);
-				st.setString(3, color);
-				st.setString(4, new SimpleDateFormat("yyyy-MM-dd / hh:mm").format(fecha));
+				st.setString(2, idp);
+				st.setInt(1, fuerza);
+				
 				st.executeUpdate();
 				//st.setString(2,  );
 							
@@ -152,12 +152,11 @@ public class SGBD {
 			String color=obj.getString("colorMazoJugador");
 			int fuerza=obj.getInt("fuerzaMazoJugador");
 			PreparedStatement st= con.prepareStatement(
-				"INSERT INTO mazojugador (idp, fuerza, color, fecha) VALUES(?,?,?,?)");
+				"INSERT INTO mazojugador (idc, idp) VALUES(?,?)");
 							
-			st.setString(1, idp);
-			st.setInt(2, fuerza);
-			st.setString(3, color);
-			st.setString(4, new SimpleDateFormat("yyyy-MM-dd / hh:mm").format(fecha));
+			st.setString(2, idp);
+			st.setInt(1, fuerza);
+			
 			st.executeUpdate();
 			//st.setString(2,  );
 							
@@ -177,12 +176,11 @@ public class SGBD {
 				String color=obj.getString("colorMazoOrdenador");
 				int fuerza=obj.getInt("fuerzaMazoOrdenador");
 				PreparedStatement st= con.prepareStatement(
-					"INSERT INTO mazoordenador (idp, fuerza, color, fecha) VALUES(?,?,?,?)");
+					"INSERT INTO mazoordenador (idc, idp) VALUES(?,?)");
 				
-				st.setString(1, idp);
-				st.setInt(2, fuerza);
-				st.setString(3, color);
-				st.setString(4, new SimpleDateFormat("yyyy-MM-dd / hh:mm").format(fecha));
+				st.setString(2, idp);
+				st.setInt(1, fuerza);
+				
 				st.executeUpdate();
 				//st.setString(2,  );
 				
@@ -202,12 +200,12 @@ public class SGBD {
 				String color=obj.getString("colorBar");
 				int fuerza=obj.getInt("fuerzaBar");
 				PreparedStatement st= con.prepareStatement(
-					"INSERT INTO bar (idp, fuerza, color, fecha) VALUES(?,?,?,?)");
+					"INSERT INTO bar (idc, idp, color) VALUES(?,?)");
 				
-				st.setString(1, idp);
-				st.setInt(2, fuerza);
+				st.setString(2, idp);
+				st.setInt(1, fuerza);
 				st.setString(3, color);
-				st.setString(4, new SimpleDateFormat("yyyy-MM-dd / hh:mm").format(fecha));
+				
 				st.executeUpdate();
 				//st.setString(2,  );
 				
@@ -227,12 +225,12 @@ public class SGBD {
 				String color=obj.getString("colorCola");
 				int fuerza=obj.getInt("fuerzaCola");
 				PreparedStatement st= con.prepareStatement(
-					"INSERT INTO cola (idp, fuerza, color, fecha) VALUES(?,?,?,?)");
+					"INSERT INTO cola (idc, idp, color) VALUES(?,?, ?)");
 				
-				st.setString(1, idp);
-				st.setInt(2, fuerza);
+				st.setString(2, idp);
+				st.setInt(1, fuerza);
 				st.setString(3, color);
-				st.setString(4, new SimpleDateFormat("yyyy-MM-dd / hh:mm").format(fecha));
+				
 				st.executeUpdate();
 				//st.setString(2,  );
 				
@@ -246,7 +244,7 @@ public class SGBD {
 	public JSONObject cargarPartida(String idj) throws SQLException{
 		JSONObject obj= new JSONObject();
 		con= abrirConexion();
-		ResultSet res= execQuery("SELECT idP, numAyudasUsadas FROM partida WHERE idJ="+idj);
+		ResultSet res= execQuery("SELECT idP, ayudas FROM partida WHERE idJ="+idj);
 		String idp=res.getString("idP");
 		String numAyudasUsadas= res.getString("numAyudasUsadas");
 		obj.put("idP", idp);

@@ -3,8 +3,10 @@ package packControlador;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import packGestores.GestorPartida;
@@ -74,6 +76,8 @@ public class Controlador {
 		this.ventanaJuego.addAyudaListener(new AyudaJuegoListener());
 		this.guardarPartida.addGuardarVentanaPartidaListener(new GuardarVentanaPartida());
 		this.guardarPartida.addCancelarGuardarPartidaListener(new CancelarGuardarPartida());
+		this.cargarPartida.addCancelarCargarPartidaListener(new CancelarCargarPartida());
+		this.cargarPartida.addCancelarCargarPartidaListener(new CargarVentanaPartida());
 	}
 	
 	public static Controlador getMiControlador() throws Exception {
@@ -106,6 +110,10 @@ public class Controlador {
 	
 	private void mostrarVentanaGuardarPartida(){
 		this.guardarPartida.setVisible(true);
+	}
+	
+	private void mostrarVentanaCargarPartida(){
+		this.cargarPartida.setVisible(true);
 	}
 	
 	
@@ -218,8 +226,6 @@ public class Controlador {
 		public void actionPerformed(ActionEvent arg0) {
 			mostrarVentanaGuardarPartida();	
 			
-			
-			
 		}
 		
 	}
@@ -229,23 +235,29 @@ public class Controlador {
 		public void actionPerformed(ActionEvent e) {
 			String idp=guardarPartida.cogerIDPartida();
 			BarBestial.getBarBestial().guardarPartida(idp);
-			guardarPartida.cerrarVentanaPartida();
+			mostrarVentanaGuardarPartida();
 			
 			
 		}
 		
 	}
-	
-	class CargarVentanaPartida implements ActionListener{
+
+class CargarVentanaPartida implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String idp=cargarPartida.cogerIDPartida();
-			BarBestial.getBarBestial().cargarPartida(idp);
-			cargarPartida.cerrarVentanaPartidaCargar();
+			try {
+				BarBestial.getBarBestial().cargarPartida(idp);
+			} catch (JSONException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			mostrarVentanaCargarPartida();
 		}
 		
 	}
+
 	
 	class CancelarGuardarPartida implements ActionListener{
 
