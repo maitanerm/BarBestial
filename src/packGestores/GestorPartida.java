@@ -255,6 +255,8 @@ public class GestorPartida {
 				enc = true;
 			i++;
 		}
+		Bar.getMiBar().eliminarCarta(unaCarta);
+		Tablero.getMiTablero().anadirALaCola(unaCarta);
 	}
 
 }
