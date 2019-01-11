@@ -2,6 +2,8 @@ package packVista;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -54,9 +56,6 @@ public class IUElegirCartaAyuda extends JFrame {
 		panel.setLayout(new MigLayout("", "[28px][][][][][][]", "[20px][][][][][]"));
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setToolTipText("Selecciona una carta del oponente");
-		String nombre = "Selecciona una carta del oponente";
-		comboBox.addItem(nombre);
 		
 		//JSON con las cartas
 		JSONArray cartas = BarBestial.getBarBestial().getCartasBarOponente();
@@ -70,11 +69,20 @@ public class IUElegirCartaAyuda extends JFrame {
 		panel.add(comboBox, "cell 6 4,alignx left,aligny top");
 		
 		JButton btnAceptar = new JButton("Aceptar");
-	
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BarBestial.getBarBestial().insertarEnCola(comboBox.getSelectedItem().toString());
+				dispose();
+			}
+		});
 		panel.add(btnAceptar, "flowx,cell 6 5");
 		
 		JButton btnCancelar = new JButton("Cancelar");
-
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		panel.add(btnCancelar, "cell 6 5");
 	}
 
