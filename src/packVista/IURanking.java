@@ -83,29 +83,29 @@ public class IURanking extends JFrame {
 		contentPane.add(panel, BorderLayout.CENTER);
 		
 		//Cargar por defecto
-		datosRanking = BarBestial.getBarBestial().cargarMejoresPartidas();//CAMBIAR
+		datosRanking = BarBestial.getBarBestial().cargarMejoresPartidas();
 		
 		table = new JTable(datosRanking);
 		header = new JScrollPane(table);
 		panel.add(header, BorderLayout.CENTER);
 	
+		
 		//Funcionalidades de los botones
-		
-		
 		
 		btnMisMejoresPartidas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg2) {
 				if (arg2.getSource()==btnMisMejoresPartidas) {
 					setTitle("Mis mejores partidas");
 					try{
+						
 						//**********************************************
 						//**********************************************
 				    	//*****Para realizar la prueba de funcionamiento 
-				    	String pIdUsuario ="1";
+				    	//String pIdUsuario ="1";
 				    	//**********************************************
 				    	//**********************************************
 				    	
-				    	//String pIdUsuario =BarBestial.getBarBestial().getIdJugador();
+				    	String pIdUsuario =BarBestial.getBarBestial().getIdJugador();
 						datosRanking = BarBestial.getBarBestial().cargarMisMejoresPartidas(pIdUsuario);
 						panel.remove(table);
 						panel.remove(header);
