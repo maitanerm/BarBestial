@@ -62,10 +62,9 @@ public class SGBD {
 			try {
 				String p = Integer.toString(puntos);
 				PreparedStatement pst = con.prepareStatement(
-						"INSERT INTO puntuacion(idJ, idP, puntos, fecha) VALUES (?,?,?,DATE())");
+						"INSERT INTO puntuacion(idJ, puntos, fecha) VALUES (?,?,DATE())");
 				pst.setString(1, idJ);
-				pst.setString(2, idP);
-				pst.setString(3, p);
+				pst.setString(2, p);
 				pst.executeUpdate();
 				JOptionPane.showMessageDialog(null, "LA PUNTUACION SE AGREGO CON EXITO A LA BD");
 			} catch (SQLException SQLE) {

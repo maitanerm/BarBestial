@@ -31,16 +31,15 @@ public class GestorRanking {
 	// CONSULTAR RANKING MEJORES PARTIDAS (MAITANE)
 	public DefaultTableModel obtenerMejoresPartidas() throws Exception {
 		String[] registro = new String[4];
-		String[] titulos = { "Id Jugador", "Id Partida", "Puntuacion", "Fecha" };
+		String[] titulos = { "Id Jugador", "Puntuacion", "Fecha" };
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
-		String SQL_1 = "SELECT idJ, idP, puntos, fecha FROM puntuacion ORDER BY puntos DESC LIMIT 10;";
+		String SQL_1 = "SELECT idJ, puntos, fecha FROM puntuacion ORDER BY puntos DESC LIMIT 10;";
 		ResultSet datos = SGBD.getSGBD().execQuery(SQL_1);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
-			registro[1] = datos.getString("idP");
-			registro[2] = datos.getString("puntos");
+			registro[1] = datos.getString("puntos");
 			java.sql.Date f = datos.getDate("fecha");
-			registro[3] = new SimpleDateFormat("dd/MM/yyyy").format(f);
+			registro[2] = new SimpleDateFormat("dd/MM/yyyy").format(f);
 			tabla.addRow(registro);
 		}
 		return tabla;
@@ -64,16 +63,15 @@ public class GestorRanking {
 	// CONSULTAR RANKING MIS MEJORES PARTIDAS (MAITANE)
 	public DefaultTableModel obtenerMisMejoresPartidas(String pIdUsuario) throws Exception {
 		String[] registro = new String[4];
-		String[] titulos = { "Id Jugador", "Id Partida", "Puntuacion", "Fecha" };
+		String[] titulos = { "Id Jugador", "Puntuacion", "Fecha" };
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
-		String SQL_3 = "SELECT idJ,  idP, puntos, fecha FROM puntuacion WHERE idJ =" + pIdUsuario + " ORDER BY puntos DESC LIMIT 10;";
+		String SQL_3 = "SELECT idJ, puntos, fecha FROM puntuacion WHERE idJ =" + pIdUsuario + " ORDER BY puntos DESC LIMIT 10;";
 		ResultSet datos = SGBD.getSGBD().execQuery(SQL_3);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
-			registro[1] = datos.getString("idP");
-			registro[2] = datos.getString("puntos");
+			registro[1] = datos.getString("puntos");
 			java.sql.Date f = datos.getDate("fecha");
-			registro[3] = new SimpleDateFormat("dd/MM/yyyy").format(f);
+			registro[2] = new SimpleDateFormat("dd/MM/yyyy").format(f);
 			tabla.addRow(registro);
 		}
 		return tabla;
@@ -83,16 +81,15 @@ public class GestorRanking {
 	public DefaultTableModel obtenerMejoresPartidasDia() throws Exception {
 		String fechaHoy = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 		String[] registro = new String[4];
-		String[] titulos = { "Id Jugador", "Id Partida", "Puntuacion", "Fecha" };
+		String[] titulos = { "Id Jugador", "Puntuacion", "Fecha" };
 		DefaultTableModel tabla = new DefaultTableModel(null, titulos);
-		String SQL_4 = "SELECT idJ, idP, puntos, fecha FROM puntuacion WHERE fecha = DATE() ORDER BY puntos DESC LIMIT 10;";
+		String SQL_4 = "SELECT idJ, puntos, fecha FROM puntuacion WHERE fecha = DATE() ORDER BY puntos DESC LIMIT 10;";
 		ResultSet datos = SGBD.getSGBD().execQuery(SQL_4);
 		while (datos.next()) {
 			registro[0] = datos.getString("idJ");
-			registro[1] = datos.getString("idP");
-			registro[2] = datos.getString("puntos");
+			registro[1] = datos.getString("puntos");
 			java.sql.Date f = datos.getDate("fecha");
-			registro[3] = new SimpleDateFormat("dd/MM/yyyy").format(f);
+			registro[2] = new SimpleDateFormat("dd/MM/yyyy").format(f);
 			tabla.addRow(registro);
 		}
 		return tabla;
