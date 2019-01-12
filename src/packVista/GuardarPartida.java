@@ -6,9 +6,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import packControlador.Controlador.CancelarGuardarPartida;
-
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.FlowLayout;
@@ -140,11 +137,6 @@ public class GuardarPartida extends JFrame {
 	}
 	public void cerrarVentanaPartida(){
 		System.exit(0);
-	}
-
-	public void addCancelarGuardarPartidaListener(CancelarGuardarPartida cancelarGuardarPartida) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 }

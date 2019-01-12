@@ -72,7 +72,6 @@ public class Controlador {
 		this.ventanaJuego.desactivarBotonSiguiente();
 		this.ventanaJuego.addAyudaListener(new AyudaJuegoListener());
 		this.guardarPartida.addGuardarVentanaPartidaListener(new GuardarVentanaPartida());
-		this.guardarPartida.addCancelarGuardarPartidaListener(new CancelarGuardarPartida());
 		this.cargarPartida.addCancelarCargarPartidaListener(new CancelarCargarPartida());
 		this.cargarPartida.addCancelarCargarPartidaListener(new CargarVentanaPartida());
 	}
@@ -246,9 +245,6 @@ class CargarVentanaPartida implements ActionListener{
 			try {
 				BarBestial.getBarBestial().cargarPartida(idp);
 			} catch (JSONException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}

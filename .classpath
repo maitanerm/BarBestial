@@ -29,7 +29,5 @@
 	<classpathentry kind="lib" path="C:/Users/MAITANE/Documents/GitHub/BarBestial/jgoodies-forms-1.8.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/MAITANE/Documents/GitHub/BarBestial/jgoodies-forms-1.8.0-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/MAITANE/Documents/GitHub/BarBestial/miglayout-src.zip"/>
-	<classpathentry kind="lib" path="C:/Users/David/Downloads/junit.jar"/>
-	<classpathentry kind="lib" path="C:/Users/David/Downloads/junit-4.13-beta-1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
