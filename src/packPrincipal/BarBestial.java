@@ -76,38 +76,6 @@ public class BarBestial {
     	return info;
     }
 
-	//ENERITZ
-    public boolean registro (JSONObject obj1) {
-    	if (GestorJugador.getGestorJugador().comprobarId(obj1.getString("idJ"))){
-    		GestorJugador.getGestorJugador().registrar(obj1);
-    		return true;
-    	}else {
-    		return false;
-    	}
-    }
-    
-    public boolean inicioSesion (String idJ, String pass) {
-    	if (GestorJugador.getGestorJugador().comprobarPass(idJ, pass)) {
-    		GestorJugador.getGestorJugador().inicioSesion(idJ);
-    		return true;
-    	}else {
-    		return false;
-    	}
-    }
-    
-    public boolean cambiar (JSONObject obj2) {
-    	String idJ = obj2.getString("idJ");
-    	if (GestorJugador.getGestorJugador().comprobarPass(idJ, obj2.getString("password"))) {
-    		GestorJugador.getGestorJugador().cambiar(idJ, obj2.getString("newPass"));
-    		return true;
-    	}else{
-    		return false;
-    	}
-    }
-    
-    public boolean recuperar (JSONObject obj3) { 
-    	return GestorJugador.getGestorJugador().comprobarDatos(obj3);
-    }
     
     public JSONArray getCartasBarOponente() {
     	return GestorPartida.getGestorPartida().getCartasBarOponente();

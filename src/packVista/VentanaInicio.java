@@ -4,8 +4,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.net.URL;
-
 
 public class VentanaInicio extends JFrame {
 
@@ -18,7 +16,6 @@ public class VentanaInicio extends JFrame {
     private JButton btnRanking;
     private JButton btnCargar;
     private JButton btnConfiguracion;
-    private JLabel labelBar;
 
     /**
      * Create the frame.
@@ -68,14 +65,11 @@ public class VentanaInicio extends JFrame {
         panelMenu.add(btnConfiguracion);
 
         JPanel panelImagenBar = new JPanel();
-        
         contentPane.add(panelImagenBar, BorderLayout.CENTER);
-       
-        
-        labelBar = new JLabel("New label");
+
+        JLabel labelBar = new JLabel("");
         labelBar.setIcon(new ImageIcon(VentanaInicio.class.getResource("/images/Bar.png")));
         panelImagenBar.add(labelBar);
-        
     }
 
     /**
@@ -112,10 +106,6 @@ public class VentanaInicio extends JFrame {
         JOptionPane.showMessageDialog(this,
                 "Introduce un nombre.");
     }
-    
-    public void addCargarPartidaListener(ActionListener listenForBtnCargarInicio){
-    	btnCargar.addActionListener(listenForBtnCargarInicio);
-    }
 
     public void cerrarVentana() {
         setVisible(false);
@@ -123,3 +113,4 @@ public class VentanaInicio extends JFrame {
     }
 
 }
+
