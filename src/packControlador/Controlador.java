@@ -52,7 +52,7 @@ public class Controlador {
 		this.rankingDB = RankingDB.getRankingDB();
 		
 		this.ventanaInicio = new VentanaInicio();
-		this.ventanaJuego = new VentanaJuego(BarBestial.getBarBestial().getPersonalizacionActualDatos());
+		this.ventanaJuego = new VentanaJuego();
 		this.ventanaAyuda = new VentanaAyuda();
 		this.ventanaError = new Error();
 		 //MAITANE
@@ -87,6 +87,7 @@ public class Controlador {
 		ventanaPersonalizacion.addListeners(new SeleccionarPersonalizacion(), new MostrarVentanaPersonalizacionCrear(), new BorrarPersonalizacion(), new CerrarVentanaPersonalizacion());
 		ventanaPersonalizacionCrear = new VentanaPersonalizacionCrear();
 		ventanaPersonalizacionCrear.addListeners(new CrearPersonalizacion(), new CerrarVentanaPersonalizacionCrear());
+		ventanaJuego.actualizarImagenes(BarBestial.getBarBestial().getPersonalizacionActualDatos());
 		
 	}
 	
