@@ -52,6 +52,7 @@ public class Controlador {
 		this.ventanaAyuda = new VentanaAyuda();
 		this.ventanaError = new Error();
 		 //MAITANE
+		String idJ ="1";
 		this.ventanaRanking = new IURanking();
 
 		//david
