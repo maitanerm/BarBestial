@@ -120,11 +120,12 @@ public class IURanking extends JFrame {
 						//**********************************************
 						//**********************************************
 				    	//*****Para realizar la prueba de funcionamiento 
-						// String pIdUsuario ="1";
+						 String pIdUsuario ="1";
 				    	//**********************************************
 				    	//**********************************************
 				    	
-				    	String pIdUsuario =BarBestial.getBarBestial().getIdJugador();
+				    	//String pIdUsuario =BarBestial.getBarBestial().getIdJugador();
+				    	System.out.println("El usuario "+pIdUsuario);
 						datosRanking = BarBestial.getBarBestial().cargarMisMejoresPartidas(pIdUsuario);
 						panel.remove(table);
 						panel.remove(header);
