@@ -16,7 +16,6 @@ import packModelo.RankingDB;
 import packModelo.Tablero;
 import packPrincipal.BarBestial;
 import packVista.GuardarPartida;
-import packVista.IUAcceder;
 import packVista.IURanking;
 import packVista.VentanaAyuda;
 import packVista.VentanaInicio;
