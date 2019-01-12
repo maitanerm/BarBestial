@@ -53,7 +53,7 @@ public class IURanking extends JFrame {
 		setTitle("Mejores partidas");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 650, 270);
+		setBounds(100, 100, 725, 270);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -81,13 +81,21 @@ public class IURanking extends JFrame {
 		panel_1.add(btnMejoresPartidasDia);
 		
 		JLabel lblNewLabel = new JLabel("        ");
-		panel_1.add(lblNewLabel);
+		//panel_1.add(lblNewLabel);
 		
 		JButton btnSalir = new JButton("Salir");
 		btnSalir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				setVisible(false);
-		        dispose();
+			public void actionPerformed(ActionEvent argS) {
+				if (argS.getSource()==btnSalir) {
+					setTitle("Mejores jugadores");
+					try{
+						setVisible(false);
+				        dispose();
+						
+					} catch(Exception excep) {
+					}
+				}
+				
 			}
 		});
 		panel_1.add(btnSalir);
