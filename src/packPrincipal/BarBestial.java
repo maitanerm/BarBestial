@@ -94,4 +94,19 @@ public class BarBestial {
     public void cargarPartida(String idp) throws JSONException, SQLException{
     	GestorPartida.getGestorPartida().cargarPartida();
     }
+	
+	//Imanol
+	public void desactivarConfiguracion() {
+	   GestorJugador.getGestorJugador().desactivarConfiguracion();
+	}
+	public void seleccionarConfiguracion(String s) {
+		GestorJugador.getGestorJugador().seleccionarConfiguracion(s);
+	}
+	public void crearConfiguracion(String s) {
+		GestorJugador.getGestorJugador().crearConfiguracion(s);
+	}
+	public void borrarConfiguracion(String s) {
+		GestorJugador.getGestorJugador().borrarConfiguracion(s);
+	}
+    
 }

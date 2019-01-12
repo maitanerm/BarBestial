@@ -42,6 +42,10 @@ public class Controlador {
 	private GuardarPartida guardarPartida;
 	private CargarPartida cargarPartida;
 	
+	//Imanol
+	private VentanaConfiguracion ventanaConfiguracion;
+	private VentanaCrearConfiguracion ventanaCrearConfiguracion;
+	
 	public Controlador() throws Exception {
 		this.partida = Partida.getMiPartida();
 		this.tablero = Tablero.getMiTablero();
@@ -58,6 +62,10 @@ public class Controlador {
 		//david
 		this.guardarPartida = new GuardarPartida();
 		this.cargarPartida = new CargarPartida();
+		
+		//Imanol
+		this.ventanaConfiguracion = new VentanaConfiguracion();
+		this.ventanaCrearConfiguracion = new VentanaCrearConfiguracion();
 		
 		/* Listeners VentanaInicio */
 		this.ventanaInicio.addJugarListener(new JugarListener());
@@ -116,6 +124,13 @@ public class Controlador {
 		this.cargarPartida.setVisible(true);
 	}
 	
+	//Imanol
+	private void mostrarVentanaConfiguracion() {
+		this.ventanaConfiguracion.setVisible(true);
+	}
+	private void mostrarVentanaCrearConfiguracion() {
+		this.ventanaCrearConfiguracion.setVisible(true);
+	}
 	
 	private void setUpObservers() {
 		ArrayList<Jugador> jugadores = this.partida.obtenerJugadores();
@@ -308,6 +323,18 @@ class CargarVentanaPartida implements ActionListener{
 		
 	}
 	
-	
+	//Imanol
+	class VentanaConfiguracionListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			mostrarVentanaConfiguracion();
+		}
+	}
+	class VentanaCrearConfiguracionListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			mostrarVentanaCrearConfiguracion();
+		}
+	}
 	
 }

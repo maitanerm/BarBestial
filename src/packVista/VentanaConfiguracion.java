@@ -1,13 +1,11 @@
 package packVista;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,7 +16,7 @@ public class VentanaConfiguracion extends JFrame {
 
 	private JPanel contentPane;
 
-	private JButton btnReiniciar;
+	private JButton btnDesactivar;
 	private JButton btnSeleccionar;
 	private JButton btnCrear;
 	private JButton btnBorrar;
@@ -52,17 +50,19 @@ public class VentanaConfiguracion extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnReiniciar = new JButton("Reiniciar");
-		btnReiniciar.addActionListener(new ActionListener() {
+		btnDesactivar = new JButton("Desactivar");
+		btnDesactivar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 			}
 		});
-		btnReiniciar.setBounds(10, 221, 110, 30);
-		contentPane.add(btnReiniciar);
+		btnDesactivar.setBounds(10, 221, 110, 30);
+		contentPane.add(btnDesactivar);
 		
 		btnSeleccionar = new JButton("Seleccionar");
 		btnSeleccionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		btnSeleccionar.setBounds(130, 221, 110, 30);
@@ -71,11 +71,11 @@ public class VentanaConfiguracion extends JFrame {
 		btnCrear = new JButton("Crear");
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		btnCrear.setBounds(250, 221, 110, 30);
 		contentPane.add(btnCrear);
-		
 		
 		DefaultListModel listModel = new DefaultListModel();
 		listModel.addElement("Configuración de ejemplo 1");
@@ -86,10 +86,19 @@ public class VentanaConfiguracion extends JFrame {
 		list.setBounds(10, 11, 470, 191);
 		contentPane.add(list);
 		
-		JButton btnBorrar = new JButton("Borrar");
+		btnBorrar = new JButton("Borrar");
+		btnBorrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnBorrar.setBounds(370, 221, 110, 30);
 		contentPane.add(btnBorrar);
 		
+	}
+	
+	public void cerrar(){
+		System.exit(0);
 	}
 
 }
