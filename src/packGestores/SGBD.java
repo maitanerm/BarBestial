@@ -57,14 +57,15 @@ public class SGBD {
 	
 	// INSERTAR PUNTUACION MAITANE
 		
-		public void insertarPuntuacion(String pNombre, String idP, int puntos) {			
+		public void insertarPuntuacion(String idJ, String idP, int puntos) {			
 			con = abrirConexion();
 			try {
+				String p = Integer.toString(puntos);
 				PreparedStatement pst = con.prepareStatement(
 						"INSERT INTO puntuacion(idJ, idP, puntos, fecha) VALUES (?,?,?,DATE())");
-				pst.setString(1, pNombre);
+				pst.setString(1, idJ);
 				pst.setString(2, idP);
-				pst.setInt(3, puntos);
+				pst.setString(3, p);
 				pst.executeUpdate();
 				JOptionPane.showMessageDialog(null, "LA PUNTUACION SE AGREGO CON EXITO A LA BD");
 			} catch (SQLException SQLE) {
