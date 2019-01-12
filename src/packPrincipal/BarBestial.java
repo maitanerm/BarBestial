@@ -95,7 +95,11 @@ public class BarBestial {
     	GestorPartida.getGestorPartida().cargarPartida();
     }
 	
-	//Imanol
+    //Imanol - Get
+    public JSONArray getListaPersonalizaciones() throws SQLException {
+    	return GestorJugador.getGestorJugador().getListaPersonalizaciones();
+    }
+	//Imanol - Set
 	public void desactivarPersonalizacion() {
 	   GestorJugador.getGestorJugador().desactivarPersonalizacion();
 	}

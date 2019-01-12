@@ -431,7 +431,17 @@ public class SGBD {
 
 	
 
-	//Imanol
+	//Imanol - Get
+	public JSONArray getListaPersonalizaciones(String idJ) throws SQLException {
+		JSONArray json= new JSONArray();
+		con = abrirConexion();
+		String query = "SELECT idPer FROM Personalizacion WHERE idJ='" + idJ + "'";
+		ResultSet res = execQuery(query);
+		while (res.next()){
+			json.put(res.getString("idPer"));
+		}
+		return json;
+	}
 	public String getPersonalizacionActual(String idJ) throws SQLException {
 		String personalizacion = "";
 		con = abrirConexion();
@@ -446,7 +456,7 @@ public class SGBD {
 		return personalizacion;
 	}
 	public JSONObject getPersonalizacionActualDatos(String idPer) throws SQLException {
-		JSONObject json= new JSONObject();
+		JSONObject json = new JSONObject();
 		con = abrirConexion();
 		String query = "SELECT puntos, imagen FROM Carta WHERE idPer='" + idPer + "'";
 		ResultSet res = execQuery(query);

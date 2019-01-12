@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import org.json.JSONArray;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,6 +24,7 @@ public class VentanaPersonalizacion extends JFrame {
 	private JButton btnBorrar;
 	private JButton btnCancelar;
 	
+	DefaultListModel<String> listModel;
 	private JList<String> list;
 
 	/**
@@ -88,7 +92,7 @@ public class VentanaPersonalizacion extends JFrame {
 		btnCancelar.setBounds(370, 221, 110, 30);
 		contentPane.add(btnCancelar);
 		
-		DefaultListModel<String> listModel = new DefaultListModel<String>();
+		listModel = new DefaultListModel<String>();
 		listModel.addElement("Ninguna");
 		
 		list = new JList<String>(listModel);
@@ -104,6 +108,13 @@ public class VentanaPersonalizacion extends JFrame {
 		btnCrear.addActionListener(b);
 		btnBorrar.addActionListener(c);
 		btnCancelar.addActionListener(d);
+	}
+	
+	public void actualizarLista(JSONArray json) {
+		int i;
+		for(i = 0; i < json.length(); i = i + 1){
+			listModel.addElement(json.getString(i));
+		}
 	}
 
 	public String getSeleccionLista() {

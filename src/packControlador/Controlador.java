@@ -321,6 +321,12 @@ class CargarVentanaPartida implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			ventanaPersonalizacion.setVisible(true);
+			try {
+				ventanaPersonalizacion.actualizarLista(BarBestial.getBarBestial().getListaPersonalizaciones());
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 	}
 	class SeleccionarPersonalizacion implements ActionListener {
