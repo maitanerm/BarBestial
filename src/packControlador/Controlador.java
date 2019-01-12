@@ -72,6 +72,7 @@ public class Controlador {
 		this.ventanaJuego.desactivarBotonSiguiente();
 		this.ventanaJuego.addAyudaListener(new AyudaJuegoListener());
 		this.guardarPartida.addGuardarVentanaPartidaListener(new GuardarVentanaPartida());
+		this.guardarPartida.addCancelarGuardarPartidaListener(new CancelarGuardarPartida());
 		this.cargarPartida.addCancelarCargarPartidaListener(new CancelarCargarPartida());
 		this.cargarPartida.addCancelarCargarPartidaListener(new CargarVentanaPartida());
 	}
@@ -257,11 +258,9 @@ class CargarVentanaPartida implements ActionListener{
 	}
 
 	
-	class CancelarGuardarPartida implements ActionListener{
-
+	public class CancelarGuardarPartida implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
 			guardarPartida.cerrarVentanaPartida();
 		}
 		

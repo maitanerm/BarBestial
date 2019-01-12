@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import packControlador.Controlador.CancelarGuardarPartida;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.FlowLayout;
@@ -131,13 +134,18 @@ public class GuardarPartida extends JFrame {
 	public void addGuardarVentanaPartidaListener (ActionListener listenForBtnAceptar){
 		btnAceptar.addActionListener(listenForBtnAceptar);
 	}
-
+	public void addCancelarGuardarPartidaListener(ActionListener cancelarGuardarPartida) {
+		btnSalir.addActionListener(cancelarGuardarPartida);
+			
+		}
 	public String cogerIDPartida(){
 		return this.idp.getText();
 	}
 	public void cerrarVentanaPartida(){
 		System.exit(0);
 	}
+
+	
 	
 }
 
