@@ -4,14 +4,24 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 
 public class VentanaConfiguracion extends JFrame {
 
 	private JPanel contentPane;
+
+	private JButton btnReiniciar;
+	private JButton btnSeleccionar;
+	private JButton btnCrear;
+	private JButton btnBorrar;
 
 	/**
 	 * Launch the application.
@@ -33,28 +43,53 @@ public class VentanaConfiguracion extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaConfiguracion() {
+		
+		setTitle("Configuraci\u00F3n");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 510, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(new GridLayout(1, 0, 0, 0));
+		JButton btnReiniciar = new JButton("Reiniciar");
+		btnReiniciar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnReiniciar.setBounds(10, 221, 110, 30);
+		contentPane.add(btnReiniciar);
 		
-		JButton btnNewButton_3 = new JButton("conf1");
-		panel.add(btnNewButton_3);
+		btnSeleccionar = new JButton("Seleccionar");
+		btnSeleccionar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnSeleccionar.setBounds(130, 221, 110, 30);
+		contentPane.add(btnSeleccionar);
 		
-		JButton btnNewButton_2 = new JButton("conf2");
-		panel.add(btnNewButton_2);
+		btnCrear = new JButton("Crear");
+		btnCrear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnCrear.setBounds(250, 221, 110, 30);
+		contentPane.add(btnCrear);
 		
-		JButton btnNewButton_1 = new JButton("conf3");
-		panel.add(btnNewButton_1);
 		
-		JButton btnNewButton = new JButton("conf4");
-		panel.add(btnNewButton);
+		DefaultListModel listModel = new DefaultListModel();
+		listModel.addElement("Configuración de ejemplo 1");
+		listModel.addElement("Configuración de ejemplo 2");
+		listModel.addElement("Configuración de ejemplo 3");
+		
+		JList list = new JList(listModel);
+		list.setBounds(10, 11, 470, 191);
+		contentPane.add(list);
+		
+		JButton btnBorrar = new JButton("Borrar");
+		btnBorrar.setBounds(370, 221, 110, 30);
+		contentPane.add(btnBorrar);
+		
 	}
 
 }
