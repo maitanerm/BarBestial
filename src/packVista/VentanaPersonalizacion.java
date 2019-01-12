@@ -16,11 +16,12 @@ public class VentanaPersonalizacion extends JFrame {
 
 	private JPanel contentPane;
 
-	private JButton btnDesactivar;
 	private JButton btnSeleccionar;
 	private JButton btnCrear;
 	private JButton btnBorrar;
 	private JButton btnCancelar;
+	
+	private JList<String> list;
 
 	/**
 	 * Launch the application.
@@ -45,20 +46,11 @@ public class VentanaPersonalizacion extends JFrame {
 		
 		setTitle("Configuraci\u00F3n");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 510, 339);
+		setBounds(100, 100, 510, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		btnDesactivar = new JButton("Desactivar");
-		btnDesactivar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
-		});
-		btnDesactivar.setBounds(10, 221, 110, 30);
-		contentPane.add(btnDesactivar);
 		
 		btnSeleccionar = new JButton("Seleccionar");
 		btnSeleccionar.addActionListener(new ActionListener() {
@@ -66,7 +58,7 @@ public class VentanaPersonalizacion extends JFrame {
 				
 			}
 		});
-		btnSeleccionar.setBounds(130, 221, 110, 30);
+		btnSeleccionar.setBounds(10, 221, 110, 30);
 		contentPane.add(btnSeleccionar);
 		
 		btnCrear = new JButton("Crear");
@@ -75,17 +67,8 @@ public class VentanaPersonalizacion extends JFrame {
 				
 			}
 		});
-		btnCrear.setBounds(250, 221, 110, 30);
+		btnCrear.setBounds(130, 221, 110, 30);
 		contentPane.add(btnCrear);
-		
-		DefaultListModel listModel = new DefaultListModel();
-		listModel.addElement("Configuración de ejemplo 1");
-		listModel.addElement("Configuración de ejemplo 2");
-		listModel.addElement("Configuración de ejemplo 3");
-		
-		JList list = new JList(listModel);
-		list.setBounds(10, 11, 470, 191);
-		contentPane.add(list);
 		
 		btnBorrar = new JButton("Borrar");
 		btnBorrar.addActionListener(new ActionListener() {
@@ -93,7 +76,7 @@ public class VentanaPersonalizacion extends JFrame {
 				
 			}
 		});
-		btnBorrar.setBounds(370, 221, 110, 30);
+		btnBorrar.setBounds(250, 221, 110, 30);
 		contentPane.add(btnBorrar);
 
 		btnCancelar = new JButton("Cancelar");
@@ -102,17 +85,29 @@ public class VentanaPersonalizacion extends JFrame {
 				
 			}
 		});
-		btnCancelar.setBounds(140, 262, 110, 30);
+		btnCancelar.setBounds(370, 221, 110, 30);
 		contentPane.add(btnCancelar);
+		
+		DefaultListModel<String> listModel = new DefaultListModel<String>();
+		listModel.addElement("Ninguna");
+		
+		list = new JList<String>(listModel);
+		list.setSelectedIndex(0);
+		//TODO: Añadir el resto sacándolos de la base de datos
+		list.setBounds(10, 11, 470, 191);
+		contentPane.add(list);
 		
 	}
 
-	public void addListeners(ActionListener a, ActionListener b, ActionListener c, ActionListener d, ActionListener e) {
-		btnDesactivar.addActionListener(a);
-		btnSeleccionar.addActionListener(b);
-		btnCrear.addActionListener(c);
-		btnBorrar.addActionListener(d);
-		btnCancelar.addActionListener(e);
+	public void addListeners(ActionListener a, ActionListener b, ActionListener c, ActionListener d) {
+		btnSeleccionar.addActionListener(a);
+		btnCrear.addActionListener(b);
+		btnBorrar.addActionListener(c);
+		btnCancelar.addActionListener(d);
+	}
+
+	public String getSeleccionado() {
+		return list.getSelectedValue().toString();
 	}
 	
 	public void cerrarVentana(){

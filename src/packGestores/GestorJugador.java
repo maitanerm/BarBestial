@@ -3,6 +3,7 @@ package packGestores;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import packModelo.EnumColor;
@@ -45,4 +46,43 @@ public class GestorJugador {
 		Jugador miJugador = Partida.getMiPartida().obtenerJugadorTurnoActual();
 		miJugador.restarAyuda();
 	}
+	
+	//Imanol
+	public void desactivarPersonalizacion() {
+		String query;
+		JSONObject info = jugador.getInfo();
+		String nombre = info.getString("nombre");
+		//Borramos la tupla con la personalizacion vieja
+		query = "DELETE * FROM PersonalizacionActual WHERE idJ ='" + nombre + "'";
+		SGBD.getSGBD().execUpdate(query);
+	}
+	public void seleccionarPersonalizacion(String s) {
+		String query;
+		JSONObject info = jugador.getInfo();
+		String nombre = info.getString("nombre");
+		//Borramos la tupla con la personalizacion vieja
+		query = "DELETE * FROM PersonalizacionActual WHERE idJ ='" + nombre + "'";
+		SGBD.getSGBD().execUpdate(query);
+		//Insertamos la tupla con la personalizacion nueva
+		query = "INSERT INTO PersonalizacionActual (idJ, idPer) VALUES ('" + nombre + "', " + s + ")";
+		SGBD.getSGBD().execUpdate(query);
+	}
+	public void crearPersonalizacion(JSONObject json) {
+		String query;
+		JSONObject info = jugador.getInfo();
+		String nombre = info.getString("nombre");
+		//TODO: INSERT
+	}
+	public void borrarPersonalizacion(String s) {
+		String query;
+		JSONObject info = jugador.getInfo();
+		String nombre = info.getString("nombre");
+		//Borramos la personalizacion
+		query = "DELETE * FROM Personalizacion WHERE idPer ='" + s + "'";
+		SGBD.getSGBD().execUpdate(query);
+		//Borramos las tuplas de PersonalizacionActual que aun esten usando la personalizacion borrada
+		query = "DELETE * FROM PersonalizacionActual WHERE idPer ='" + s + "'";
+		SGBD.getSGBD().execUpdate(query);
+	}
+	
 }

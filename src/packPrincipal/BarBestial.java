@@ -96,17 +96,17 @@ public class BarBestial {
     }
 	
 	//Imanol
-	public void desactivarConfiguracion() {
-	   GestorJugador.getGestorJugador().desactivarConfiguracion();
+	public void desactivarPersonalizacion() {
+	   GestorJugador.getGestorJugador().desactivarPersonalizacion();
 	}
-	public void seleccionarConfiguracion(String s) {
-		GestorJugador.getGestorJugador().seleccionarConfiguracion(s);
+	public void seleccionarPersonalizacion(String s) {
+		GestorJugador.getGestorJugador().seleccionarPersonalizacion(s);
 	}
-	public void crearConfiguracion(String s) {
-		GestorJugador.getGestorJugador().crearConfiguracion(s);
+	public void crearPersonalizacion(JSONObject json) {
+		GestorJugador.getGestorJugador().crearPersonalizacion(json);
 	}
-	public void borrarConfiguracion(String s) {
-		GestorJugador.getGestorJugador().borrarConfiguracion(s);
+	public void borrarPersonalizacion(String s) {
+		GestorJugador.getGestorJugador().borrarPersonalizacion(s);
 	}
     
 }

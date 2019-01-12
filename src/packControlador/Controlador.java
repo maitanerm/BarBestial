@@ -86,7 +86,7 @@ public class Controlador {
 		
 		//Imanol
 		ventanaPersonalizacion = new VentanaPersonalizacion();
-		ventanaPersonalizacion.addListeners(new DesactivarPersonalizacion(), new SeleccionarPersonalizacion(), new MostrarVentanaPersonalizacionCrear(), new BorrarPersonalizacion(), new CerrarVentanaPersonalizacion());
+		ventanaPersonalizacion.addListeners(new SeleccionarPersonalizacion(), new MostrarVentanaPersonalizacionCrear(), new BorrarPersonalizacion(), new CerrarVentanaPersonalizacion());
 		ventanaPersonalizacionCrear = new VentanaPersonalizacionCrear();
 		ventanaPersonalizacionCrear.addListeners(new CrearPersonalizacion(), new CerrarVentanaPersonalizacionCrear());
 		
@@ -325,22 +325,25 @@ class CargarVentanaPartida implements ActionListener{
 			ventanaPersonalizacion.setVisible(true);
 		}
 	}
-	class DesactivarPersonalizacion implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			
-		}
-	}
 	class SeleccionarPersonalizacion implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
+			String s = ventanaPersonalizacion.getSeleccionado();
+			if (s != "Ninguna") {
+				BarBestial.getBarBestial().seleccionarPersonalizacion(s);
+			}
+			else {
+				BarBestial.getBarBestial().desactivarPersonalizacion();
+			}
 		}
 	}
 	class BorrarPersonalizacion implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
+			String s = ventanaPersonalizacion.getSeleccionado();
+			if (s != "Ninguna") {
+				BarBestial.getBarBestial().borrarPersonalizacion(s);
+			}
 		}
 	}
 	class CerrarVentanaPersonalizacion implements ActionListener {
@@ -360,7 +363,8 @@ class CargarVentanaPartida implements ActionListener{
 	class CrearPersonalizacion implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
+			//TODO: getJson
+			//BarBestial.getBarBestial().crearPersonalizacion(json);
 		}
 	}
 	class CerrarVentanaPersonalizacionCrear implements ActionListener {
