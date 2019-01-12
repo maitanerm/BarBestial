@@ -1,8 +1,11 @@
 package packPrincipal;
 
+import java.sql.SQLException;
+
 import javax.swing.table.DefaultTableModel;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import packControlador.Controlador;
@@ -120,7 +123,7 @@ public class BarBestial {
     	GestorPartida.getGestorPartida().guardarPartida(idp);
     }
     
-    public void cargarPartida(String idp){
-    	GestorPartida.getGestorPartida().cargarPartida(idp);
+    public void cargarPartida(String idp) throws JSONException, SQLException{
+    	GestorPartida.getGestorPartida().cargarPartida();
     }
 }
