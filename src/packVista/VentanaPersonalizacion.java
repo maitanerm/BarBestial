@@ -20,6 +20,7 @@ public class VentanaPersonalizacion extends JFrame {
 	private JButton btnSeleccionar;
 	private JButton btnCrear;
 	private JButton btnBorrar;
+	private JButton btnCancelar;
 
 	/**
 	 * Launch the application.
@@ -44,7 +45,7 @@ public class VentanaPersonalizacion extends JFrame {
 		
 		setTitle("Configuraci\u00F3n");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 510, 300);
+		setBounds(100, 100, 510, 339);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -94,11 +95,28 @@ public class VentanaPersonalizacion extends JFrame {
 		});
 		btnBorrar.setBounds(370, 221, 110, 30);
 		contentPane.add(btnBorrar);
+
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnCancelar.setBounds(140, 262, 110, 30);
+		contentPane.add(btnCancelar);
 		
 	}
-	
-	public void cerrar(){
-		System.exit(0);
-	}
 
+	public void addListeners(ActionListener a, ActionListener b, ActionListener c, ActionListener d, ActionListener e) {
+		btnDesactivar.addActionListener(a);
+		btnSeleccionar.addActionListener(b);
+		btnCrear.addActionListener(c);
+		btnBorrar.addActionListener(d);
+		btnCancelar.addActionListener(e);
+	}
+	
+	public void cerrarVentana(){
+		dispose();
+	}
+	
 }

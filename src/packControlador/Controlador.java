@@ -43,8 +43,8 @@ public class Controlador {
 	private CargarPartida cargarPartida;
 	
 	//Imanol
-	private VentanaPersonalizacion ventanaConfiguracion;
-	private VentanaPersonalizacionCrear ventanaCrearConfiguracion;
+	private VentanaPersonalizacion ventanaPersonalizacion;
+	private VentanaPersonalizacionCrear ventanaPersonalizacionCrear;
 	
 	public Controlador() throws Exception {
 		this.partida = Partida.getMiPartida();
@@ -62,10 +62,6 @@ public class Controlador {
 		//david
 		this.guardarPartida = new GuardarPartida();
 		this.cargarPartida = new CargarPartida();
-		
-		//Imanol
-		this.ventanaConfiguracion = new VentanaPersonalizacion();
-		this.ventanaCrearConfiguracion = new VentanaPersonalizacionCrear();
 		
 		/* Listeners VentanaInicio */
 		this.ventanaInicio.addJugarListener(new JugarListener());
@@ -87,6 +83,13 @@ public class Controlador {
 		this.guardarPartida.addCancelarGuardarPartidaListener(new CancelarGuardarPartida());
 		this.cargarPartida.addCancelarCargarPartidaListener(new CancelarCargarPartida());
 		this.cargarPartida.addCancelarCargarPartidaListener(new CargarVentanaPartida());
+		
+		//Imanol
+		ventanaPersonalizacion = new VentanaPersonalizacion();
+		ventanaPersonalizacion.addListeners(new DesactivarPersonalizacion(), new SeleccionarPersonalizacion(), new MostrarVentanaPersonalizacionCrear(), new BorrarPersonalizacion(), new CerrarVentanaPersonalizacion());
+		ventanaPersonalizacionCrear = new VentanaPersonalizacionCrear();
+		ventanaPersonalizacionCrear.addListeners(new CrearPersonalizacion(), new CerrarVentanaPersonalizacionCrear());
+		
 	}
 	
 	public static Controlador getMiControlador() throws Exception {
@@ -122,14 +125,6 @@ public class Controlador {
 	
 	private void mostrarVentanaCargarPartida(){
 		this.cargarPartida.setVisible(true);
-	}
-	
-	//Imanol
-	private void mostrarVentanaPersonalizacion() {
-		this.ventanaConfiguracion.setVisible(true);
-	}
-	private void mostrarVentanaCrearPersonalizacion() {
-		this.ventanaCrearConfiguracion.setVisible(true);
 	}
 	
 	private void setUpObservers() {
@@ -323,23 +318,55 @@ class CargarVentanaPartida implements ActionListener{
 		
 	}
 	
-	//Imanol
-	class VentanaPersonalizacionListener implements ActionListener {
+	//Imanol - VentanaPersonalizacion
+	class MostrarVentanaPersonalizacion implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			mostrarVentanaPersonalizacion();
+			ventanaPersonalizacion.setVisible(true);
 		}
 	}
-	class VentanaCrearPersonalizacionListener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			mostrarVentanaCrearPersonalizacion();
-		}
-	}
-	class DesactivarPersonalizacionListener implements ActionListener {
+	class DesactivarPersonalizacion implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
+		}
+	}
+	class SeleccionarPersonalizacion implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+		}
+	}
+	class BorrarPersonalizacion implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+		}
+	}
+	class CerrarVentanaPersonalizacion implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			ventanaPersonalizacion.cerrarVentana();
+		}
+	}
+	
+	//Imanol - VentanaPersonalizacionCrear
+	class MostrarVentanaPersonalizacionCrear implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			ventanaPersonalizacionCrear.setVisible(true);
+		}
+	}
+	class CrearPersonalizacion implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+		}
+	}
+	class CerrarVentanaPersonalizacionCrear implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			ventanaPersonalizacionCrear.cerrarVentana();
 		}
 	}
 	

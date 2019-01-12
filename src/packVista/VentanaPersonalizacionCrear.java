@@ -82,8 +82,13 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		
 		
 	}
+
+	public void addListeners(ActionListener a, ActionListener b) {
+		btnCrear.addActionListener(a);
+		btnCancelar.addActionListener(b);
+	}
 	
-	public void cerrar(){
-		System.exit(0);
+	public void cerrarVentana(){
+		dispose();
 	}
 }
