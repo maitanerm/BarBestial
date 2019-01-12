@@ -15,7 +15,7 @@ public class VentanaInicio extends JFrame {
     private JButton btnAyuda;
     private JButton btnRanking;
     private JButton btnCargar;
-    private JButton btnConfiguracion;
+    private JButton btnPersonalizar;
 
     /**
      * Create the frame.

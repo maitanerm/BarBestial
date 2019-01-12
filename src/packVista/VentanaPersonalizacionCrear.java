@@ -58,7 +58,7 @@ public class VentanaPersonalizacionCrear extends JFrame {
 	 */
 	public VentanaPersonalizacionCrear() {
 		
-		setTitle("Crear Configuraci\u00F3n");
+		setTitle("Crear Personalizaci\u00F3n");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 510, 300);
 		contentPane = new JPanel();
@@ -150,9 +150,10 @@ public class VentanaPersonalizacionCrear extends JFrame {
         txtNombre.setColumns(10);
 		
 		
-		
-		JFileChooser fileChooser = new JFileChooser();
-		fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+		//TODO:Selección de archivo para las rutas de imagen
+        
+		//JFileChooser fileChooser = new JFileChooser();
+		//fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
 		
 		
 		
