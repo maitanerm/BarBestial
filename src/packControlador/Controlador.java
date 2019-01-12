@@ -328,7 +328,7 @@ class CargarVentanaPartida implements ActionListener{
 	class SeleccionarPersonalizacion implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			String s = ventanaPersonalizacion.getSeleccionado();
+			String s = ventanaPersonalizacion.getSeleccionLista();
 			if (s != "Ninguna") {
 				BarBestial.getBarBestial().seleccionarPersonalizacion(s);
 			}
@@ -340,7 +340,7 @@ class CargarVentanaPartida implements ActionListener{
 	class BorrarPersonalizacion implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			String s = ventanaPersonalizacion.getSeleccionado();
+			String s = ventanaPersonalizacion.getSeleccionLista();
 			if (s != "Ninguna") {
 				BarBestial.getBarBestial().borrarPersonalizacion(s);
 			}
@@ -363,8 +363,13 @@ class CargarVentanaPartida implements ActionListener{
 	class CrearPersonalizacion implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			//TODO: getJson
-			//BarBestial.getBarBestial().crearPersonalizacion(json);
+			JSONObject json = ventanaPersonalizacionCrear.getDatosPersonalizacion();
+			if (json.getString("personalizacion") != "") {
+				BarBestial.getBarBestial().crearPersonalizacion(json);
+			}
+			else {
+				//TODO: Mostrar alerta: Nombre no puede estar vacío -> ¿Desde aquí o desde otro lado?
+			}
 		}
 	}
 	class CerrarVentanaPersonalizacionCrear implements ActionListener {

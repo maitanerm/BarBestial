@@ -106,7 +106,7 @@ public class VentanaPersonalizacion extends JFrame {
 		btnCancelar.addActionListener(d);
 	}
 
-	public String getSeleccionado() {
+	public String getSeleccionLista() {
 		return list.getSelectedValue().toString();
 	}
 	

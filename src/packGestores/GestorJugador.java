@@ -51,32 +51,38 @@ public class GestorJugador {
 	public void desactivarPersonalizacion() {
 		String query;
 		JSONObject info = jugador.getInfo();
-		String nombre = info.getString("nombre");
+		String jugador = info.getString("nombre");
 		//Borramos la tupla con la personalizacion vieja
-		query = "DELETE * FROM PersonalizacionActual WHERE idJ ='" + nombre + "'";
+		query = "DELETE * FROM PersonalizacionActual WHERE idJ ='" + jugador + "'";
 		SGBD.getSGBD().execUpdate(query);
 	}
 	public void seleccionarPersonalizacion(String s) {
 		String query;
 		JSONObject info = jugador.getInfo();
-		String nombre = info.getString("nombre");
+		String jugador = info.getString("nombre");
 		//Borramos la tupla con la personalizacion vieja
-		query = "DELETE * FROM PersonalizacionActual WHERE idJ ='" + nombre + "'";
+		query = "DELETE * FROM PersonalizacionActual WHERE idJ ='" + jugador + "'";
 		SGBD.getSGBD().execUpdate(query);
 		//Insertamos la tupla con la personalizacion nueva
-		query = "INSERT INTO PersonalizacionActual (idJ, idPer) VALUES ('" + nombre + "', " + s + ")";
+		query = "INSERT INTO PersonalizacionActual (idJ, idPer) VALUES ('" + jugador + "', '" + s + "')";
 		SGBD.getSGBD().execUpdate(query);
 	}
 	public void crearPersonalizacion(JSONObject json) {
 		String query;
 		JSONObject info = jugador.getInfo();
-		String nombre = info.getString("nombre");
-		//TODO: INSERT
+		String jugador = info.getString("nombre");
+		
+		//comprobar nombre duplicado ^ != "Ninguna"
+		
+		query = "INSERT INTO Personalizacion (idJ, idPer) VALUES ('" + jugador + "', '" + json.getString("personalizacion") + "')";
+		SGBD.getSGBD().execUpdate(query);
+		
+		//query = "INSERT INTO Carta (idC, puntos, idPer, imagen) VALUES ('', '12', '" + json.getString("personalizacion") + "','" + json.getString("leon") + "')";
+		//SGBD.getSGBD().execUpdate(query);
+		
 	}
 	public void borrarPersonalizacion(String s) {
 		String query;
-		JSONObject info = jugador.getInfo();
-		String nombre = info.getString("nombre");
 		//Borramos la personalizacion
 		query = "DELETE * FROM Personalizacion WHERE idPer ='" + s + "'";
 		SGBD.getSGBD().execUpdate(query);
