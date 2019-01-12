@@ -54,6 +54,9 @@ public class Controlador {
 		 //MAITANE
 		this.ventanaRanking = new IURanking();
 
+		//david
+		this.guardarPartida = new GuardarPartida();
+		this.cargarPartida = new CargarPartida();
 		
 		/* Listeners VentanaInicio */
 		this.ventanaInicio.addJugarListener(new JugarListener());
