@@ -85,6 +85,7 @@ public class GuardarPartida extends JFrame {
 		}
 		return panel_1;
 	}
+	
 	private JButton getBtnAceptar() {
 		if (btnAceptar == null) {
 			btnAceptar = new JButton("Guardar");
@@ -92,6 +93,18 @@ public class GuardarPartida extends JFrame {
 		return btnAceptar;
 	}
 	
+	private JButton getBtnSalir() {
+		if (btnSalir == null) {
+			btnSalir = new JButton("Salir");
+			btnSalir.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					setVisible(false);
+			        dispose();
+				}
+			});
+		}
+		return btnSalir;
+	}
 
 	private JPanel getPanel_2() {
 		if (panel_2 == null) {
@@ -125,18 +138,7 @@ public class GuardarPartida extends JFrame {
 	public void cerrarVentanaPartida(){
 		System.exit(0);
 	}
-	private JButton getBtnSalir() {
-		if (btnSalir == null) {
-			btnSalir = new JButton("Salir");
-			btnSalir.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					setVisible(false);
-			        dispose();
-				}
-			});
-		}
-		return btnSalir;
-	}
+	
 }
 
 
