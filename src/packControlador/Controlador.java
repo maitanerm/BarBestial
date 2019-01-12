@@ -364,12 +364,7 @@ class CargarVentanaPartida implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			JSONObject json = ventanaPersonalizacionCrear.getDatosPersonalizacion();
-			if (json.getString("personalizacion") != "") {
-				BarBestial.getBarBestial().crearPersonalizacion(json);
-			}
-			else {
-				//TODO: Mostrar alerta: Nombre no puede estar vacío -> ¿Desde aquí o desde otro lado?
-			}
+			BarBestial.getBarBestial().crearPersonalizacion(json);
 		}
 	}
 	class CerrarVentanaPersonalizacionCrear implements ActionListener {

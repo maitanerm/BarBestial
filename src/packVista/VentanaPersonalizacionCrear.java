@@ -178,7 +178,7 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		json.put("canguro", txtCanguro.getText());
 		json.put("loro", txtLoro.getText());
 		json.put("mofeta", txtMofeta.getText());
-		json.put("nombre", txtNombre.getText());
+		json.put("personalizacion", txtNombre.getText());
 		return json;
 	}
 	
