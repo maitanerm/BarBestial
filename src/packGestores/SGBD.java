@@ -431,4 +431,66 @@ public class SGBD {
 
 	
 
+	//Imanol
+	public String getPersonalizacionActual(String idJ) throws SQLException {
+		String personalizacion = "";
+		con = abrirConexion();
+		String query = "SELECT idPer FROM PersonalizacionActual WHERE idJ='" + idJ + "'";
+		ResultSet res = execQuery(query);
+		while (res.next()){
+			personalizacion = res.getString("idPer");
+		}
+		if (personalizacion == "") {
+			personalizacion = "Ninguna";
+		}
+		return personalizacion;
+	}
+	public JSONObject getPersonalizacionActualDatos(String idPer) throws SQLException {
+		JSONObject json= new JSONObject();
+		con = abrirConexion();
+		String query = "SELECT puntos, imagen FROM Carta WHERE idPer='" + idPer + "'";
+		ResultSet res = execQuery(query);
+		while (res.next()){
+			switch (res.getInt("puntos")) {
+				case 12:
+					json.put("leon", res.getString("imagen"));
+					break;
+				case 11:
+					json.put("hipopotamo", res.getString("imagen"));
+					break;
+				case 10:
+					json.put("cocodrilo", res.getString("imagen"));
+					break;
+				case 9:
+					json.put("serpiente", res.getString("imagen"));
+					break;
+				case 8:
+					json.put("jirafa", res.getString("imagen"));
+					break;
+				case 7:
+					json.put("cebra", res.getString("imagen"));
+					break;
+				case 6:
+					json.put("foca", res.getString("imagen"));
+					break;
+				case 5:
+					json.put("camaleon", res.getString("imagen"));
+					break;
+				case 4:
+					json.put("mono", res.getString("imagen"));
+					break;
+				case 3:
+					json.put("canguro", res.getString("imagen"));
+					break;
+				case 2:
+					json.put("loro", res.getString("imagen"));
+					break;
+				case 1:
+					json.put("mofeta", res.getString("imagen"));
+					break;
+			}
+		}
+		return json;
+	}
+
 }
