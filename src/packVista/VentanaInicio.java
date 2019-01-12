@@ -61,8 +61,8 @@ public class VentanaInicio extends JFrame {
         btnCargar = new JButton("Cargar");
         panelMenu.add(btnCargar);
         
-        btnConfiguracion = new JButton("Configuracion");
-        panelMenu.add(btnConfiguracion);
+        btnPersonalizar = new JButton("Personalizar");
+        panelMenu.add(btnPersonalizar);
 
         JPanel panelImagenBar = new JPanel();
         contentPane.add(panelImagenBar, BorderLayout.CENTER);
@@ -86,16 +86,12 @@ public class VentanaInicio extends JFrame {
         });
     }
 
-    public void addJugarListener(ActionListener listenForBtnJugar) {
+    //Imanol
+    public void addListeners(ActionListener listenForBtnJugar, ActionListener listenForBtnAyuda, ActionListener listenForBtnRanking, ActionListener listenForBtnPersonalizar) {
         btnJugar.addActionListener(listenForBtnJugar);
-    }
-
-    public void addAyudaListener(ActionListener listenForBtnAyuda) {
         btnAyuda.addActionListener(listenForBtnAyuda);
-    }
-
-    public void addRankingListener(ActionListener listenForBtnRanking) {
         btnRanking.addActionListener(listenForBtnRanking);
+        btnPersonalizar.addActionListener(listenForBtnPersonalizar);
     }
 
     public String getTextFieldNombreValue() {

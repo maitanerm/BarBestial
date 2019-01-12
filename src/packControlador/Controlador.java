@@ -64,9 +64,7 @@ public class Controlador {
 		this.cargarPartida = new CargarPartida();
 		
 		/* Listeners VentanaInicio */
-		this.ventanaInicio.addJugarListener(new JugarListener());
-		this.ventanaInicio.addAyudaListener(new AyudaListener());
-		this.ventanaInicio.addRankingListener(new RankingListener());
+		this.ventanaInicio.addListeners(new JugarListener(), new AyudaListener(), new RankingListener(), new MostrarVentanaPersonalizacion());
 
 		/* Listeners VentanaJuego */
 		this.ventanaJuego.addJugarTurnoListener(new JugarTurnoListener());
