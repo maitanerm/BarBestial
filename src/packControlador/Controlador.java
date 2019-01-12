@@ -247,6 +247,9 @@ class CargarVentanaPartida implements ActionListener{
 			} catch (JSONException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
 			mostrarVentanaCargarPartida();
 		}
