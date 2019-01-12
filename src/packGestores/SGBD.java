@@ -98,6 +98,7 @@ public class SGBD {
 	public void insertarCartasManoJugador(JSONArray datosPartida, int numAyudasUsadas, String idp) {
 		con= abrirConexion();
 		Date fecha= new Date();
+		if(datosPartida.length()!=0){
 		for(int i=0;i<datosPartida.length();i++) {
 			try {
 				JSONObject obj=(JSONObject) datosPartida.get(i);
@@ -117,11 +118,13 @@ public class SGBD {
 					"ERROR AL INSERTAR LA MANO DEL JUGADOR DE LA BD \n ERROR : " + SQLE.getMessage());
 			}
 		}
+		}
 	}
 	//DAVID				
 	public void insertarCartasManoOrdenador(JSONArray datosPartida, int numAyudasUsadas, String idp) {
 		con= abrirConexion();
 		Date fecha= new Date();
+		if(datosPartida.length()!=0){
 		for(int i=0;i<datosPartida.length();i++) {
 			try {
 				JSONObject obj=(JSONObject) datosPartida.get(i);
@@ -141,11 +144,13 @@ public class SGBD {
 					"ERROR AL INSERTAR LA MANO DEL ORDENADOR DE LA BD \n ERROR : " + SQLE.getMessage());
 			}
 		}
+		}
 	}
 	//DAVID				
 	public void insertarCartasMazoJugador(JSONArray datosPartida, int numAyudasUsadas, String idp) {
 		con= abrirConexion();
 		Date fecha= new Date();
+		if(datosPartida.length()!=0){
 		for(int i=0;i<datosPartida.length();i++) {
 		try {
 			JSONObject obj=(JSONObject) datosPartida.get(i);
@@ -166,10 +171,12 @@ public class SGBD {
 					}
 			}
 		}
+		}
 	//DAVID	
 	public void insertarCartasMazoOrdenador(JSONArray datosPartida, int numAyudasUsadas, String idp) {
 		con= abrirConexion();
 		Date fecha= new Date();
+		if(datosPartida.length()!=0){
 		for(int i=0;i<datosPartida.length();i++) {
 			try {
 				JSONObject obj=(JSONObject) datosPartida.get(i);
@@ -189,11 +196,13 @@ public class SGBD {
 					"ERROR AL INSERTAR EL MAZO DEL ORDENADOR DE LA BD \n ERROR : " + SQLE.getMessage());
 			}
 		}
+		}
 	}
 	//DAVID	
 	public void insertarCartasBar(JSONArray datosPartida, int numAyudasUsadas, String idp) {
 		con= abrirConexion();
 		Date fecha= new Date();
+		if(datosPartida.length()!=0){
 		for(int i=0;i<datosPartida.length();i++) {
 			try {
 				JSONObject obj=(JSONObject) datosPartida.get(i);
@@ -214,11 +223,14 @@ public class SGBD {
 					"ERROR AL INSERTAR EL BAR DE LA BD \n ERROR : " + SQLE.getMessage());
 			}
 		}
+		}
 	}
 	//DAVID	
 	public void insertarCartasCola(JSONArray datosPartida, int numAyudasUsadas, String idp) {
 		con= abrirConexion();
 		Date fecha= new Date();
+		if(datosPartida.length()!=0){
+			
 		for(int i=0;i<datosPartida.length();i++) {
 			try {
 				JSONObject obj=(JSONObject) datosPartida.get(i);
@@ -239,6 +251,7 @@ public class SGBD {
 					"ERROR AL INSERTAR LA COLA DE LA BD \n ERROR : " + SQLE.getMessage());
 			}
 		}
+		}
 	}
 	
 	public JSONObject cargarPartida(String idj) throws SQLException{
@@ -254,6 +267,7 @@ public class SGBD {
 	
 	public JSONArray cargarMazoJugador(String idp, String color) throws JSONException, SQLException{
 		JSONArray json= new JSONArray();
+		
 		
 		con= abrirConexion();
 		ResultSet res= execQuery("SELECT Carta.idc, Carta.puntos, carta.color FROM CARTA INNER JOIN (mazojugador INNER JOIN partida ON mazojugador.idp="+idp+
