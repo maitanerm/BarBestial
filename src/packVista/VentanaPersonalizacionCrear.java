@@ -7,15 +7,19 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JTextField;
 
-public class VentanaCrearConfiguracion extends JFrame {
+public class VentanaPersonalizacionCrear extends JFrame {
 
 	private JPanel contentPane;
 
 	private JButton btnCrear;
 	private JButton btnCancelar;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -24,7 +28,7 @@ public class VentanaCrearConfiguracion extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaCrearConfiguracion frame = new VentanaCrearConfiguracion();
+					VentanaPersonalizacionCrear frame = new VentanaPersonalizacionCrear();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +40,7 @@ public class VentanaCrearConfiguracion extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaCrearConfiguracion() {
+	public VentanaPersonalizacionCrear() {
 		
 		setTitle("Crear Configuraci\u00F3n");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -64,10 +68,22 @@ public class VentanaCrearConfiguracion extends JFrame {
 		btnCancelar.setBounds(250, 221, 110, 30);
 		contentPane.add(btnCancelar);
 		
+		textField = new JTextField();
+		textField.setBounds(20, 23, 86, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		
+		
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+		
+		
+		
+		
 	}
 	
 	public void cerrar(){
 		System.exit(0);
 	}
-
 }

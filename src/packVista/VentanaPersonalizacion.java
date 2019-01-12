@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 
-public class VentanaConfiguracion extends JFrame {
+public class VentanaPersonalizacion extends JFrame {
 
 	private JPanel contentPane;
 
@@ -28,7 +28,7 @@ public class VentanaConfiguracion extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaConfiguracion frame = new VentanaConfiguracion();
+					VentanaPersonalizacion frame = new VentanaPersonalizacion();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +40,7 @@ public class VentanaConfiguracion extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaConfiguracion() {
+	public VentanaPersonalizacion() {
 		
 		setTitle("Configuraci\u00F3n");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

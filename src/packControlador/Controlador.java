@@ -43,8 +43,8 @@ public class Controlador {
 	private CargarPartida cargarPartida;
 	
 	//Imanol
-	private VentanaConfiguracion ventanaConfiguracion;
-	private VentanaCrearConfiguracion ventanaCrearConfiguracion;
+	private VentanaPersonalizacion ventanaConfiguracion;
+	private VentanaPersonalizacionCrear ventanaCrearConfiguracion;
 	
 	public Controlador() throws Exception {
 		this.partida = Partida.getMiPartida();
@@ -64,8 +64,8 @@ public class Controlador {
 		this.cargarPartida = new CargarPartida();
 		
 		//Imanol
-		this.ventanaConfiguracion = new VentanaConfiguracion();
-		this.ventanaCrearConfiguracion = new VentanaCrearConfiguracion();
+		this.ventanaConfiguracion = new VentanaPersonalizacion();
+		this.ventanaCrearConfiguracion = new VentanaPersonalizacionCrear();
 		
 		/* Listeners VentanaInicio */
 		this.ventanaInicio.addJugarListener(new JugarListener());
@@ -125,10 +125,10 @@ public class Controlador {
 	}
 	
 	//Imanol
-	private void mostrarVentanaConfiguracion() {
+	private void mostrarVentanaPersonalizacion() {
 		this.ventanaConfiguracion.setVisible(true);
 	}
-	private void mostrarVentanaCrearConfiguracion() {
+	private void mostrarVentanaCrearPersonalizacion() {
 		this.ventanaCrearConfiguracion.setVisible(true);
 	}
 	
@@ -324,16 +324,22 @@ class CargarVentanaPartida implements ActionListener{
 	}
 	
 	//Imanol
-	class VentanaConfiguracionListener implements ActionListener {
+	class VentanaPersonalizacionListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			mostrarVentanaConfiguracion();
+			mostrarVentanaPersonalizacion();
 		}
 	}
-	class VentanaCrearConfiguracionListener implements ActionListener {
+	class VentanaCrearPersonalizacionListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			mostrarVentanaCrearConfiguracion();
+			mostrarVentanaCrearPersonalizacion();
+		}
+	}
+	class DesactivarPersonalizacionListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
 		}
 	}
 	
