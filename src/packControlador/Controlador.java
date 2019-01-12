@@ -52,7 +52,7 @@ public class Controlador {
 		this.rankingDB = RankingDB.getRankingDB();
 		
 		this.ventanaInicio = new VentanaInicio();
-		this.ventanaJuego = new VentanaJuego();
+		this.ventanaJuego = new VentanaJuego(BarBestial.getBarBestial().getPersonalizacionActualDatos());
 		this.ventanaAyuda = new VentanaAyuda();
 		this.ventanaError = new Error();
 		 //MAITANE

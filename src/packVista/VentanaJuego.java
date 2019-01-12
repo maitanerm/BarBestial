@@ -5,6 +5,9 @@ import packModelo.Partida;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
+import org.json.JSONObject;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -51,6 +54,9 @@ public class VentanaJuego extends JFrame implements Observer {
     private JButton btnGuardar;
     private JButton btnAyuda;
 
+    //Imanol
+    private JSONObject jsonImagenes;
+    
     /**
      * Create the frame.
      */
@@ -550,11 +556,30 @@ public class VentanaJuego extends JFrame implements Observer {
 
     }
 
+    //Imanol
+    public void actualizarImagenes(JSONObject json) {
+    	jsonImagenes = json;
+    }
     private ImageIcon seleccionarImagenCarta(String pInformacionCarta) {
-        try {
-            return new ImageIcon(VentanaJuego.class.getResource("/images/" + pInformacionCarta + ".jpg"));
-        } catch (NullPointerException e) {
-            return null;
-        }
+    	ImageIcon imagen;
+    	if (jsonImagenes == null) {
+    		try {
+    			imagen = new ImageIcon(VentanaJuego.class.getResource("/images/" + pInformacionCarta + ".jpg"));
+    		} catch (NullPointerException e1) {
+    			imagen = null;
+    		}
+    	}
+    	else {
+    		try {
+        		imagen = new ImageIcon(VentanaJuego.class.getResource(jsonImagenes.getString(pInformacionCarta)));
+        	} catch (NullPointerException e2) {
+        		try {
+        			imagen = new ImageIcon(VentanaJuego.class.getResource("/images/" + pInformacionCarta + ".jpg"));
+        		} catch (NullPointerException e3) {
+        			imagen = null;
+        		}
+        	}
+    	}
+    	return imagen;
     }
 }

@@ -56,6 +56,16 @@ public class GestorJugador {
 		JSONArray json = SGBD.getSGBD().getListaPersonalizaciones(jugador);
 		return json;
 	}
+    public JSONObject getPersonalizacionActualDatos() throws SQLException {
+    	JSONObject json = null;
+		JSONObject info = jugador.getInfo();
+		String jugador = info.getString("nombre");
+		String idPer = SGBD.getSGBD().getPersonalizacionActual(jugador);
+		if (idPer != "") {
+			json = SGBD.getSGBD().getPersonalizacionActualDatos(idPer);
+		}
+    	return json;
+    }
 	//Imanol - Set
 	public void desactivarPersonalizacion() {
 		String query;
