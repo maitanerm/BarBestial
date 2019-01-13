@@ -27,6 +27,7 @@ public class IURanking extends JFrame {
 	private JTable table;
 	JScrollPane header;
 	
+	public String column[]={"Id Jugador","Id Partida","Puntuacion","Fecha-Hora"}; 
 	DefaultTableModel datosRanking =null;
 	/**
 	 * Launch the application.
@@ -35,8 +36,7 @@ public class IURanking extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					String pIdUsuario = null;
-					IURanking frame = new IURanking(pIdUsuario);
+					IURanking frame = new IURanking();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -49,7 +49,7 @@ public class IURanking extends JFrame {
 	 * Create the frame.
 	 * @throws Exception 
 	 */
-	public IURanking(String pIdUsuario) throws Exception {
+	public IURanking() throws Exception {
 		setTitle("Mejores partidas");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -117,13 +117,15 @@ public class IURanking extends JFrame {
 				if (arg2.getSource()==btnMisMejoresPartidas) {
 					setTitle("Mis mejores partidas");
 					try{
-//**********************************************
-//**********************************************
-//*****Para realizar la prueba de funcionamiento 
- String pIdUsuario ="1";
-//**********************************************
-//**********************************************
-				  
+						//**********************************************
+						//**********************************************
+				    	//*****Para realizar la prueba de funcionamiento 
+						 String pIdUsuario ="1";
+				    	//**********************************************
+				    	//**********************************************
+				    	
+				    	//String pIdUsuario =BarBestial.getBarBestial().getIdJugador();
+				    	System.out.println("El usuario "+pIdUsuario);
 						datosRanking = BarBestial.getBarBestial().cargarMisMejoresPartidas(pIdUsuario);
 						panel.remove(table);
 						panel.remove(header);
