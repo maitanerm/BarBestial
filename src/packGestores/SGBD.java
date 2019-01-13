@@ -94,7 +94,8 @@ public class SGBD {
 		}
 		
 	}
-	public JSONArray cogerPartidasJugador(String idj) throws JSONException, SQLException{
+	
+	public JSONArray cogerPartidasJugador(String idj) throws JSONException, SQLException{//falta hacer la llamada desde la ventana de cargarpartida y crear la nueva ventana cargar con los datos de las partidas
 		JSONArray json= new JSONArray();
 		
 		con= abrirConexion();
@@ -108,6 +109,7 @@ public class SGBD {
 		return json;
 		
 	}
+	
 	//DAVID	
 	public void insertarCartasManoJugador(JSONArray datosPartida, int numAyudasUsadas, String idp) {
 		con= abrirConexion();
