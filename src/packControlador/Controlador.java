@@ -89,7 +89,7 @@ public class Controlador {
 		ventanaPersonalizacion.addListeners(new ActivarPersonalizacion(), new MostrarVentanaPersonalizacionCrear(), new BorrarPersonalizacion(), new CerrarVentanaPersonalizacion());
 		ventanaPersonalizacionCrear = new VentanaPersonalizacionCrear();
 		ventanaPersonalizacionCrear.addListeners(new CrearPersonalizacion(), new CerrarVentanaPersonalizacionCrear());
-		ventanaJuego.actualizarImagenes(BarBestial.getBarBestial().getPersonalizacionActualDatos());
+		//ventanaJuego.actualizarImagenes(BarBestial.getBarBestial().getPersonalizacionActualDatos());
 		
 	}
 	
