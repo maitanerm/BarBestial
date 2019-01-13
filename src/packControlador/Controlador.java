@@ -59,7 +59,7 @@ public class Controlador {
 		this.ventanaError = new Error();
 		 //MAITANE
 		String idJ ="1";
-		this.ventanaRanking = new IURanking();
+		this.ventanaRanking =null;
 
 		//david
 		this.guardarPartida = new GuardarPartida();
@@ -116,7 +116,8 @@ public class Controlador {
 	    this.ventanaAyuda.setVisible(true);
     }
 	
-	private void mostrarVentanaRanking(){
+	private void mostrarVentanaRanking(String nombre) throws Exception{
+		ventanaRanking = new IURanking(nombre);
         this.ventanaRanking.setVisible(true);
     }
 	
@@ -167,7 +168,17 @@ public class Controlador {
 	class RankingListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-		    mostrarVentanaRanking();
+			String nombre = ventanaInicio.getTextFieldNombreValue();
+			
+			if(nombre.length() > 0) {
+		    try {
+				mostrarVentanaRanking(nombre);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			}
+			else ventanaInicio.showNombreErrorMessage();
 		}
 	}
 	
