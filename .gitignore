@@ -1,5 +1,5 @@
-/bin/packControlador/
-/bin/packGestores/
-/bin/packModelo/
-/bin/packPrincipal/
-/bin/packVista/
+bin/packControlador/
+bin/packGestores/
+bin/packModelo/
+bin/packPrincipal/
+bin/packVista/
