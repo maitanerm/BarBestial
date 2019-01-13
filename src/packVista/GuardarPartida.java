@@ -142,7 +142,8 @@ public class GuardarPartida extends JFrame {
 		return this.idp.getText();
 	}
 	public void cerrarVentanaPartida(){
-		System.exit(0);
+		this.setVisible(false);
+		this.dispose();
 	}
 
 	
