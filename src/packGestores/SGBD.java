@@ -428,10 +428,13 @@ public class SGBD {
 					"ERROR AL ELIMINAR LA CANCION DE LA BD \n ERROR : " + SQLE.getMessage());
 		}
 	}*/
-
 	
-
-	//Imanol - Get
+	
+	
+	//---------------------------------------------------------------- Imanol / Get >>>> ----------------------------------------------------------------
+	
+	//TODO: Imanol / Get
+	
 	public JSONArray getListaPersonalizaciones(String idJ) throws SQLException {
 		JSONArray json= new JSONArray();
 		con = abrirConexion();
@@ -442,6 +445,7 @@ public class SGBD {
 		}
 		return json;
 	}
+	
 	public String getPersonalizacionActual(String idJ) throws SQLException {
 		String personalizacion = "";
 		con = abrirConexion();
@@ -455,6 +459,7 @@ public class SGBD {
 		}
 		return personalizacion;
 	}
+	
 	public JSONObject getPersonalizacionActualDatos(String idPer) throws SQLException {
 		JSONObject json = new JSONObject();
 		con = abrirConexion();
@@ -502,5 +507,9 @@ public class SGBD {
 		}
 		return json;
 	}
-
+	
+	//---------------------------------------------------------------- >>>> Imanol / Get ----------------------------------------------------------------
+	
+	
+	
 }

@@ -50,13 +50,19 @@ public class GestorJugador {
 		miJugador.restarAyuda();
 	}
 	
-	//Imanol - Get
+	
+	
+	//---------------------------------------------------------------- Imanol / Get >>>> ----------------------------------------------------------------
+	
+	//TODO: Imanol / Get
+	
 	public JSONArray getListaPersonalizaciones() throws SQLException {
 		JSONObject info = jugador.getInfo();
 		String jugador = info.getString("nombre");
 		JSONArray json = SGBD.getSGBD().getListaPersonalizaciones(jugador);
 		return json;
 	}
+	
     public JSONObject getPersonalizacionActualDatos() throws SQLException {
     	JSONObject json = null;
 		JSONObject info = jugador.getInfo();
@@ -67,7 +73,15 @@ public class GestorJugador {
 		}
     	return json;
     }
-	//Imanol - Set
+    
+    //---------------------------------------------------------------- >>>> Imanol / Get ----------------------------------------------------------------
+    
+    
+    
+	//---------------------------------------------------------------- Imanol / Set >>>> ----------------------------------------------------------------
+    
+	//TODO: Imanol / Set
+    
 	public void desactivarPersonalizacion() {
 		String query;
 		JSONObject info = jugador.getInfo();
@@ -76,6 +90,7 @@ public class GestorJugador {
 		query = "DELETE * FROM PersonalizacionActual WHERE idJ ='" + jugador + "'";
 		SGBD.getSGBD().execUpdate(query);
 	}
+	
 	public void seleccionarPersonalizacion(String s) {
 		String query;
 		JSONObject info = jugador.getInfo();
@@ -87,6 +102,7 @@ public class GestorJugador {
 		query = "INSERT INTO PersonalizacionActual (idJ, idPer) VALUES ('" + jugador + "', '" + s + "')";
 		SGBD.getSGBD().execUpdate(query);
 	}
+	
 	public void crearPersonalizacion(JSONObject json) {
 		String query;
 		int cont;
@@ -160,6 +176,7 @@ public class GestorJugador {
 			JOptionPane.showMessageDialog(null, "ERROR: El nombre de la personalizacion no puede estar vacio.");
 		}
 	}
+	
 	public void borrarPersonalizacion(String s) {
 		String query;
 		//Borramos la personalizacion
@@ -172,5 +189,9 @@ public class GestorJugador {
 		query = "DELETE * FROM PersonalizacionActual WHERE idPer ='" + s + "'";
 		SGBD.getSGBD().execUpdate(query);
 	}
+	
+	//---------------------------------------------------------------- >>>> Imanol / Set ----------------------------------------------------------------
+	
+	
 	
 }

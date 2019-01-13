@@ -16,9 +16,11 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 
 public class VentanaPersonalizacion extends JFrame {
-
+	
+	//-------------------------------- Atributos --------------------------------
+	
 	private JPanel contentPane;
-
+	
 	private JButton btnSeleccionar;
 	private JButton btnCrear;
 	private JButton btnBorrar;
@@ -26,10 +28,10 @@ public class VentanaPersonalizacion extends JFrame {
 	
 	DefaultListModel<String> listModel;
 	private JList<String> list;
-
-	/**
-	 * Launch the application.
-	 */
+	
+	//-------------------------------- Metodos --------------------------------
+	
+	//Main
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -42,10 +44,8 @@ public class VentanaPersonalizacion extends JFrame {
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
+	
+	//Constructora
 	public VentanaPersonalizacion() {
 		
 		setTitle("Gestionar Personalizaciones");
@@ -82,7 +82,7 @@ public class VentanaPersonalizacion extends JFrame {
 		});
 		btnBorrar.setBounds(250, 221, 110, 30);
 		contentPane.add(btnBorrar);
-
+		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -97,12 +97,12 @@ public class VentanaPersonalizacion extends JFrame {
 		
 		list = new JList<String>(listModel);
 		list.setSelectedIndex(0);
-		//TODO: Añadir el resto sacándolos de la base de datos
 		list.setBounds(10, 11, 470, 191);
 		contentPane.add(list);
 		
 	}
-
+	
+	//Listeners
 	public void addListeners(ActionListener a, ActionListener b, ActionListener c, ActionListener d) {
 		btnSeleccionar.addActionListener(a);
 		btnCrear.addActionListener(b);
@@ -110,17 +110,20 @@ public class VentanaPersonalizacion extends JFrame {
 		btnCancelar.addActionListener(d);
 	}
 	
+	//Actualiza la lista con las personalizaciones del jugador
 	public void actualizarLista(JSONArray json) {
 		int i;
 		for(i = 0; i < json.length(); i = i + 1){
 			listModel.addElement(json.getString(i));
 		}
 	}
-
+	
+	//Devuelve el ultimo elemento seleccionado de la lista
 	public String getSeleccionLista() {
 		return list.getSelectedValue().toString();
 	}
 	
+	//Cierra la ventana
 	public void cerrarVentana(){
 		dispose();
 	}

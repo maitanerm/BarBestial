@@ -555,8 +555,13 @@ public class VentanaJuego extends JFrame implements Observer {
         }
 
     }
-
-    //Imanol
+    
+    
+    
+	//---------------------------------------------------------------- Imanol / Personalizacion >>>> ----------------------------------------------------------------
+    
+    //TODO: Personalizacion
+    
     public void actualizarImagenes(JSONObject json) {
     	jsonImagenes = json;
     }
@@ -582,4 +587,9 @@ public class VentanaJuego extends JFrame implements Observer {
     	}
     	return imagen;
     }
+    
+	//---------------------------------------------------------------- >>>> Imanol / Personalizacion ----------------------------------------------------------------
+    
+    
+    
 }

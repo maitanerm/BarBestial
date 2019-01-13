@@ -261,10 +261,8 @@ class CargarVentanaPartida implements ActionListener{
 			try {
 				BarBestial.getBarBestial().cargarPartida(idp);
 			} catch (JSONException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			mostrarVentanaCargarPartida();
@@ -294,7 +292,6 @@ class CargarVentanaPartida implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			// TODO Auto-generated method stub
 			cargarPartida.setVisible(true);
 			
 		}	
@@ -320,7 +317,12 @@ class CargarVentanaPartida implements ActionListener{
 		
 	}
 	
-	//Imanol - VentanaPersonalizacion
+	
+	
+	//---------------------------------------------------------------- Imanol / VentanaPersonalizacion >>>> ----------------------------------------------------------------
+	
+	//TODO: Imanol / VentanaPersonalizacion
+	
 	class MostrarVentanaPersonalizacion implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -328,7 +330,6 @@ class CargarVentanaPartida implements ActionListener{
 			try {
 				ventanaPersonalizacion.actualizarLista(BarBestial.getBarBestial().getListaPersonalizaciones());
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
@@ -361,7 +362,14 @@ class CargarVentanaPartida implements ActionListener{
 		}
 	}
 	
-	//Imanol - VentanaPersonalizacionCrear
+	//---------------------------------------------------------------- >>>> Imanol / VentanaPersonalizacion ----------------------------------------------------------------
+	
+	
+	
+	//---------------------------------------------------------------- Imanol / VentanaPersonalizacionCrear >>>> ----------------------------------------------------------------
+	
+	//TODO: Imanol / VentanaPersonalizacionCrear
+	
 	class MostrarVentanaPersonalizacionCrear implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -381,5 +389,9 @@ class CargarVentanaPartida implements ActionListener{
 			ventanaPersonalizacionCrear.cerrarVentana();
 		}
 	}
+	
+	//---------------------------------------------------------------- >>>> Imanol / VentanaPersonalizacionCrear ----------------------------------------------------------------
+	
+	
 	
 }

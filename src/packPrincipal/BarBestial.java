@@ -95,25 +95,46 @@ public class BarBestial {
     	GestorPartida.getGestorPartida().cargarPartida();
     }
 	
-    //Imanol - Get
+    
+    
+    //---------------------------------------------------------------- Imanol / Get >>>> ----------------------------------------------------------------
+    
+	//TODO: Imanol / Get
+    
     public JSONArray getListaPersonalizaciones() throws SQLException {
     	return GestorJugador.getGestorJugador().getListaPersonalizaciones();
     }
+    
     public JSONObject getPersonalizacionActualDatos() throws SQLException {
     	return GestorJugador.getGestorJugador().getPersonalizacionActualDatos();
     }
-	//Imanol - Set
+    
+    //---------------------------------------------------------------- >>>> Imanol / Get ----------------------------------------------------------------
+    
+    
+    
+    //---------------------------------------------------------------- Imanol / Set >>>> ----------------------------------------------------------------
+    
+	//TODO: Imanol / Set
+    
 	public void desactivarPersonalizacion() {
 	   GestorJugador.getGestorJugador().desactivarPersonalizacion();
 	}
+	
 	public void seleccionarPersonalizacion(String s) {
 		GestorJugador.getGestorJugador().seleccionarPersonalizacion(s);
 	}
+	
 	public void crearPersonalizacion(JSONObject json) {
 		GestorJugador.getGestorJugador().crearPersonalizacion(json);
 	}
+	
 	public void borrarPersonalizacion(String s) {
 		GestorJugador.getGestorJugador().borrarPersonalizacion(s);
 	}
+	
+    //---------------------------------------------------------------- >>>> Imanol / Set ----------------------------------------------------------------
     
+	
+	
 }
