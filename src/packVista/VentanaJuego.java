@@ -562,10 +562,23 @@ public class VentanaJuego extends JFrame implements Observer {
     
     //TODO: Personalizacion
     
+    //Actualizar las imagenes
     public void actualizarImagenes(JSONObject json) {
     	jsonImagenes = json;
     }
+    
+    //Seleccionar imagen para la carta especificada
     private ImageIcon seleccionarImagenCarta(String pInformacionCarta) {
+    	//TODO: Version antigua sin errores
+    	/**/
+        try {
+            return new ImageIcon(VentanaJuego.class.getResource("/images/" + pInformacionCarta + ".jpg"));
+        } catch (NullPointerException e) {
+            return null;
+        }
+        /**/
+    	//TODO: Funciones de Personalizar comentadas para evitar errores
+    	/*
     	ImageIcon imagen;
     	if (jsonImagenes == null) {
     		try {
@@ -586,6 +599,7 @@ public class VentanaJuego extends JFrame implements Observer {
         	}
     	}
     	return imagen;
+    	*/
     }
     
 	//---------------------------------------------------------------- >>>> Imanol / Personalizacion ----------------------------------------------------------------

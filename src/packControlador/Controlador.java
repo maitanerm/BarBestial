@@ -85,11 +85,15 @@ public class Controlador {
 		this.cargarPartida.addCancelarCargarPartidaListener(new CargarVentanaPartida());
 		
 		//Imanol
+		//TODO: Funciones de Personalizar deshabilitadas mediante comentario para evitar errores
+		System.out.println("Funciones de Personalizar deshabilitadas mediante comentario para evitar errores.");
+		/*
 		ventanaPersonalizacion = new VentanaPersonalizacion();
 		ventanaPersonalizacion.addListeners(new ActivarPersonalizacion(), new MostrarVentanaPersonalizacionCrear(), new BorrarPersonalizacion(), new CerrarVentanaPersonalizacion());
 		ventanaPersonalizacionCrear = new VentanaPersonalizacionCrear();
 		ventanaPersonalizacionCrear.addListeners(new CrearPersonalizacion(), new CerrarVentanaPersonalizacionCrear());
-		//ventanaJuego.actualizarImagenes(BarBestial.getBarBestial().getPersonalizacionActualDatos());
+		ventanaJuego.actualizarImagenes(BarBestial.getBarBestial().getPersonalizacionActualDatos());
+		*/
 		
 	}
 	
@@ -327,12 +331,16 @@ class CargarVentanaPartida implements ActionListener{
 	class MostrarVentanaPersonalizacion implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			//TODO: Funciones de Personalizar deshabilitadas mediante comentario para evitar errores
+			System.out.println("Funciones de Personalizar deshabilitadas mediante comentario para evitar errores.");
+			/*
 			ventanaPersonalizacion.setVisible(true);
 			try {
 				ventanaPersonalizacion.actualizarLista(BarBestial.getBarBestial().getListaPersonalizaciones());
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			*/
 		}
 	}
 	
