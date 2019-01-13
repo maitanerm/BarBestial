@@ -78,6 +78,7 @@ public class Controlador {
 		this.ventanaJuego.desactivarBotonJugarTurno();
 		this.ventanaJuego.desactivarBotonSiguiente();
 		this.ventanaJuego.addAyudaListener(new AyudaJuegoListener());
+		this.ventanaJuego.addCargarPartidaListener(new CargarVentanaPartida());
 		this.guardarPartida.addGuardarVentanaPartidaListener(new GuardarVentanaPartida());
 		this.guardarPartida.addCancelarGuardarPartidaListener(new CancelarGuardarPartida());
 		this.cargarPartida.addCancelarCargarPartidaListener(new CancelarCargarPartida());

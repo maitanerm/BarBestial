@@ -14,7 +14,7 @@ public class VentanaInicio extends JFrame {
     private JButton btnJugar;
     private JButton btnAyuda;
     private JButton btnRanking;
-    private JButton btnCargar;
+   
     private JButton btnPersonalizar;
 
     /**
@@ -58,8 +58,7 @@ public class VentanaInicio extends JFrame {
         this.btnRanking = new JButton("Ranking");
         panelMenu.add(btnRanking);
         
-        btnCargar = new JButton("Cargar");
-        panelMenu.add(btnCargar);
+      
         
         btnPersonalizar = new JButton("Personalizar");
         panelMenu.add(btnPersonalizar);

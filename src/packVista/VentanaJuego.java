@@ -53,7 +53,7 @@ public class VentanaJuego extends JFrame implements Observer {
     private JButton btnSiguiente;
     private JButton btnGuardar;
     private JButton btnAyuda;
-
+    private JButton btnCargar;
     //Imanol
     private JSONObject jsonImagenes;
     
@@ -213,6 +213,8 @@ public class VentanaJuego extends JFrame implements Observer {
         labelCartaMaq4 = new JLabel("");
         labelCartaMaq4.setPreferredSize(new Dimension(160, 250));
         panelMaquina.add(labelCartaMaq4);
+        btnCargar= new JButton("Cargar");
+        panelElegirCartas.add(btnCargar);
 
         /* Centrar */
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -362,6 +364,9 @@ public class VentanaJuego extends JFrame implements Observer {
     
     public void addAyudaListener(ActionListener listenerAyuda) {
     	btnAyuda.addActionListener(listenerAyuda);
+    }
+    public void addCargarPartidaListener(ActionListener listenForBtnCargarInicio){
+    	btnCargar.addActionListener(listenForBtnCargarInicio);
     }
 
     private void popUpEspeciesCola(String pInfoEspeciesCola) {

@@ -135,6 +135,7 @@ public class CargarPartida extends JFrame {
 		return id;
 	}
 public void cerrarVentanaPartidaCargar(){
-		System.exit(0);
+		this.setVisible(false);
+		this.dispose();
 	}
 }
