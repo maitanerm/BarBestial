@@ -89,7 +89,7 @@ public class Controlador {
 		ventanaPersonalizacion.addListeners(new SeleccionarPersonalizacion(), new MostrarVentanaPersonalizacionCrear(), new BorrarPersonalizacion(), new CerrarVentanaPersonalizacion());
 		ventanaPersonalizacionCrear = new VentanaPersonalizacionCrear();
 		ventanaPersonalizacionCrear.addListeners(new CrearPersonalizacion(), new CerrarVentanaPersonalizacionCrear());
-		//ventanaJuego.actualizarImagenes(BarBestial.getBarBestial().getPersonalizacionActualDatos());
+		ventanaJuego.actualizarImagenes(BarBestial.getBarBestial().getPersonalizacionActualDatos());
 		
 	}
 	
@@ -310,10 +310,11 @@ class CargarVentanaPartida implements ActionListener{
 			int numAyudas = info.getInt("numAyudas");
 			int cartasOponente = info.getInt("cartas");
 			int ayudasUsadas = info.getInt("usadas");
-			if ((numAyudas == 0) || (cartasOponente == 0) || (ayudasUsadas > 2)) {
-				JOptionPane.showMessageDialog(null, "No se pueden utilizar ayudas en este momento. Sigue jugando.");
-			} else {
+			if ((numAyudas > 0) && (cartasOponente > 0) && (ayudasUsadas <= 2)) {
 				IUElegirCartaAyuda elegir = new IUElegirCartaAyuda();
+				elegir.setVisible(true);
+			} else {
+				JOptionPane.showMessageDialog(null, "No se pueden utilizar ayudas en este momento. Sigue jugando.");
 			}
 		}
 		
