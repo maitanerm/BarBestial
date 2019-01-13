@@ -94,6 +94,20 @@ public class SGBD {
 		}
 		
 	}
+	public JSONArray cogerPartidasJugador(String idj) throws JSONException, SQLException{
+		JSONArray json= new JSONArray();
+		
+		con= abrirConexion();
+		ResultSet res= execQuery("SELECT idp FROM partida WHERE idj="+idj);
+		while (res.next()){
+			JSONObject obj= new JSONObject();
+			String nombre=res.getString("idp");
+			obj.put("idp", nombre);
+			json.put(obj);
+		}
+		return json;
+		
+	}
 	//DAVID	
 	public void insertarCartasManoJugador(JSONArray datosPartida, int numAyudasUsadas, String idp) {
 		con= abrirConexion();
