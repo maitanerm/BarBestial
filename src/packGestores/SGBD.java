@@ -458,45 +458,45 @@ public class SGBD {
 	public JSONObject getPersonalizacionActualDatos(String idPer) throws SQLException {
 		JSONObject json = new JSONObject();
 		con = abrirConexion();
-		String query = "SELECT puntos, imagen FROM Carta WHERE idPer='" + idPer + "'";
+		String query = "SELECT puntos, imagen, color FROM Carta WHERE idPer='" + idPer + "'";
 		ResultSet res = execQuery(query);
 		while (res.next()){
 			switch (res.getInt("puntos")) {
 				case 12:
-					json.put("leon", res.getString("imagen"));
+					json.put("Leon" + res.getString("color"), res.getString("imagen"));
 					break;
 				case 11:
-					json.put("hipopotamo", res.getString("imagen"));
+					json.put("Hipopotamo" + res.getString("color"), res.getString("imagen"));
 					break;
 				case 10:
-					json.put("cocodrilo", res.getString("imagen"));
+					json.put("Cocodrilo" + res.getString("color"), res.getString("imagen"));
 					break;
 				case 9:
-					json.put("serpiente", res.getString("imagen"));
+					json.put("Serpiente" + res.getString("color"), res.getString("imagen"));
 					break;
 				case 8:
-					json.put("jirafa", res.getString("imagen"));
+					json.put("Jirafa" + res.getString("color"), res.getString("imagen"));
 					break;
 				case 7:
-					json.put("cebra", res.getString("imagen"));
+					json.put("Cebra" + res.getString("color"), res.getString("imagen"));
 					break;
 				case 6:
-					json.put("foca", res.getString("imagen"));
+					json.put("Foca" + res.getString("color"), res.getString("imagen"));
 					break;
 				case 5:
-					json.put("camaleon", res.getString("imagen"));
+					json.put("Camaleon" + res.getString("color"), res.getString("imagen"));
 					break;
 				case 4:
-					json.put("mono", res.getString("imagen"));
+					json.put("Mono" + res.getString("color"), res.getString("imagen"));
 					break;
 				case 3:
-					json.put("canguro", res.getString("imagen"));
+					json.put("Canguro" + res.getString("color"), res.getString("imagen"));
 					break;
 				case 2:
-					json.put("loro", res.getString("imagen"));
+					json.put("Loro" + res.getString("color"), res.getString("imagen"));
 					break;
 				case 1:
-					json.put("mofeta", res.getString("imagen"));
+					json.put("Mofeta" + res.getString("color"), res.getString("imagen"));
 					break;
 			}
 		}
