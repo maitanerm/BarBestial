@@ -117,12 +117,12 @@ public class IURanking extends JFrame {
 				if (arg2.getSource()==btnMisMejoresPartidas) {
 					setTitle("Mis mejores partidas");
 					try{
-						//**********************************************
-						//**********************************************
-				    	//*****Para realizar la prueba de funcionamiento 
-						 String pIdUsuario ="1";
-				    	//**********************************************
-				    	//**********************************************
+//**********************************************
+//**********************************************
+//*****Para realizar la prueba de funcionamiento 
+ String pIdUsuario ="1";
+//**********************************************
+//**********************************************
 				  
 						datosRanking = BarBestial.getBarBestial().cargarMisMejoresPartidas(pIdUsuario);
 						panel.remove(table);
