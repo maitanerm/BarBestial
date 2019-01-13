@@ -25,7 +25,9 @@ public abstract class Jugador extends Observable {
         numAyuda = 0; //Se tendria que actualizar al iniciar partida desde la base de datos
     }
 
-    
+    public int getNumAyudas() {
+    	return numAyuda;
+    }
  
     
     public void robarCarta() {

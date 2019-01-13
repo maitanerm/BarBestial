@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -87,7 +89,7 @@ public class Controlador {
 		ventanaPersonalizacion.addListeners(new SeleccionarPersonalizacion(), new MostrarVentanaPersonalizacionCrear(), new BorrarPersonalizacion(), new CerrarVentanaPersonalizacion());
 		ventanaPersonalizacionCrear = new VentanaPersonalizacionCrear();
 		ventanaPersonalizacionCrear.addListeners(new CrearPersonalizacion(), new CerrarVentanaPersonalizacionCrear());
-		ventanaJuego.actualizarImagenes(BarBestial.getBarBestial().getPersonalizacionActualDatos());
+		//ventanaJuego.actualizarImagenes(BarBestial.getBarBestial().getPersonalizacionActualDatos());
 		
 	}
 	
@@ -309,7 +311,7 @@ class CargarVentanaPartida implements ActionListener{
 			int cartasOponente = info.getInt("cartas");
 			int ayudasUsadas = info.getInt("usadas");
 			if ((numAyudas == 0) || (cartasOponente == 0) || (ayudasUsadas > 2)) {
-				Error vError = new Error();
+				JOptionPane.showMessageDialog(null, "No se pueden utilizar ayudas en este momento. Sigue jugando.");
 			} else {
 				IUElegirCartaAyuda elegir = new IUElegirCartaAyuda();
 			}

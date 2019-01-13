@@ -41,7 +41,8 @@ public class GestorJugador {
 	}
 	
 	public int getNumAyudas(){
-		return jugador.getNumAyudas();
+		Jugador miJ = Partida.getMiPartida().obtenerJugadorTurnoActual();
+		return miJ.getNumAyudas();
 	}
 
 	public void actualizarDatosAyuda() {
