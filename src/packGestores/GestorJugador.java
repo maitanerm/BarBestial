@@ -101,30 +101,55 @@ public class GestorJugador {
 				//Guardamos la personalizacion
 				query = "INSERT INTO Personalizacion (idJ, idPer) VALUES ('" + jugador + "', '" + json.getString("personalizacion") + "')";
 				SGBD.getSGBD().execUpdate(query);
-				//Guardamos las cartas
-				query = "INSERT INTO Carta (idC, puntos, idPer, imagen) VALUES ('" + json.getString("personalizacion") +"-12', '12', '" + json.getString("personalizacion") + "','" + json.getString("leon") + "')";
+				//Guardamos las cartas azules
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("LeonAzul") + "', 12, '" + json.getString("personalizacion") + "','" + json.getString("LeonAzul") + "', 'Azul')";
 				SGBD.getSGBD().execUpdate(query);
-				query = "INSERT INTO Carta (idC, puntos, idPer, imagen) VALUES ('" + json.getString("personalizacion") +"-11', '11', '" + json.getString("personalizacion") + "','" + json.getString("hipopotamo") + "')";
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("HipopotamoAzul") + "', 11, '" + json.getString("personalizacion") + "','" + json.getString("HipopotamoAzul") + "', 'Azul')";
 				SGBD.getSGBD().execUpdate(query);
-				query = "INSERT INTO Carta (idC, puntos, idPer, imagen) VALUES ('" + json.getString("personalizacion") +"-10', '10', '" + json.getString("personalizacion") + "','" + json.getString("cocodrilo") + "')";
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("CocodriloAzul") + "', 10, '" + json.getString("personalizacion") + "','" + json.getString("CocodriloAzul") + "', 'Azul')";
 				SGBD.getSGBD().execUpdate(query);
-				query = "INSERT INTO Carta (idC, puntos, idPer, imagen) VALUES ('" + json.getString("personalizacion") +"-9', '9', '" + json.getString("personalizacion") + "','" + json.getString("serpiente") + "')";
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("SerpienteAzul") + "', 9, '" + json.getString("personalizacion") + "','" + json.getString("SerpienteAzul") + "', 'Azul')";
 				SGBD.getSGBD().execUpdate(query);
-				query = "INSERT INTO Carta (idC, puntos, idPer, imagen) VALUES ('" + json.getString("personalizacion") +"-8', '8', '" + json.getString("personalizacion") + "','" + json.getString("jirafa") + "')";
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("JirafaAzul") + "', 8, '" + json.getString("personalizacion") + "','" + json.getString("JirafaAzul") + "', 'Azul')";
 				SGBD.getSGBD().execUpdate(query);
-				query = "INSERT INTO Carta (idC, puntos, idPer, imagen) VALUES ('" + json.getString("personalizacion") +"-7', '7', '" + json.getString("personalizacion") + "','" + json.getString("cebra") + "')";
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("CebraAzul") + "', 7, '" + json.getString("personalizacion") + "','" + json.getString("CebraAzul") + "', 'Azul')";
 				SGBD.getSGBD().execUpdate(query);
-				query = "INSERT INTO Carta (idC, puntos, idPer, imagen) VALUES ('" + json.getString("personalizacion") +"-6', '6', '" + json.getString("personalizacion") + "','" + json.getString("foca") + "')";
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("FocaAzul") + "', 6, '" + json.getString("personalizacion") + "','" + json.getString("FocaAzul") + "', 'Azul')";
 				SGBD.getSGBD().execUpdate(query);
-				query = "INSERT INTO Carta (idC, puntos, idPer, imagen) VALUES ('" + json.getString("personalizacion") +"-5', '5', '" + json.getString("personalizacion") + "','" + json.getString("camaleon") + "')";
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("CamaleonAzul") + "', 5, '" + json.getString("personalizacion") + "','" + json.getString("CamaleonAzul") + "', 'Azul')";
 				SGBD.getSGBD().execUpdate(query);
-				query = "INSERT INTO Carta (idC, puntos, idPer, imagen) VALUES ('" + json.getString("personalizacion") +"-4', '4', '" + json.getString("personalizacion") + "','" + json.getString("mono") + "')";
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("MonoAzul") + "', 4, '" + json.getString("personalizacion") + "','" + json.getString("MonoAzul") + "', 'Azul')";
 				SGBD.getSGBD().execUpdate(query);
-				query = "INSERT INTO Carta (idC, puntos, idPer, imagen) VALUES ('" + json.getString("personalizacion") +"-3', '3', '" + json.getString("personalizacion") + "','" + json.getString("canguro") + "')";
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("CanguroAzul") + "', 3, '" + json.getString("personalizacion") + "','" + json.getString("CanguroAzul") + "', 'Azul')";
 				SGBD.getSGBD().execUpdate(query);
-				query = "INSERT INTO Carta (idC, puntos, idPer, imagen) VALUES ('" + json.getString("personalizacion") +"-2', '2', '" + json.getString("personalizacion") + "','" + json.getString("loro") + "')";
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("LoroAzul") + "', 2, '" + json.getString("personalizacion") + "','" + json.getString("LoroAzul") + "', 'Azul')";
 				SGBD.getSGBD().execUpdate(query);
-				query = "INSERT INTO Carta (idC, puntos, idPer, imagen) VALUES ('" + json.getString("personalizacion") +"-1', '1', '" + json.getString("personalizacion") + "','" + json.getString("mofeta") + "')";
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("MofetaAzul") + "', 1, '" + json.getString("personalizacion") + "','" + json.getString("MofetaAzul") + "', 'Azul')";
+				SGBD.getSGBD().execUpdate(query);
+				//Guardamos las cartas verdes
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("LeonVerde") + "', 12, '" + json.getString("personalizacion") + "','" + json.getString("LeonVerde") + "', 'Verde')";
+				SGBD.getSGBD().execUpdate(query);
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("HipopotamoVerde") + "', 11, '" + json.getString("personalizacion") + "','" + json.getString("HipopotamoVerde") + "', 'Verde')";
+				SGBD.getSGBD().execUpdate(query);
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("CocodriloVerde") + "', 10, '" + json.getString("personalizacion") + "','" + json.getString("CocodriloVerde") + "', 'Verde')";
+				SGBD.getSGBD().execUpdate(query);
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("SerpienteVerde") + "', 9, '" + json.getString("personalizacion") + "','" + json.getString("SerpienteVerde") + "', 'Verde')";
+				SGBD.getSGBD().execUpdate(query);
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("JirafaVerde") + "', 8, '" + json.getString("personalizacion") + "','" + json.getString("JirafaVerde") + "', 'Verde')";
+				SGBD.getSGBD().execUpdate(query);
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("CebraVerde") + "', 7, '" + json.getString("personalizacion") + "','" + json.getString("CebraVerde") + "', 'Verde')";
+				SGBD.getSGBD().execUpdate(query);
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("FocaVerde") + "', 6, '" + json.getString("personalizacion") + "','" + json.getString("FocaVerde") + "', 'Verde')";
+				SGBD.getSGBD().execUpdate(query);
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("CamaleonVerde") + "', 5, '" + json.getString("personalizacion") + "','" + json.getString("CamaleonVerde") + "', 'Verde')";
+				SGBD.getSGBD().execUpdate(query);
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("MonoVerde") + "', 4, '" + json.getString("personalizacion") + "','" + json.getString("MonoVerde") + "', 'Verde')";
+				SGBD.getSGBD().execUpdate(query);
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("CanguroVerde") + "', 3, '" + json.getString("personalizacion") + "','" + json.getString("CanguroVerde") + "', 'Verde')";
+				SGBD.getSGBD().execUpdate(query);
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("LoroVerde") + "', 2, '" + json.getString("personalizacion") + "','" + json.getString("LoroVerde") + "', 'Verde')";
+				SGBD.getSGBD().execUpdate(query);
+				query = "INSERT INTO Carta (idC, puntos, idPer, imagen, color) VALUES ('" + json.getString("personalizacion") + json.getString("MofetaVerde") + "', 1, '" + json.getString("personalizacion") + "','" + json.getString("MofetaVerde") + "', 'Verde')";
 				SGBD.getSGBD().execUpdate(query);
 			}
 			else {
