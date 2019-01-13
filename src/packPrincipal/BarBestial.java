@@ -101,10 +101,12 @@ public class BarBestial {
     
 	//TODO: Imanol / Get
     
+    //Devuelve la lista de personalizaciones del jugador
     public JSONArray getListaPersonalizaciones() throws SQLException {
     	return GestorJugador.getGestorJugador().getListaPersonalizaciones();
     }
     
+    //Devuelve los datos de la personalizacion activa del jugador
     public JSONObject getPersonalizacionActualDatos() throws SQLException {
     	return GestorJugador.getGestorJugador().getPersonalizacionActualDatos();
     }
@@ -116,19 +118,23 @@ public class BarBestial {
     //---------------------------------------------------------------- Imanol / Set >>>> ----------------------------------------------------------------
     
 	//TODO: Imanol / Set
+	
+    //Activa la personalizacion seleccionada
+	public void activarPersonalizacion(String s) {
+		GestorJugador.getGestorJugador().activarPersonalizacion(s);
+	}
     
+	//Desactiva la personalizacion
 	public void desactivarPersonalizacion() {
 	   GestorJugador.getGestorJugador().desactivarPersonalizacion();
 	}
 	
-	public void seleccionarPersonalizacion(String s) {
-		GestorJugador.getGestorJugador().seleccionarPersonalizacion(s);
-	}
-	
+	//Crea una nueva personalizacion con los datos provistos
 	public void crearPersonalizacion(JSONObject json) {
 		GestorJugador.getGestorJugador().crearPersonalizacion(json);
 	}
 	
+	//Borra la personalizacion seleccionada
 	public void borrarPersonalizacion(String s) {
 		GestorJugador.getGestorJugador().borrarPersonalizacion(s);
 	}

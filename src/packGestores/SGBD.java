@@ -435,6 +435,7 @@ public class SGBD {
 	
 	//TODO: Imanol / Get
 	
+	//Devuelve la lista de personalizaciones del jugador
 	public JSONArray getListaPersonalizaciones(String idJ) throws SQLException {
 		JSONArray json= new JSONArray();
 		con = abrirConexion();
@@ -446,6 +447,7 @@ public class SGBD {
 		return json;
 	}
 	
+    //Devuelve la personalizacion activa del jugador
 	public String getPersonalizacionActual(String idJ) throws SQLException {
 		String personalizacion = "";
 		con = abrirConexion();
@@ -460,6 +462,7 @@ public class SGBD {
 		return personalizacion;
 	}
 	
+    //Devuelve los datos de la personalizacion activa del jugador
 	public JSONObject getPersonalizacionActualDatos(String idPer) throws SQLException {
 		JSONObject json = new JSONObject();
 		con = abrirConexion();

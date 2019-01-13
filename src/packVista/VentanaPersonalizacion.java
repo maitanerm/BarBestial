@@ -21,7 +21,7 @@ public class VentanaPersonalizacion extends JFrame {
 	
 	private JPanel contentPane;
 	
-	private JButton btnSeleccionar;
+	private JButton btnActivar;
 	private JButton btnCrear;
 	private JButton btnBorrar;
 	private JButton btnCancelar;
@@ -56,15 +56,25 @@ public class VentanaPersonalizacion extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		btnSeleccionar = new JButton("Seleccionar");
-		btnSeleccionar.addActionListener(new ActionListener() {
+		//Lista para las personalizaciones del jugador
+		listModel = new DefaultListModel<String>();
+		listModel.addElement("Ninguna");
+		list = new JList<String>(listModel);
+		list.setSelectedIndex(0);
+		list.setBounds(10, 11, 470, 191);
+		contentPane.add(list);
+		
+		//Boton para activar una personalizacion de la lista
+		btnActivar = new JButton("Activar");
+		btnActivar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
-		btnSeleccionar.setBounds(10, 221, 110, 30);
-		contentPane.add(btnSeleccionar);
+		btnActivar.setBounds(10, 221, 110, 30);
+		contentPane.add(btnActivar);
 		
+		//Boton para crear una nueva personalizacion
 		btnCrear = new JButton("Crear");
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -74,6 +84,7 @@ public class VentanaPersonalizacion extends JFrame {
 		btnCrear.setBounds(130, 221, 110, 30);
 		contentPane.add(btnCrear);
 		
+		//Boton para borrar unaa personalizacion de la lista
 		btnBorrar = new JButton("Borrar");
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -83,6 +94,7 @@ public class VentanaPersonalizacion extends JFrame {
 		btnBorrar.setBounds(250, 221, 110, 30);
 		contentPane.add(btnBorrar);
 		
+		//Boton para cancelar la operacion
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -92,19 +104,11 @@ public class VentanaPersonalizacion extends JFrame {
 		btnCancelar.setBounds(370, 221, 110, 30);
 		contentPane.add(btnCancelar);
 		
-		listModel = new DefaultListModel<String>();
-		listModel.addElement("Ninguna");
-		
-		list = new JList<String>(listModel);
-		list.setSelectedIndex(0);
-		list.setBounds(10, 11, 470, 191);
-		contentPane.add(list);
-		
 	}
 	
 	//Listeners
 	public void addListeners(ActionListener a, ActionListener b, ActionListener c, ActionListener d) {
-		btnSeleccionar.addActionListener(a);
+		btnActivar.addActionListener(a);
 		btnCrear.addActionListener(b);
 		btnBorrar.addActionListener(c);
 		btnCancelar.addActionListener(d);

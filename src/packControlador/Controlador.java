@@ -86,7 +86,7 @@ public class Controlador {
 		
 		//Imanol
 		ventanaPersonalizacion = new VentanaPersonalizacion();
-		ventanaPersonalizacion.addListeners(new SeleccionarPersonalizacion(), new MostrarVentanaPersonalizacionCrear(), new BorrarPersonalizacion(), new CerrarVentanaPersonalizacion());
+		ventanaPersonalizacion.addListeners(new ActivarPersonalizacion(), new MostrarVentanaPersonalizacionCrear(), new BorrarPersonalizacion(), new CerrarVentanaPersonalizacion());
 		ventanaPersonalizacionCrear = new VentanaPersonalizacionCrear();
 		ventanaPersonalizacionCrear.addListeners(new CrearPersonalizacion(), new CerrarVentanaPersonalizacionCrear());
 		ventanaJuego.actualizarImagenes(BarBestial.getBarBestial().getPersonalizacionActualDatos());
@@ -323,6 +323,7 @@ class CargarVentanaPartida implements ActionListener{
 	
 	//TODO: Imanol / VentanaPersonalizacion
 	
+	//Muestra la ventana
 	class MostrarVentanaPersonalizacion implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -334,18 +335,23 @@ class CargarVentanaPartida implements ActionListener{
 			}
 		}
 	}
-	class SeleccionarPersonalizacion implements ActionListener {
+	
+	//Activa la personalizacion seleccionada
+	class ActivarPersonalizacion implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String s = ventanaPersonalizacion.getSeleccionLista();
+			//Si la personalizacion seleccionada es "Ninguna", desactiva la personalizacion y usa las imagenes por defecto
 			if (s != "Ninguna") {
-				BarBestial.getBarBestial().seleccionarPersonalizacion(s);
+				BarBestial.getBarBestial().activarPersonalizacion(s);
 			}
 			else {
 				BarBestial.getBarBestial().desactivarPersonalizacion();
 			}
 		}
 	}
+	
+	//Borra la personalizacion seleccionada
 	class BorrarPersonalizacion implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -355,6 +361,8 @@ class CargarVentanaPartida implements ActionListener{
 			}
 		}
 	}
+	
+	//Cierra la ventana
 	class CerrarVentanaPersonalizacion implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -370,12 +378,15 @@ class CargarVentanaPartida implements ActionListener{
 	
 	//TODO: Imanol / VentanaPersonalizacionCrear
 	
+	//Muestra la ventana
 	class MostrarVentanaPersonalizacionCrear implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			ventanaPersonalizacionCrear.setVisible(true);
 		}
 	}
+	
+	//Crea una nueva personalizacion
 	class CrearPersonalizacion implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -383,6 +394,8 @@ class CargarVentanaPartida implements ActionListener{
 			BarBestial.getBarBestial().crearPersonalizacion(json);
 		}
 	}
+	
+	//Cierra la ventana
 	class CerrarVentanaPersonalizacionCrear implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {

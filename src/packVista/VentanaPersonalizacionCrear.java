@@ -84,8 +84,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		
 		//---------------------------------------------------------------- Azul ----------------------------------------------------------------
 		
-		//LeonAzul
-		lbl = new JLabel("LeonAzul");
+		//Campo de texto para la imagen de leon azul
+		lbl = new JLabel("Leon azul:");
 		lbl.setBounds(10, 14, 100, 14);
 		contentPane.add(lbl);
 		txtLeonAzul = new JTextField();
@@ -93,8 +93,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtLeonAzul);
 		txtLeonAzul.setColumns(10);
 		
-		//HipopotamoAzul
-		lbl = new JLabel("HipopotamoAzul");
+		//Campo de texto para la imagen de hipopotamo azul
+		lbl = new JLabel("Hipopotamo azul:");
 		lbl.setBounds(10, 45, 100, 14);
 		contentPane.add(lbl);
 		txtHipopotamoAzul = new JTextField();
@@ -102,8 +102,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtHipopotamoAzul);
 		txtHipopotamoAzul.setColumns(10);
 		
-		//CocodriloAzul
-		lbl = new JLabel("CocodriloAzul");
+		//Campo de texto para la imagen de cocodrilo azul
+		lbl = new JLabel("Cocodrilo azul:");
 		lbl.setBounds(10, 76, 100, 14);
 		contentPane.add(lbl);
 		txtCocodriloAzul = new JTextField();
@@ -111,8 +111,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtCocodriloAzul);
 		txtCocodriloAzul.setColumns(10);
 		
-		//SerpienteAzul
-		lbl = new JLabel("SerpienteAzul");
+		//Campo de texto para la imagen de serpiente azul
+		lbl = new JLabel("Serpiente azul:");
 		lbl.setBounds(10, 107, 100, 14);
 		contentPane.add(lbl);
 		txtSerpienteAzul = new JTextField();
@@ -120,8 +120,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtSerpienteAzul);
 		txtSerpienteAzul.setColumns(10);
 		
-		//JirafaAzul
-		lbl = new JLabel("JirafaAzul");
+		//Campo de texto para la imagen de jirafa azul
+		lbl = new JLabel("Jirafa azul:");
 		lbl.setBounds(10, 138, 100, 14);
 		contentPane.add(lbl);
 		txtJirafaAzul = new JTextField();
@@ -129,8 +129,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtJirafaAzul);
 		txtJirafaAzul.setColumns(10);
 		
-		//CebraAzul
-		lbl = new JLabel("CebraAzul");
+		//Campo de texto para la imagen de cebra azul
+		lbl = new JLabel("Cebra azul:");
 		lbl.setBounds(10, 169, 100, 14);
 		contentPane.add(lbl);
 		txtCebraAzul = new JTextField();
@@ -138,8 +138,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtCebraAzul);
 		txtCebraAzul.setColumns(10);
 		
-		//FocaAzul
-		lbl = new JLabel("FocaAzul");
+		//Campo de texto para la imagen de foca azul
+		lbl = new JLabel("Foca azul:");
 		lbl.setBounds(10, 200, 100, 14);
 		contentPane.add(lbl);
 		txtFocaAzul = new JTextField();
@@ -147,8 +147,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtFocaAzul);
 		txtFocaAzul.setColumns(10);
 		
-		//CamaleonAzul
-		lbl = new JLabel("CamaleonAzul");
+		//Campo de texto para la imagen de camaleon azul
+		lbl = new JLabel("Camaleon azul:");
 		lbl.setBounds(10, 231, 100, 14);
 		contentPane.add(lbl);
 		txtCamaleonAzul = new JTextField();
@@ -156,8 +156,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtCamaleonAzul);
 		txtCamaleonAzul.setColumns(10);
 		
-		//MonoAzul
-		lbl = new JLabel("MonoAzul");
+		//Campo de texto para la imagen de mono azul
+		lbl = new JLabel("Mono azul:");
 		lbl.setBounds(10, 262, 100, 14);
 		contentPane.add(lbl);
 		txtMonoAzul = new JTextField();
@@ -165,8 +165,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtMonoAzul);
 		txtMonoAzul.setColumns(10);
 		
-		//CanguroAzul
-		lbl = new JLabel("CanguroAzul");
+		//Campo de texto para la imagen de canguro azul
+		lbl = new JLabel("Canguro azul:");
 		lbl.setBounds(10, 293, 100, 14);
 		contentPane.add(lbl);
 		txtCanguroAzul = new JTextField();
@@ -174,8 +174,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtCanguroAzul);
 		txtCanguroAzul.setColumns(10);
 		
-		//LoroAzul
-		lbl = new JLabel("LoroAzul");
+		//Campo de texto para la imagen de loro azul
+		lbl = new JLabel("Loro azul:");
 		lbl.setBounds(10, 324, 100, 14);
 		contentPane.add(lbl);
 		txtLoroAzul = new JTextField();
@@ -183,8 +183,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtLoroAzul);
 		txtLoroAzul.setColumns(10);
 		
-		//MofetaAzul
-		lbl = new JLabel("MofetaAzul");
+		//Campo de texto para la imagen de mofeta azul
+		lbl = new JLabel("Mofeta azul:");
 		lbl.setBounds(10, 355, 100, 14);
 		contentPane.add(lbl);
 		txtMofetaAzul = new JTextField();
@@ -194,8 +194,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		
 		//---------------------------------------------------------------- Verde ----------------------------------------------------------------
 		
-		//LeonVerde
-		lbl = new JLabel("LeonAzul");
+		//Campo de texto para la imagen de leon verde
+		lbl = new JLabel("Leon verde:");
 		lbl.setBounds(226, 14, 100, 14);
 		contentPane.add(lbl);
 		txtLeonVerde = new JTextField();
@@ -203,8 +203,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtLeonVerde);
 		txtLeonVerde.setColumns(10);
 		
-		//HipopotamoVerde
-		lbl = new JLabel("HipopotamoVerde");
+		//Campo de texto para la imagen de hipopotamo verde
+		lbl = new JLabel("Hipopotamo verde:");
 		lbl.setBounds(226, 45, 100, 14);
 		contentPane.add(lbl);
 		txtHipopotamoVerde = new JTextField();
@@ -212,8 +212,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtHipopotamoVerde);
 		txtHipopotamoVerde.setColumns(10);
 		
-		//CocodriloVerde
-		lbl = new JLabel("CocodriloVerde");
+		//Campo de texto para la imagen de cocodrilo verde
+		lbl = new JLabel("Cocodrilo verde:");
 		lbl.setBounds(226, 76, 100, 14);
 		contentPane.add(lbl);
 		txtCocodriloVerde = new JTextField();
@@ -221,8 +221,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtCocodriloVerde);
 		txtCocodriloVerde.setColumns(10);
 		
-		//SerpienteVerde
-		lbl = new JLabel("SerpienteVerde");
+		//Campo de texto para la imagen de serpiente verde
+		lbl = new JLabel("Serpiente verde:");
 		lbl.setBounds(226, 107, 100, 14);
 		contentPane.add(lbl);
 		txtSerpienteVerde = new JTextField();
@@ -230,8 +230,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtSerpienteVerde);
 		txtSerpienteVerde.setColumns(10);
 		
-		//JirafaVerde
-		lbl = new JLabel("JirafaVerde");
+		//Campo de texto para la imagen de jirafa verde
+		lbl = new JLabel("Jirafa verde:");
 		lbl.setBounds(226, 138, 100, 14);
 		contentPane.add(lbl);
 		txtJirafaVerde = new JTextField();
@@ -239,8 +239,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtJirafaVerde);
 		txtJirafaVerde.setColumns(10);
 		
-		//CebraVerde
-		lbl = new JLabel("CebraVerde");
+		//Campo de texto para la imagen de cebra verde
+		lbl = new JLabel("Cebra verde:");
 		lbl.setBounds(226, 169, 100, 14);
 		contentPane.add(lbl);
 		txtCebraVerde = new JTextField();
@@ -248,8 +248,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtCebraVerde);
 		txtCebraVerde.setColumns(10);
 		
-		//FocaVerde
-		lbl = new JLabel("FocaVerde");
+		//Campo de texto para la imagen de foca verde
+		lbl = new JLabel("Foca verde:");
 		lbl.setBounds(226, 200, 100, 14);
 		contentPane.add(lbl);
 		txtFocaVerde = new JTextField();
@@ -257,8 +257,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtFocaVerde);
 		txtFocaVerde.setColumns(10);
 		
-		//CamaleonVerde
-		lbl = new JLabel("CamaleonVerde");
+		//Campo de texto para la imagen de camaleon verde
+		lbl = new JLabel("Camaleon verde:");
 		lbl.setBounds(226, 231, 100, 14);
 		contentPane.add(lbl);
 		txtCamaleonVerde = new JTextField();
@@ -266,8 +266,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtCamaleonVerde);
 		txtCamaleonVerde.setColumns(10);
 		
-		//MonoVerde
-		lbl = new JLabel("MonoVerde");
+		//Campo de texto para la imagen de mono verde
+		lbl = new JLabel("Mono verde:");
 		lbl.setBounds(226, 262, 100, 14);
 		contentPane.add(lbl);
 		txtMonoVerde = new JTextField();
@@ -275,8 +275,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtMonoVerde);
 		txtMonoVerde.setColumns(10);
 		
-		//CanguroVerde
-		lbl = new JLabel("CanguroVerde");
+		//Campo de texto para la imagen de canguro verde
+		lbl = new JLabel("Canguro verde:");
 		lbl.setBounds(226, 293, 100, 14);
 		contentPane.add(lbl);
 		txtCanguroVerde = new JTextField();
@@ -284,8 +284,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtCanguroVerde);
 		txtCanguroVerde.setColumns(10);
 		
-		//LoroVerde
-		lbl = new JLabel("LoroVerde");
+		//Campo de texto para la imagen de loro verde
+		lbl = new JLabel("Loro verde:");
 		lbl.setBounds(226, 324, 100, 14);
 		contentPane.add(lbl);
 		txtLoroVerde = new JTextField();
@@ -293,8 +293,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		contentPane.add(txtLoroVerde);
 		txtLoroVerde.setColumns(10);
 		
-		//MofetaVerde
-		lbl = new JLabel("MofetaVerde");
+		//Campo de texto para la imagen de mofeta verde
+		lbl = new JLabel("Mofeta verde:");
 		lbl.setBounds(226, 355, 100, 14);
 		contentPane.add(lbl);
 		txtMofetaVerde = new JTextField();
@@ -304,8 +304,8 @@ public class VentanaPersonalizacionCrear extends JFrame {
 		
 		//---------------------------------------------------------------- Otros ----------------------------------------------------------------
 		
-		//Nombre
-		lbl = new JLabel("Nombre");
+		//Campo de texto para el nombre de la personalizacion
+		lbl = new JLabel("Nombre:");
 		lbl.setBounds(10, 386, 100, 14);
 		contentPane.add(lbl);
         txtNombre = new JTextField();
@@ -313,10 +313,12 @@ public class VentanaPersonalizacionCrear extends JFrame {
         contentPane.add(txtNombre);
         txtNombre.setColumns(10);
 		
+        //Boton para guardar la personalizacion
 		btnCrear = new JButton("Crear");
 		btnCrear.setBounds(106, 411, 110, 30);
 		contentPane.add(btnCrear);
 		
+		//Boton para cancelar la operacion
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBounds(226, 411, 110, 30);
 		contentPane.add(btnCancelar);

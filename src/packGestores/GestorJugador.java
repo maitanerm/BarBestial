@@ -56,6 +56,7 @@ public class GestorJugador {
 	
 	//TODO: Imanol / Get
 	
+	//Devuelve la lista de personalizaciones del jugador
 	public JSONArray getListaPersonalizaciones() throws SQLException {
 		JSONObject info = jugador.getInfo();
 		String jugador = info.getString("nombre");
@@ -63,6 +64,7 @@ public class GestorJugador {
 		return json;
 	}
 	
+    //Devuelve los datos de la personalizacion activa del jugador
     public JSONObject getPersonalizacionActualDatos() throws SQLException {
     	JSONObject json = null;
 		JSONObject info = jugador.getInfo();
@@ -81,17 +83,9 @@ public class GestorJugador {
 	//---------------------------------------------------------------- Imanol / Set >>>> ----------------------------------------------------------------
     
 	//TODO: Imanol / Set
-    
-	public void desactivarPersonalizacion() {
-		String query;
-		JSONObject info = jugador.getInfo();
-		String jugador = info.getString("nombre");
-		//Borramos la tupla con la personalizacion vieja
-		query = "DELETE * FROM PersonalizacionActual WHERE idJ ='" + jugador + "'";
-		SGBD.getSGBD().execUpdate(query);
-	}
 	
-	public void seleccionarPersonalizacion(String s) {
+    //Activa la personalizacion seleccionada
+	public void activarPersonalizacion(String s) {
 		String query;
 		JSONObject info = jugador.getInfo();
 		String jugador = info.getString("nombre");
@@ -102,7 +96,18 @@ public class GestorJugador {
 		query = "INSERT INTO PersonalizacionActual (idJ, idPer) VALUES ('" + jugador + "', '" + s + "')";
 		SGBD.getSGBD().execUpdate(query);
 	}
+    
+	//Desactiva la personalizacion
+	public void desactivarPersonalizacion() {
+		String query;
+		JSONObject info = jugador.getInfo();
+		String jugador = info.getString("nombre");
+		//Borramos la tupla con la personalizacion vieja
+		query = "DELETE * FROM PersonalizacionActual WHERE idJ ='" + jugador + "'";
+		SGBD.getSGBD().execUpdate(query);
+	}
 	
+	//Crea una nueva personalizacion
 	public void crearPersonalizacion(JSONObject json) {
 		String query;
 		int cont;
@@ -177,6 +182,7 @@ public class GestorJugador {
 		}
 	}
 	
+	//Borra la personalizacion seleccionada
 	public void borrarPersonalizacion(String s) {
 		String query;
 		//Borramos la personalizacion
